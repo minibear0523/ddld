@@ -1,0 +1,132 @@
+extends layout
+
+block css-externals
+
+block content
+  // Slider Section Starts
+  section.slider.clearfix
+    #camera_wrap_1.camera_wrap.camera_white_skin
+      // Slide 1 Starts
+      div(data-src='front/images/slider/slider-img1.jpg')
+        .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
+          h2 大道隆达
+          h2
+            | 是一家
+            span 多种服务集于一体的高新技术企业
+          p
+          a.btn.btn-secondary(href='/about/us') 公司简介
+      // Slider 1 Ends
+      // Slider 2 Starts
+      div(data-src='front/images/slider/slider-img1.jpg')
+        .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
+          h2 大道隆达
+          h2
+            | 是一家
+            span 多种服务集于一体的高新技术企业
+          p
+          a.btn.btn-secondary(href='/about/us') 公司简介
+      // Slider 2 Ends
+      // Slider 3 Starts
+      div(data-src='front/images/slider/slider-img1.jpg')
+        .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
+          h2 大道隆达
+          h2
+            | 是一家
+            span 多种服务集于一体的高新技术企业
+          p
+          a.btn.btn-secondary(href='/about/us') 公司简介
+      // Slider 3 Ends
+    // Slider Section Ends
+    // Main Container Starts
+    .main-container
+      .row
+        // Products Sections Starts
+        section.col-md-4.col-xs-8
+          .main-block1
+            h2.main-heading1.lite 公司产品
+            h2.main-heading2 技术转让 & 产品招商
+            // Products Carousel Starts
+            #products-carousel.products-carousel.carousel.slide(data-ride='carousel')
+              // Wrapper for Slides Starts
+              .carousel-inner
+                // Slide Starts
+                .item.active
+                  .row
+                    .col-sm-12.col-xs-12
+                      .products-box
+                        img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-thumb-img1.jpg', alt='Blog Image')
+                        .inner
+                          h5
+                            a(href='#') 注射盐酸利托君
+                          ul.list-unstyled.list-inline.product-meta
+                            li
+                              i.fa.fa-calendar
+                              | 2016年1月15日
+                            li
+                              a(href='#')
+                                i.fa.fa-comments-o
+                                | 10
+                          p
+                            | 注射用盐酸利托君: 50mg; 100mg, 西林瓶, 每盒10支.
+                          a.btn.btn-secondary(href='#')
+                            i.fa.fa-arrow-circle-right
+                            | 查看详情
+                // Slide Ends
+                // Slide Starts
+                .item
+                   .row
+                     .col-sm-12.col-xs-12
+                       .products-box
+                         img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-thumb-img1.jpg', alt='Blog Image')
+                         .inner
+                           h5
+                             a(href='#') 注射盐酸利托君
+                           ul.list-unstyled.list-inline.product-meta
+                             li
+                               i.fa.fa-calendar
+                               | 2016年1月15日
+                             li
+                               a(href='#')
+                                 i.fa.fa-comments-o
+                                 | 10
+                           p
+                             | 注射用盐酸利托君: 50mg; 100mg, 西林瓶, 每盒10支.
+                           a.btn.btn-secondary(href='#')
+                             i.fa.fa-arrow-circle-right
+                             | 查看详情
+                 // Slide Ends
+              // Wrapper for Slides Ends
+              // Controls Starts
+              a.left.carousel-control(href='#products-carousel', role='button', data-slide='prev')
+                span.fa.fa-angle-left(aria-hidden='true')
+                span.sr-only 上一个
+              a.right.carousel-control(href='#products-carousel', role='button', data-slide='next')
+                span.fa.fa-angle-right(aria-hidden='true')
+                span.sr-only 下一个
+              // Controls Ends
+        // Products Carousel Ends
+        // Latest News Starts
+        aside.col-md-8.col-xs-12
+          .main-block1
+            h2.main-heading1.lite 资讯中心
+            h2.main-heading2 行业资讯 & 公司动态
+            // Accordion Starts
+            #accordion.panel-group
+              // Accordion #1 Starts
+              .panel
+                // Panel Heading Starts
+                .panel-heading
+                  h5.panel-title
+                    i.icon.fa.fa-newspaper-o
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse1')
+                      | 谷歌创始人动用计算机算法对抗老年痴呆
+                // Panel Heading Ends
+                // Panel Body Starts
+                #collapse1.panel-collapse.collapse.in
+                  .panel-body
+                    p
+                      | 谷歌(微博)联合创始人谢尔盖·布林（Sergey Brin）经常练习跳水。“跳水这项运动短暂而剧烈，”他说。“可以马上提高心跳速率。”
+                      | 但跳水对他来说还有另外一个好处。从家族遗传学的角度来看，布林患上帕金森症的风险很高，而每跳一次水，这种风险就会减少一点点。在布林身体的每个细胞内，12号染色体的LRRK2基因都存在一种基因突变，它与帕金森症的发病率关系密切。
+                    a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 继续阅读
+                // Panel Body Ends
+              // Accordion #1 Ends
