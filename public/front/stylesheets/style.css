@@ -559,7 +559,67 @@ h6 { font-size: 16px; }
 		.about-featured .btn-transparent .fa {
 			margin-left: 20px;
 		}
-		
+/* Company Introduction Section Styles Starts */
+.company-intro {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: left;
+	background-color: #009bdb;
+}
+	.company-intro > .container {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.company-intro h2 {
+		margin-top: 5px;
+		margin-bottom: 20px;
+	}
+	.company-intro h2 span {
+		font-weight: 500;
+	}
+	.company-intro h3 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.company-intro h2,
+	.company-intro h3 {
+		text-align: left;
+	}
+	.company-intro ul.list {
+	}
+		.company-intro ul.list > li {
+			margin-top: 40px;
+			margin-bottom: 30px;
+		}
+		.company-intro ul.list > li .fa {
+			margin-top: 5px;
+			float: left;
+			font-size: 30px;
+			color: #fff;
+		}
+		.company-intro ul.list > h4 {
+			margin-top: 0;
+			margin-bottom: 15px;
+		}
+		.company-intro ul.list > li p {
+			margin-bottom: 0;
+		}
+		.company-intro ul.list > li h4,
+		.company-intro ul.list > li p {
+			margin-left: 50px;
+		}
+	.company-intro .btn-transparent {
+		margin-top: 20px;
+		padding: 15px 60px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+		.company-intro .btn-transparent .fa {
+			margin-left: 20px;
+		}
+
+
+
 /* Featured Doctors Section Styles Starts */
 
 .featured-doctors {

@@ -1,7 +1,5 @@
 extends layout
 
-block css-externals
-
 block content
   // Slider Section Starts
   section.slider.clearfix
@@ -130,3 +128,69 @@ block content
                     a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 继续阅读
                 // Panel Body Ends
               // Accordion #1 Ends
+            // Accordion Ends
+        // Latest News Ends
+      // Company Introduction Section Starts
+      section.welcome-area
+        .row
+          .col-md-6.col-xs-12
+            h2.main-heading1.lite 大道隆达(北京)医药科技发展有限公司
+            p
+              | 坐落于国家高新技术开发区北京中关村，是集医药科学研究、咨询服务、贸易于一体的高新技术企业。公司主要从事医药领域的新药开发、保健品开发、新药技术转让推广、临床监查，以及药品、医疗器械、保健品注册等科技咨询服务。
+              br
+              | 公司自2004年初成立以来，快速发展，完成药品研发及咨询服务项目几十个，与国内几十家大、中型企业合作，获得临床、生产批文几十个，申请专利二十几项。同时公司聘请医药界的资深专家作为顾问，并与一些大专院校、国家级科研院所形成紧密合作关系。
+              br
+              | 目前公司已拥有一支药学、医学、销售方面的高素质专业研发、咨询、销售队伍，现有员工近40人。公司业务随医药局势的发展不断进行多领域多渠道发展，在原有业务的基础上向参股工厂、自主研发品种委托加工销售等多领域迈进，逐渐形成产—研—销相结合的一体化健康发展模式。
+          .col-md-6.col-xs-12
+            img.img-responsive.img-style1(src='front/images/image1.jpg', alt='image')
+      // Company Introduction Section Ends
+    // Main Container Ends
+    // Main Container Starts
+    .main-container
+      // Department Introduction Starts
+      section.medical-services
+        h2.main-heading1.lite 我们的优势
+        h2.main-heading2 公司部门 & 发展
+        // Department List Starts
+        ul.list-unstyled.row.text-center
+          li.col-md-2.col-sm-4.col-xs-12
+            .icon
+              img(src='front/images/icons/band-aid.png', alt='研发中心')
+            h5 研发中心
+          li.col-md-2.col-sm-4.col-xs-12
+            .icon
+              img(src='front/images/icons/tooth.png', alt='')
+            h5 临床医学部
+          li.col-md-2.col-sm-4.col-xs-12
+            .icon
+              img(src='front/images/icons/tooth.png', alt='')
+            h5 产品推广部
+          li.col-md-2.col-sm-4.col-xs-12
+            .icon
+              img(src='front/images/icons/tooth.png', alt='')
+            h5 注册部
+          li.col-md-2.col-sm-4.col-xs-12
+            .icon
+              img(src='front/images/icons/tooth.png', alt='')
+            h5 企业发展部
+          li.col-md-2.col-sm-4.col-xs-12
+            .icon
+              img(src='front/images/icons/tooth.png', alt='')
+            h5 原材料生产基地
+        // Department List Ends
+      // Department Introduction Ends
+      // Contact Box Starts
+      .book-appointment-box
+        .row
+          .col-md-5.col-xs-12.text-center-sm.text-center-xs
+            h4 欢迎致电咨询
+            h3
+              i.fa.fa-phone-square
+              |  010-62188816
+          .col-md-4.col-xs-12.text-center
+            a.btn.btn-main.text-uppercase(href='/about/us') 查看更多联系方式
+          .col-md-3.col-xs-12.hidden-sm.hidden-xs
+            .box-img
+              img(src='front/images/appointment-booking-img1.png')
+      // Contact Box Ends
+    // Main Container Ends
