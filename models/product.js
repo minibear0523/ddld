@@ -18,7 +18,7 @@ var Product = new Schema({
   },
   name_en: String,
   name_py: String,
-
+  detail: String
 });
 
 module.exports = mongoose.model('Product', Product);
