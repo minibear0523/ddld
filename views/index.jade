@@ -39,9 +39,9 @@ block content
     .main-container
       .row
         // Products Sections Starts
-        section.col-md-4.col-xs-8
+        section.col-md-8.col-xs-12
           .main-block1
-            h2.main-heading1.lite 公司产品
+            h2.main-heading1.lite 技术平台 & 产品中心
             h2.main-heading2 技术转让 & 产品招商
             // Products Carousel Starts
             #products-carousel.products-carousel.carousel.slide(data-ride='carousel')
@@ -50,7 +50,7 @@ block content
                 // Slide Starts
                 .item.active
                   .row
-                    .col-sm-12.col-xs-12
+                    .col-sm-6.col-xs-12
                       .products-box
                         img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-thumb-img1.jpg', alt='Blog Image')
                         .inner
@@ -69,11 +69,31 @@ block content
                           a.btn.btn-secondary(href='#')
                             i.fa.fa-arrow-circle-right
                             | 查看详情
-                // Slide Ends
+                    .col-sm-6.col-xs-12
+                      .products-box
+                        img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-thumb-img1.jpg', alt='Blog Image')
+                        .inner
+                          h5
+                            a(href='#') 注射盐酸利托君
+                          ul.list-unstyled.list-inline.product-meta
+                            li
+                              i.fa.fa-calendar
+                              | 2016年1月15日
+                            li
+                              a(href='#')
+                                i.fa.fa-comments-o
+                                | 10
+                          p
+                            | 注射用盐酸利托君: 50mg; 100mg, 西林瓶, 每盒10支.
+                          a.btn.btn-secondary(href='#')
+                            i.fa.fa-arrow-circle-right
+                            | 查看详情
+                    // Slide Ends
+
                 // Slide Starts
                 .item
                    .row
-                     .col-sm-12.col-xs-12
+                     .col-sm-6.col-xs-12
                        .products-box
                          img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-thumb-img1.jpg', alt='Blog Image')
                          .inner
@@ -92,7 +112,26 @@ block content
                            a.btn.btn-secondary(href='#')
                              i.fa.fa-arrow-circle-right
                              | 查看详情
-                 // Slide Ends
+                     .col-sm-6.col-xs-12
+                       .products-box
+                         img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-thumb-img1.jpg', alt='Blog Image')
+                         .inner
+                           h5
+                             a(href='#') 注射盐酸利托君
+                           ul.list-unstyled.list-inline.product-meta
+                             li
+                               i.fa.fa-calendar
+                               | 2016年1月15日
+                             li
+                               a(href='#')
+                                 i.fa.fa-comments-o
+                                 | 10
+                           p
+                             | 注射用盐酸利托君: 50mg; 100mg, 西林瓶, 每盒10支.
+                           a.btn.btn-secondary(href='#')
+                             i.fa.fa-arrow-circle-right
+                             | 查看详情
+                     // Slide Ends
               // Wrapper for Slides Ends
               // Controls Starts
               a.left.carousel-control(href='#products-carousel', role='button', data-slide='prev')
@@ -104,7 +143,7 @@ block content
               // Controls Ends
         // Products Carousel Ends
         // Latest News Starts
-        aside.col-md-8.col-xs-12
+        aside.col-md-4.col-xs-12
           .main-block1
             h2.main-heading1.lite 资讯中心
             h2.main-heading2 行业资讯 & 公司动态
