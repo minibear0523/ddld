@@ -565,10 +565,14 @@ h6 { font-size: 16px; }
 	padding-bottom: 50px;
 	text-align: left;
 	background-color: #009bdb;
+	color: #fff;
 }
 	.company-intro > .container {
 		padding-left: 30px;
 		padding-right: 30px;
+	}
+	.company-intro .main-heading1 {
+		color: #ffffff;
 	}
 	.company-intro h2 {
 		margin-top: 5px;
