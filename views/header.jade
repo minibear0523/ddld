@@ -6,7 +6,6 @@ header.main-header
     .top-bar.hidden-sm.hidden-xs
       .row
         .col-sm-6.col-xs-12
-          | 搜索框
         .col-sm-6.col-xs-12
           ul.list-unstyled.list-inline
             li
@@ -16,6 +15,9 @@ header.main-header
             li
               i.fa.fa-phone
               | 联系电话: 010-62188816
+            li
+              a(href='/search')
+                i.fa.fa-search
     // Top Bar Ends
     // Navbar Starts
     nav#nav.navbar.navbar-default(role='navigation')
@@ -41,7 +43,7 @@ header.main-header
             li.active
               a(href="/") 首页
             li
-              a(href='/') 公司简介
+              a(href='/') 走进大道
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 | 产品中心
@@ -60,22 +62,12 @@ header.main-header
                   a(href='/products/') 平台1
                 li
                   a(href='/products/') 平台2
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
+            li
+              a(href='/news')
                 | 资讯中心
-              ul.dropdown-menu(role='menu')
-                li
-                  a(href='/news/company') 公司动态
-                li
-                  a(href='/news/industry') 行业资讯
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
+            li
+              a(href='/about')
                 | 关于我们
-              ul.dropdown-menu(role='menu')
-                li
-                  a(href='/about/us') 关于我们
-                li
-                  a(href='/about/contact') 联系我们
         // Navbar Collapse Ends
       // Navbar Headers Ends
     // Navbar Ends

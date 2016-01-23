@@ -581,6 +581,11 @@ h6 { font-size: 16px; }
 	.company-intro h2 span {
 		font-weight: 500;
 	}
+	.company-intro h2,
+	.company-intro h2 + p {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
 	.company-intro h3 {
 		margin-top: 0;
 		margin-bottom: 0;
