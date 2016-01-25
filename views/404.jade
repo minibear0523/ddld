@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  // Breadcrumb Starts
+  .breadcrumb
+    .container
+      ul.list-unstyled.list-inline
+        li
+          a(href='/') 首页
+        li.active 404
+  // Breadcrumb Ends
+
+  // Main Container Starts
+  .main-container
+    .block-404.text-center
+      h2.text-uppercase
+        span 4
+          i.fa.fa-exclamation-circle
+          | 4
+        br
+        | Err
+        i.fa.fa-exclamation-circle
+        | r
+      h5 找不到您所请求的页面
+      p
+        | 如果您还有其他问题, 请发送邮件联系我们.
+      a.btn.btn-lg.btn-secondary(href='/')
+        i.fa.fa-home
+        | 返回首页
+        i.fa.fa-chevron-right
