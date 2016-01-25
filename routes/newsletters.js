@@ -25,11 +25,13 @@ router.post('/newsletter', function(req, res, next) {
           res.status(200).send("您已经订阅, 但尚未激活, 请前往您的邮箱进行激活.")
         }
       } else {
-        var newsletter = new Newsletters({
+        newsletter = new Newsletters({
           name: name,
           email: email
         });
-        return newsletter.save()
+        return newsletter.save().then(function(newsletter) {
+          res.status(201).send('订阅成功, 请前往邮箱验证.');
+        });
       }
     })
 });
