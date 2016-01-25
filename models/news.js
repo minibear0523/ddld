@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
  * :title: 标题
  * :detail: 内容
  * :date: 日期
- * :kind: 种类(公司动态 | 行业资讯)
+ * :kind: 种类(公司动态Company | 行业资讯Industry)
  * :published: 是否发布
  * :pv: pv
  * :commentsCount: 评论数量
@@ -18,16 +18,13 @@ var News = new Schema({
     type: Date,
     default: Date.now
   },
+  author: String,
   kind: String,
   published: {
     type: Boolean,
     default: false
   },
   pv: {
-    type: Number,
-    default: 0
-  },
-  commentsCount: {
     type: Number,
     default: 0
   }

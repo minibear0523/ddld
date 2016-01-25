@@ -10,7 +10,7 @@ var Q = require('q');
  * :param name: 姓名
  * :param email: 邮件地址
  */
-router.post('/newsletter', function(req, res, next) {
+router.post('/', function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
 
@@ -34,6 +34,13 @@ router.post('/newsletter', function(req, res, next) {
         });
       }
     })
+});
+
+/**
+ * 激活Newsletter
+ */
+router.get('/activate', function(req, res, next) {
+
 });
 
 module.exports = router;

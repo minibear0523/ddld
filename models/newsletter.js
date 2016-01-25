@@ -5,7 +5,8 @@ var Newsletters = new Schema({
   name: String,
   email: {
     type: String,
-    index: true
+    index: true,
+    unique: true
   },
   verified: {
     type: Boolean,
