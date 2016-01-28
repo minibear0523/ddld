@@ -10,4 +10,8 @@ router.get('/404', function(req, res, next) {
   res.render('404');
 });
 
+router.get('/intro', function(req, res, next) {
+  res.render('intro');
+});
+
 module.exports = router;
