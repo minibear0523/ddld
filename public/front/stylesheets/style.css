@@ -657,16 +657,16 @@ h6 { font-size: 16px; }
 	
 /* Doctors Bio Boxes Styles Starts */	
 	
-	.featured-doctors .bio-box, 
+	.featured-doctors .bio-box,
 	.doctors-grid .bio-box {
 		margin-top: 40px;
 		background-color: #fff;
 	}
-		.featured-doctors .bio-box .profile-img, 
+		.featured-doctors .bio-box .profile-img,
 		.doctors-grid .bio-box .profile-img {
 			position: relative;
 		}
-		.featured-doctors .bio-box .profile-img .overlay, 
+		.featured-doctors .bio-box .profile-img .overlay,
 		.doctors-grid .bio-box .profile-img .overlay {
 			width: 100%;
 			height: 100%;
@@ -675,22 +675,22 @@ h6 { font-size: 16px; }
 			left: 0;
 			background: rgba(255, 255, 255, 0);
 		}
-		.featured-doctors .bio-box .profile-img .overlay:hover, 
+		.featured-doctors .bio-box .profile-img .overlay:hover,
 		.doctors-grid .bio-box .profile-img .overlay:hover {
 			background: rgba(255, 255, 255, 0.5);
 		}
-			.featured-doctors .bio-box .profile-img .overlay ul.sm-links, 
+			.featured-doctors .bio-box .profile-img .overlay ul.sm-links,
 			.doctors-grid .bio-box .profile-img .overlay ul.sm-links {
 				margin-top: 34%;
 				margin-bottom: 0;
 				display: none;
 				text-align: center;
 			}
-			.featured-doctors .bio-box .profile-img .overlay:hover ul.sm-links, 
+			.featured-doctors .bio-box .profile-img .overlay:hover ul.sm-links,
 			.doctors-grid .bio-box .profile-img .overlay:hover ul.sm-links {
 				display: block;
 			}
-			.featured-doctors .bio-box .profile-img .overlay ul.sm-links li, 
+			.featured-doctors .bio-box .profile-img .overlay ul.sm-links li,
 			.doctors-grid .bio-box .profile-img .overlay ul.sm-links li {
 				padding: 0;
 				width: 42px;
@@ -698,57 +698,57 @@ h6 { font-size: 16px; }
 				line-height: 50px;
 				background-color: #009bdb;				
 			}
-			.featured-doctors .bio-box .profile-img .overlay ul.sm-links li + li, 
+			.featured-doctors .bio-box .profile-img .overlay ul.sm-links li + li,
 			.doctors-grid .bio-box .profile-img .overlay ul.sm-links li + li {
 				margin-left: 20px;
 			}
-			.featured-doctors .bio-box .profile-img .overlay ul.sm-links li:hover, 
+			.featured-doctors .bio-box .profile-img .overlay ul.sm-links li:hover,
 			.doctors-grid .bio-box .profile-img .overlay ul.sm-links li:hover {
 				background-color: #313131;
 			}
-				.featured-doctors .bio-box .profile-img .overlay ul.sm-links li a .fa, 
+				.featured-doctors .bio-box .profile-img .overlay ul.sm-links li a .fa,
 				.doctors-grid .bio-box .profile-img .overlay ul.sm-links li a .fa {
 					font-size: 24px;
 					color: #fff;
 				}
-		.featured-doctors .bio-box .inner, 
+		.featured-doctors .bio-box .inner,
 		.doctors-grid .bio-box .inner {
 			padding: 30px 20px 10px;
 		}
-		.featured-doctors .bio-box h5, 
+		.featured-doctors .bio-box h5,
 		.doctors-grid .bio-box h4 {
 			margin-top: 0;
 			margin-bottom: 0;
 			font-weight: bold;
 		}
-		.featured-doctors .bio-box h5, 
+		.featured-doctors .bio-box h5,
 		.featured-doctors .bio-box .designation, 
 		.doctors-grid .bio-box h4, 
 		.doctors-grid .bio-box .designation {
 			color: #323232;
 		}
-		.featured-doctors .bio-box p, 
+		.featured-doctors .bio-box p,
 		.doctors-grid .bio-box p {
 			margin-top: 5px;
 			font-size: 13px;
 			line-height: 22px;
 			color: #8d8d8d;
 		}		
-		.featured-doctors .bio-box .divider, 
+		.featured-doctors .bio-box .divider,
 		.doctors-grid .bio-box .divider {
 			margin-top: 5px;
 			margin-bottom: 10px;
 			position: relative;
 		}
-		.featured-doctors .bio-box .divider:before, 
+		.featured-doctors .bio-box .divider:before,
 		.doctors-grid .bio-box .divider:before {
 			left: 0;
 		}
-		.featured-doctors .bio-box .divider:after, 
+		.featured-doctors .bio-box .divider:after,
 		.doctors-grid .bio-box .divider:after {
 			right: 0;
 		}
-		.featured-doctors .bio-box .divider:before, 
+		.featured-doctors .bio-box .divider:before,
 		.featured-doctors .bio-box .divider:after, 
 		.doctors-grid .bio-box .divider:before, 
 		.doctors-grid .bio-box .divider:after {
@@ -759,11 +759,11 @@ h6 { font-size: 16px; }
 			top: 50%;
 			background-color: #bbb;
 		}
-		.featured-doctors .bio-box .fa-plus-square, 
+		.featured-doctors .bio-box .fa-plus-square,
 		.doctors-grid .bio-box .fa-plus-square {
 			color: #bbb;
 		}
-		.featured-doctors .bio-box .btn, 
+		.featured-doctors .bio-box .btn,
 		.doctors-grid .bio-box .btn {
 			margin-bottom: 30px;
 		}
@@ -1306,6 +1306,56 @@ h6 { font-size: 16px; }
 			}
 
 /* Products Pages Styles Starts */
+.products-grid .product-box {
+	margin-top: 40px;
+	background-color: #fff;
+}
+	.products-grid .product-box .inner {
+		padding: 30px 20px 10px;
+	}
+	.products-grid .product-box h4 {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-weight: bold;
+	}
+	.products-grid .product-box h4,
+	.products-grid .product-box .designation {
+		color: #323232;
+	}
+	.products-grid .product-box p {
+		margin-top: 5px;
+		font-size: 13px;
+		line-height: 22px;
+		color: #8d8d8d;
+	}
+	.products-grid .product-box .divider {
+		margin-top: 5px;
+		margin-bottom: 10px;
+		position: relative;
+	}
+	.products-grid .product-box .divider:before {
+		left: 0;
+	}
+	.products-grid .product-box .divider:after {
+		right: 0;
+	}
+	.products-grid .product-box .divider:before,
+	.products-grid .product-box .divider:after {
+		content: "";
+		width: 47%;
+		height: 1px;
+		position: absolute;
+		top: 50%;
+		background-color: #bbb;
+	}
+	.products-grid .product-box .fa-plus-square {
+		color: #bbb;
+	}
+	.products-grid .product-box .btn {
+		margin-bottom: 30px;
+	}
+
+
 #products-filter {
 	margin-bottom: 15px;
 	padding-bottom: 15px;
@@ -1347,6 +1397,42 @@ h6 { font-size: 16px; }
 		padding: 20px 20px 10px;
 	}
 	.products-grid.product-box p {
+		margin-top: 6px;
+	}
+	.products-grid .product-box .divider:before,
+	.products-grid .product-box .divider:after {
+		content: "";
+		width: 48%;
+	}
+	.products-grid .product-box .btn {
+		margin-bottom: 25px;
+		font-weight: bold;
+	}
+	.products-grid .product-box .btn-secondary:hover,
+	.products-grid .product-box .btn-secondary:focus {
+		background-color: #323232;
+	}
+
+ul#products-grid {
+	list-style: none;
+	overflow: hidden;
+}
+	ul#products-grid.grid > li > .product-box {
+		min-height: 501px;
+		height: auto !important;
+		height: 501px;
+	}
+	.products-grid .product-box {
+		text-align: center;
+		border: 1px solid #ebebeb;
+	}
+	.products-grid .product-box .profile-img .overlay ul.sm-links {
+		margin-top: 27%;
+	}
+	.products-grid .product-box .inner {
+		padding: 20px 20px 10px;
+	}
+	.products-grid .product-box p {
 		margin-top: 6px;
 	}
 	.products-grid .product-box .divider:before,
