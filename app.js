@@ -19,6 +19,7 @@ mongoose.connect('mongodb://localhost/ddld');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var news = require('./routes/news');
+var products = require('./routes/products');
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.use(session({
 app.use('/', routes);
 app.use('/users', users);
 app.use('/news', news);
+app.use('/products', products);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
