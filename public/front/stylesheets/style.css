@@ -1382,9 +1382,9 @@ h6 { font-size: 16px; }
 		overflow: hidden;
 	}
 	ul#products-grid.grid > li > .product-box {
-		min-height: 501px;
+		min-height: 280px;
 		height: auto !important;
-		height: 501px;
+		height: 280px;
 	}
 	.products-grid .product-box {
 		text-align: center;
@@ -1418,9 +1418,9 @@ ul#products-grid {
 	overflow: hidden;
 }
 	ul#products-grid.grid > li > .product-box {
-		min-height: 501px;
+		min-height: 280px;
 		height: auto !important;
-		height: 501px;
+		height: 280px;
 	}
 	.products-grid .product-box {
 		text-align: center;
