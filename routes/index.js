@@ -14,4 +14,8 @@ router.get('/intro', function(req, res, next) {
   res.render('intro');
 });
 
+router.get('/platform', function(req, res, next) {
+  res.render('platform');
+})
+
 module.exports = router;
