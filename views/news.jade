@@ -1,0 +1,69 @@
+extends layout
+
+block content
+  .main-banner.seven
+    .container
+      h2
+        span 资讯中心
+  .breadcrumb
+    .container
+      ul.list-unstyled.list-inline
+        li
+          a(href='/') 首页
+        li.active 资讯中心
+  .main-container
+    .row
+      .col-md-9.col-xs-12
+        .news-post-list
+          article.news-post
+            img.img-responsive.img-center-sm.img-center-xs(src='front/images/news/news-post-img1.jpg', alt='news-1')
+            .inner
+              h4
+                a(href='/news/abc1') 谷歌创始人动用计算机算法对抗老年痴呆
+              ul.list-unstyled.list-inline
+                li
+                  i.fa.fa-calendar
+                  | 发布于2016年1月29日
+                li
+                  i.fa.fa-user
+                  | 大道隆达
+                li
+                  i.fa.fa-eye
+                  | 300
+                li
+                  i.fa.fa-tag
+                  a(href='#') 公司动态
+                  | ,
+                  a(href='#') 行业资讯
+                  | ,
+                  a(href='#') 新药研发
+              p
+                | 谷歌(微博)联合创始人谢尔盖·布林（Sergey Brin）经常练习跳水。“跳水这项运动短暂而剧烈，”他说。“可以马上提高心跳速率。” 但跳水对他来说还有另外一个好处。从家族遗传学的角度来看，布林患上帕金森症的风险很高，而每跳一次水，这种风险就会减少一点点。在布林身体的每个细胞内，12号染色体的LRRK2基因都存在一种基因突变，它与帕金森症的发病率关系密切。
+              a.btn.btn-secondary(href='/news/abc')
+                | 继续阅读
+                i.fa.fa-arrow-circle-right
+        .clearfix.pagination-wrap
+          ul.pagination.pull-right
+            li
+              a(href='#', aria-label='上一页')
+                span(aria-hidden='true') &laquo;
+            li.active
+              span 1
+            li
+              a(href='#', aria-label='下一页')
+                span(aria-hidden='true') &raquo;
+      .col-md-3.col-xs-12
+        h4.side-heading1.top 分类
+        ul.list-unstyled.list-style-1
+          li
+            a(href='#') 公司动态
+          li
+            a(href='#') 行业资讯
+        h4.side-heading1 标签
+        ul.list-unstyled.list-inline.list-tags
+          li
+            a(href='#') 公司动态
+          li
+            a(href='#') 行业动态
+          li
+            a(href='#') 新药研发
