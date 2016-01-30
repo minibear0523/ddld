@@ -16,6 +16,10 @@ router.get('/intro', function(req, res, next) {
 
 router.get('/platform', function(req, res, next) {
   res.render('platform');
-})
+});
+
+router.get('/contact', function(req, res, next) {
+  res.render('contact');
+});
 
 module.exports = router;

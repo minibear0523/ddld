@@ -1,4 +1,6 @@
 extends layout
+block css-external
+  link(rel='stylesheet', href='plugins/mapsed/mapsed.css')
 
 block content
   .main-banner.one
@@ -74,3 +76,15 @@ block content
             .overlay
               a.btn.btn-secondary.zoom('front/images/certification/high_tech_certification.jpg')
     h2.main-heading2.nomargin-top 合作伙伴
+      #partners.portfolio
+        .container
+          .row
+            .col-md-10.col-md-offset-1
+              .portfolio-item
+                #partners-places.small-map
+
+
+
+block js-externals
+  script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
+  script(src='front/javascripts/partners.js')
