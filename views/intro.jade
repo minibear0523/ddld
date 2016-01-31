@@ -1,5 +1,6 @@
 extends layout
 block css-external
+  link(rel="stylesheet", href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css")
   link(rel='stylesheet', href='plugins/mapsed/mapsed.css')
 
 block content
@@ -87,4 +88,6 @@ block content
 
 block js-externals
   script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
+  script(type="text/javascript", src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js")
+  script(type="text/javascript", src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js")
   script(src='front/javascripts/partners.js')
