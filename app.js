@@ -38,6 +38,7 @@ app.use(cookieParser());
 
 // Static Files: 静态资源应该前置于路由之前
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 // Session处理
 app.use(session({
