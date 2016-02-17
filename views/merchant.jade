@@ -4,73 +4,37 @@ block content
   .main-banner.five
     .container
       h2
-        span 产品中心
+        span 招商产品
   .breadcrumb
     .container
       ul.list-unstyled.list-inline
         li
           a(href='/') 首页
-        li.active 产品中心
+        li 产品中心
+        li.active 招商产品
   .main-container
     ul#products-filter.list-unstyled.list-inline
       li
-        a.active(href='#', data-group='all') 所有产品
+        a.active(href='#', data-group='all') 所有招商产品
       li
-        a(href='#', data-group='transfer') 转让产品
+        a(href='#', data-group='orphan') 孤儿药
       li
-        a(href='#', data-group='merchants') 招商产品
+        a(href='#', data-group='creative') 创新药剂(经皮给药系列)
+      li
+        a(href='#', data-group='children') 儿童药
+      li
+        a(href='#', data-group='generics') 其他仿制药
+      li
+        a(href='#', data-group='psychiatric') 精神类药
     ul#products-grid.row.grid
-      li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all", "transfer"]')
-        .product-box
-          .inner
-            h4 普乐沙福原料及注射液
-            p.designation
-            p.divider
-              i.fa.fa-plus-square
-            p
-              | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-          a.btn.btn-secondary.text-uppercase(href='/product/abc') 查看详情
-      li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all", "transfer"]')
-        .product-box
-          .inner
-            h4 普乐沙福原料及注射液
-            p.designation
-            p.divider
-              i.fa.fa-plus-square
-            p
-              | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-          a.btn.btn-secondary.text-uppercase(href='/product/abc') 查看详情
-      li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all", "transfer"]')
-        .product-box
-          .inner
-            h4 普乐沙福原料及注射液
-            p.designation
-            p.divider
-              i.fa.fa-plus-square
-            p
-              | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-          a.btn.btn-secondary.text-uppercase(href='/product/abc') 查看详情
-      li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all", "transfer"]')
-        .product-box
-          .inner
-            h4 普乐沙福原料及注射液
-            p.designation
-            p.divider
-              i.fa.fa-plus-square
-            p
-              | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-          a.btn.btn-secondary.text-uppercase(href='/product/abc') 查看详情
-      li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all", "merchants"]')
-        .product-box
-          .inner
-            h4 盐酸法舒地尔注射液
-            p.designation 商品名：祺利
-            p.divider
-              i.fa.fa-plus-square
-            p
-              | 规格：2ml：30mg
-              br
-              | 包装：3支/盒，360支/箱
-              br
-              | 生产企业：山西普德药业有限公司
-          a.btn.btn-secondary.text-uppercase(href='/product/abc') 查看详情
+      - for (var i = 0; i < products.length; i++)
+        - var product = products[i]
+        li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.sub_kind_string}')
+          .product-box
+            .inner
+              h4 #{product.name}
+              p.designation #{product.name_co}
+              p.divider
+                i.fa.fa-plus-square
+              p
+                | #{product.detail}

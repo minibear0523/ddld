@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+    meta(name='description', content='大道隆达(北京)医药科技发展有限公司')
+    meta(name='author', content='SkyStar Studio')
+    title 大道隆达网站管理系统
+
+    link(rel='stylesheet', href='/plugins/bootstrap/stylesheets/bootstrap.min.css')
+    link(href='/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+    link(rel='stylesheet', href='/dashboard/css/AdminLTE.min.css')
+    link(rel='stylesheet', href='/dashboard/css/_all-skins.min.css')
+    link(rel='stylesheet', href='/dashboard/css/skin-blue-light.css')
+    link(rel="stylesheet", href="/plugins/messenger/messenger.css")
+    link(rel="stylesheet", href="/plugins/messenger/messenger-theme-flat.css")
+    link(rel='stylesheet', href='/plugins/nprogress/nprogress.css')
+    block css-external
+  body.hold-transition.skin-blue-light.sidebar-mini.sidebar-collapse
+      include menu
+      block content
+      include footer
+
+    script(src='/plugins/jQuery/jquery-1.11.3.min.js')
+    script(src='/plugins/jQuery/jquery-migrate-1.2.1.min.js')
+    script(src='/plugins/bootstrap/javascripts/bootstrap.min.js')
+    script(src='/dashboard/js/app.min.js')
+    script(src='/dashboard/js/pages/dashboard.js')
+    script(src='/dashboard/js/demo.js')
+    script(src="/plugins/messenger/messenger.min.js")
+    script(src="/plugins/messenger/messenger-theme-flat.js")
+    script(src='/plugins/nprogress/nprogress.js')
+    block js-external

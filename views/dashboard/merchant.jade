@@ -1,0 +1,39 @@
+extends layout
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 产品管理
+        small
+          a.btn.btn-sm.btn-flat.btn-block(href='/dashboard/products/product/merchant')  添加新产品
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li
+          a(href='#') 产品管理
+        li.active 招商产品
+    section.content
+      .row
+        .col-xs-12
+          .box
+            .box-header
+              h3.box-title 产品列表
+            .box-body
+              table#products.table.table-bordered.table-hover
+                thead
+                  tr
+                    th 名称
+                    th 介绍
+                    th 分类
+                    th 添加日期
+                tbody
+                  - for (var i = 0; i < products.length; i++)
+                    - var product = products[i]
+                    tr
+                      td
+                        a(href='/dashboard/products/product/merchant?id=#{product.id}') #{product.name}
+                      td #{product.detail}
+                      td #{product.subKindString}
+                      td #{product.dateString}

@@ -1,0 +1,43 @@
+extends layout
+block css-external
+
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 资讯中心
+        small
+          a.btn.btn-sm.btn-flat.btn-block(href='/dashboard/news/detail')  添加新资讯
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li.active 资讯管理
+    section.content
+      .row
+        .col-xs-12
+          .box
+            .box-header
+              h3.box-title 资讯列表
+            .box-body
+              table#news.table.table-bordered.table-hover
+                thead
+                  tr
+                    th 标题
+                    th 来源
+                    th 分类
+                    th 浏览量
+                    th 状态
+                tbody
+                  - for (var i = 0; i < news_list.length; i ++)
+                    - var news = news_list[i]
+                    tr
+                      td
+                        a(href='/dashboard/news/detail?id=#{news.id}') #{news.title}
+                      td #{news.source}
+                      td #{news.kind}
+                      td #{news.pv}
+                      td #{news.published}
+
+block js-external

@@ -1,0 +1,73 @@
+.wrapper
+      header.main-header
+        a.logo(href='/dashboard/home')
+          span.logo-mini
+            b 大道
+            | 隆达
+          span.logo-lg
+            b 大道隆达
+        nav.navbar.navbar-static-top(role='navigation')
+          a.sidebar-toggle(href='#', data-toggle='offcanvas', role='button')
+            span.sr-only Toggle Navigation
+          .navbar-custom-menu
+            ul.nav.navbar-nav
+      aside.main-sidebar
+        section.sidebar
+          ul.sidebar-menu
+            li.header 导航栏
+            li.active
+              a(href='#')
+                i.fa.fa-dashboard
+                span 首页
+            li
+              a(href='#')
+                i.fa.fa-file-image-o
+                span 内容管理
+            li.treeview
+              a(href='#')
+                i.fa.fa-plus-square
+                span 产品管理
+                i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li.active
+                  a(href='/dashboard/products/transfer')
+                    i.fa.fa-circle-o
+                    | 转让产品
+                li
+                  a(href='#')
+                    i.fa.fa-circle-o
+                    | 招商产品
+                    i.fa.fa-angle-left.pull-right
+                  ul.treeview-menu
+                    li
+                      a(href='/dashboard/products/merchant')
+                        i.fa.fa-circle-o
+                        | 全部产品
+                    li
+                      a(href='/dashboard/products/merchant?kind=orphan')
+                        i.fa.fa-circle-o
+                        | 孤儿药
+                    li
+                      a(href='/dashboard/products/merchant?kind=creative')
+                        i.fa.fa-circle-o
+                        | 经皮给药系列
+                    li
+                      a(href='/dashboard/products/merchant?kind=children')
+                        i.fa.fa-circle-o
+                        | 儿童药
+                    li
+                      a(href='/dashboard/products/merchant?kind=generics')
+                        i.fa.fa-circle-o
+                        | 其他仿制药
+                    li
+                      a(href='/dashboard/products/merchant?kind=psychiatric')
+                        i.fa.fa-circle-o
+                        | 精神类药
+            li.treeview
+              a(href='/dashboard/news')
+                i.fa.fa-newspaper-o
+                span 资讯中心
+            li
+              a(href='#')
+                i.fa.fa-file-o
+                span 招聘信息

@@ -1,0 +1,59 @@
+extends layout
+block css-external
+
+block content
+  .main-banner.three
+    .container
+      h2
+        span 资讯详情
+  .breadcrumb
+    .container
+      ul.list-unstyled.list-inline
+        li
+          a(href='/') 首页
+        li
+          a(href='/news') 资讯中心
+        li.active #{news.title}
+  .main-container
+    .row
+      .col-md-9.col-xs-12
+        .news-post-single
+          article.news-post
+            img.img-responsive.img-center-sm.img-center-xs(src='/front/images/news-post-img3.jpg', alt='Blog Image')
+            .inner
+              h4 #{news.title}
+              ul.list-unstyled.list-inline
+                li
+                  i.fa.fa-calendar
+                  |  发布于#{news.dateString}
+                li
+                  i.fa.fa-user
+                  |  大道隆达
+                li
+                  a(href='#')
+                    i.fa.fa-eye
+                    |  #{news.pv}
+                li
+                  i.fa.fa-tag
+                  - for (var i = 0; i < news.tags.length; i++)
+                    - var tag = news.tags[i]
+                    a(href='#') #{tag}
+                    | ,
+              .news-post-content
+                p
+                  | #{news.detail}
+      .col-md-3.col-xs-12
+        h4.side-heading1.top 分类
+        ul.list-unstyled.list-inline
+          li
+            a(href='#') 公司动态
+          li
+            a(href='#') 行业资讯
+
+        h4.side-heading1 标签
+        ul.list-unstyled.list-inline
+          - for (var i = 0; i < news.tags.length; i++)
+            - var tag = news.tags[i]
+            li
+              a(href='#') #{tag}
+

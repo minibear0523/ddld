@@ -1,0 +1,38 @@
+extends layout
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 产品详情
+        small 添加 & 修改
+      ol.breadcrumb
+        li
+          a(href='/dashboard')
+            i.fa.fa-dashboard
+            | 首页
+        li
+          a(href='/dashboard/products/transfer') 转让产品
+        li.active 产品详情
+    section.content
+      .row
+        .col-xs-12
+          .box.box-info
+            form#form-transfer.form-horizontal
+              .box-body
+                .form-group
+                  label.col-sm-2.control-label(for='inputName') 名称
+                  .col-sm-10
+                    input#inputName.form-control(type='text', placeholder='请输入产品名称')
+                .form-group
+                  label.col-sm-2.control-label(for='inputNameCo') 商品名(可选)
+                  .col-sm-10
+                    input#inputNameCo.form-control(type='text', placeholder='请输入商品名(可选)', required=false)
+                .form-group
+                  label.col-sm-2.control-label(for='inputDetail') 介绍
+                  .col-sm-10
+                    textarea#inputDetail.form-control(rows='4', placeholder='请输入产品介绍详情')
+              .box-footer
+                button#delete-btn.btn.btn-danger(type='submit') 删除
+                button#submit-btn.btn.btn-info.pull-right(type='submit') 提交
+block js-external
+  script(src='/dashboard/js/product.js')

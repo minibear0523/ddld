@@ -1,0 +1,64 @@
+extends layout
+block css-external
+  link(rel='stylesheet', href='/plugins/iCheck/all.css')
+  link(rel='stylesheet', href='/plugins/select2/select2.min.css')
+  link(rel='stylesheet', href='/plugins/summernote/summernote.css')
+  link(rel='stylesheet', href='/dashboard/css/news.detail.css')
+
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 资讯详情
+        small 添加 & 修改
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li
+          a(href='/dashboard/news')
+            i.fa.fa-newspaper-o
+            |  资讯管理
+        li.active 资讯详情
+    section.content
+      .row
+        .col-md-8.col-xs-12
+          .box.box-info
+            .box-body.pad
+              form#form-editor
+                input.form-control(type='text', name='title', placeholder='标题')
+                .form-group.has-feedback
+                textarea.textarea(name='detail')
+        .col-md-4.col-xs-12
+          .box.box-success.with-border
+            .box-header
+              h3.box-title 资讯属性
+            .box-body
+              .row
+                .col-md-12
+                  .form-group
+                    label 来源
+                    input#inputSource.form-control(type='text', name='source', placeholder='来源')
+                  .form-group
+                    label 分类
+                    select#kind.form-control.select2(style='width:100%;')
+                      option(value='company') 公司动态
+                      option(value='industry') 行业资讯
+                  .form-group
+                    label 标签
+                    select#tags.form-control.select2(multiple='multiple', style='width:100%;')
+                  .form-group
+                    label 发布状态 &nbsp;
+                      input#checkbox.minimal-red(type='checkbox', name='published', checked="")
+            .box-footer
+              button#submit-btn.btn.btn-success.btn-flat(type='submit', style='width:100%;') 提交
+
+
+
+block js-external
+  script(src='/plugins/iCheck/icheck.min.js')
+  script(src='/plugins/select2/select2.full.min.js')
+  script(src='/plugins/summernote/summernote.min.js')
+  script(src='/plugins/summernote/summernote-zh-CN.js')
+  script(src='/dashboard/js/news.detail.js')

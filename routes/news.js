@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var Q = require('q');
 var News = require('../models/news');
+var cheerio = require('cheerio');
 
 var PAGE_LIMIT = 10;
 /**
@@ -58,6 +59,67 @@ router.get('/:id', function(req, res, next) {
     .catch(function(err) {
       return res.render('404', {err: err});
     });
+});
+
+/**
+ * 发布或修改新的资讯
+ */
+router.post('/', function(req, res, next) {
+  var newsId = req.query.id || "";
+  var data = req.body;
+  var content = data['detail'];
+  var $ = cheerio.load(content, {
+    ignoreWhitespaces: false,
+    decodeEntities: false,
+    xmlMode: false,
+    lowerCaseTags: false,
+    lowerCaseAttributeNames: false,
+    recognizeSelfClosing: false
+  });
+
+  var thumbnail = $('img').first().attr('src');
+
+  if (newsId) {
+    // 更新资讯
+    News
+      .findById(newsId)
+      .exec()
+      .then(function(news) {
+        news.title = data['title'];
+        news.content = content;
+        news.source = data['source'];
+        news.kind = data['kind'];
+        news.published = data['published'];
+        news.thumbnail = thumbnail;
+
+        return news.save()
+      })
+      .then(function(news) {
+        res.status(200).send();
+      })
+      .catch(function(err) {
+        res.status(400).send(err);
+      });
+
+  } else {
+    // 发布新的资讯
+    var news = new News({
+      title: data['title'],
+      detail: content,
+      source: data['source'],
+      kind: data['kind'],
+      published: data['published'],
+      thumbnail: thumbnail
+    });
+    news
+      .save()
+      .then(function(news) {
+        res.status(200).send();
+      })
+      .catch(function(err) {
+        res.status(400).send(err);
+      })
+  }
 });
 
 module.exports = router;
