@@ -8,7 +8,7 @@
         uploadImageToServer(files[0]);
       },
       onMediaDelete: function(node, editor) {
-        deleteImageFromServer(node.attr('filename'));
+        deleteImageFromServer(node.attr('data-filename'));
       }
     }
   });
@@ -60,6 +60,7 @@
    */
   function deleteImageFromServer(filename) {
     var url = '/uploads/news/' + filename;
+    console.log(url);
     Messenger().ajax({
       successMessage: '删除成功',
       errorMessage: '删除失败, 请重试',
@@ -112,7 +113,14 @@
         tags: tags,
         kind: kind,
         published: published
+      };
+
+      var newsId = parseNewsId() || "";
+      var url = '/news'
+      if (newsId) {
+        url += '?id=' + newsId;
       }
+
       Messenger().ajax({
         successMessage: '提交成功',
         errorMessage: '提交失败, 请重试',
@@ -120,7 +128,7 @@
         showCloseButton: false,
         hideAfter: 3
       }, {
-        url: '/news',
+        url: url,
         type: 'POST',
         data: data,
         success: function(url) {
@@ -134,7 +142,7 @@
    * 更新已有新闻的详情
    */
   function updateNewsDetail(newsId) {
-    var url = '/news?id=' + newsId;
+    var url = '/news/detail?id=' + newsId;
     $.get(url, function(news, status, xhr) {
       if (status == 'success') {
         $('#form-editor > input').val(news.title);
@@ -143,9 +151,12 @@
         for (var i = 0; i < rootNode.childNodes.length; i++) {
           $('.textarea').summernote('insertNode', rootNode.childNodes[i]);
         }
+        $('#inputSource').val(news.source);
         $('#kind').val(news.kind);
         $('#tags').val(news.tags).trigger('change');
-        $('#checkbox').iCheck('check');
+        if (news.published) {
+          $('#checkbox').iCheck('check');
+        }
       }
     });
   }
@@ -154,5 +165,14 @@
     if (parseNewsId()) {
       updateNewsDetail(parseNewsId());
     }
+    $('#submit-btn').on('click', function(e) {
+      e.preventDefault();
+      publishNews();
+    });
+
+    $('#delete-btn').on('click', function(e) {
+      e.preventDefault();
+      deleteNews();
+    })
   });
 })(window.jQuery);

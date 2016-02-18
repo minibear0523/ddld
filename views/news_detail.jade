@@ -19,10 +19,9 @@ block content
       .col-md-9.col-xs-12
         .news-post-single
           article.news-post
-            img.img-responsive.img-center-sm.img-center-xs(src='/front/images/news-post-img3.jpg', alt='Blog Image')
             .inner
               h4 #{news.title}
-              ul.list-unstyled.list-inline
+              ul.list-unstyled.list-inline.post-meta
                 li
                   i.fa.fa-calendar
                   |  发布于#{news.dateString}
@@ -41,10 +40,10 @@ block content
                     | ,
               .news-post-content
                 p
-                  | #{news.detail}
+                  | !{news.detail}
       .col-md-3.col-xs-12
         h4.side-heading1.top 分类
-        ul.list-unstyled.list-inline
+        ul.list-unstyled.list-style-1
           li
             a(href='#') 公司动态
           li

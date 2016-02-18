@@ -29,6 +29,7 @@ block content
                     th 分类
                     th 浏览量
                     th 状态
+                    th 发布日期
                 tbody
                   - for (var i = 0; i < news_list.length; i ++)
                     - var news = news_list[i]
@@ -36,8 +37,9 @@ block content
                       td
                         a(href='/dashboard/news/detail?id=#{news.id}') #{news.title}
                       td #{news.source}
-                      td #{news.kind}
+                      td #{news.kindString}
                       td #{news.pv}
-                      td #{news.published}
+                      td #{news.publishString}
+                      td #{news.dateString}
 
 block js-external

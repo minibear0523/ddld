@@ -16,6 +16,7 @@ var dateUtils = require('../utils/date');
 var News = new Schema({
   title: String,
   detail: String,
+  abstract: String,
   date: {
     type: Date,
     default: Date.now
@@ -27,6 +28,10 @@ var News = new Schema({
     type: Boolean,
     default: false
   },
+  tags: {
+    type: [String],
+    required: false
+  },
   pv: {
     type: Number,
     default: 0
@@ -35,6 +40,18 @@ var News = new Schema({
 
 News.virtual('dateString').get(function() {
   return dateUtils.humanizedDateFormatter(this.date);
-})
+});
+
+News.virtual('kindString').get(function() {
+  var mapping = {
+    company: '公司动态',
+    industry: '行业资讯'
+  }
+  return mapping[this.kind];
+});
+
+News.virtual('publishString').get(function() {
+  return this.published ? '已发布' : '未发布';
+});
 
 module.exports = mongoose.model('News', News);
