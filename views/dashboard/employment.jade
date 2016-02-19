@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 招聘信息
+        small
+          a.btn.btn-sm.btn-flat.btn-block(href='/dashboard/employment/new') 添加招聘信息
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li.active
+          i.fa.fa-file-o
+          |  招聘信息
+    section.content
+      .row
+        .col-xs-12
+          .box
+            .box-body
+              table#employments.table.table-bordered.table-hover
+                thead
+                  tr
+                    th 职位
+                    th 发布日期
+                tbody
+                  - for (var i = 0; i < employments.length; i++)
+                    - var employment = employments[i]
+                    tr
+                      td
+                        a(href='/dashboard/employment/detail?id=#{employment.id}') #{employment.title}
+                      td #{employment.dateString}

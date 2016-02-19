@@ -12,27 +12,6 @@ block content
           a(href='/') 首页
         li.active 关于我们
   .main-container
-    .contact-info-box
-      .row
-        .col-md-5.col-xs-12.hidden-sm.hidden-xs
-          .box-img
-            img(src='front/images/contact/contact-info-box-img1.png', alt='Image')
-        .col-md-6.col-xs-12.hidden-sm.hidden-xs
-          .info-box
-            h3 公司总部
-            h5
-              | 北京市海淀区中关村南大街2号科技会展中心1号楼B座20C1室
-            .row
-              h4.col-sm-6.col-xs-12
-                i.fa.fa-phone
-                |  010-62168816
-              h4.col-sm-6.col-xs-12
-                i.fa.fa-fax
-                |  010-51626391
-            h4
-              | 邮件:
-              a(href='mailto: ddld@ddld.com.cn')  ddld@ddld.com.cn
-        .col-md-1.col-xs-12.hidden-sm.hidden-xs
     .contact-content
       .row
         .col-sm-6.col-xs-12
@@ -44,10 +23,10 @@ block content
               li 北京市海淀区中关村南大街2号科技会展中心1号楼B座20C1室
               li
                 i.fa.fa-phone
-                | 010-62168816
+                |  010-62168816
               li
                 i.fa.fa-fax
-                | 010-51626391
+                |  010-51626391
         .col-sm-6.col-xs-12
           .cblock-1
             span.icon-wrap
@@ -57,7 +36,63 @@ block content
               li 北京亦庄经济技术开发区科创十四街99号汇龙森科技园2幢301室
               li
                 i.fa.fa-phone
-                | 010-59755826
+                |  010-59755826
               li
                 i.fa.fa-fax
-                | 010-59755826转801
+                |  010-59755826转801
+      .row
+        .col-sm-6.col-xs-12
+          .cblock-1
+            span.icon-wrap
+              i.fa.fa-bell
+            h4 平台及转让服务
+            ul.list-unstyled
+              li
+                i.fa.fa-user
+                |  刘总
+              li
+                i.fa.fa-phone
+                |  010-59755826转805
+        .col-sm-6.col-xs-12
+          .cblock-1
+            span.icon-wrap
+              i.fa.fa-bank
+            h4 产品招商
+            ul.list-unstyled
+              li
+                i.fa.fa-user
+                |  解总
+              li
+                i.fa.fa-phone
+                |  010-59755826转805
+      .row
+        .col-sm-12.col-xs-12
+          h3.main-heading2(style="margin-top: 20px;")
+            | 加入我们
+            small
+              |  联系人: 何先生
+              a(href='mailto:695152004@qq.com') (邮箱)
+          #accordion-faqs.panel-group
+            - for (var i = 0; i < employments.length; i++)
+              - var employment = employments[i]
+              .panel
+                .panel-heading
+                  h5.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse#{i}')
+                      | #{employment.title}
+                - var id = "collapse" + i
+                div.panel-collapse.collapse(id='#{id}')
+                  .panel-body
+                    - if (employment.duty != '')
+                      h6 岗位职责:
+                      ul.list-unstyled
+                        - for (var j = 0; j < employment.duty.length; j++)
+                          - var content = employment.duty[j]
+                          li #{content}
+
+                    - if (employment.requirement != '')
+                      h6 任职要求:
+                      ul.list-unstyled
+                        - for (var j = 0; j < employment.requirement.length; j++)
+                          - var content = employment.requirement[j]
+                          li #{content}

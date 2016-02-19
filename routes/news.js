@@ -65,6 +65,10 @@ router.get('/detail', function(req, res, next) {
     .findById(newsId)
     .exec()
     .then(function(news) {
+      news.pv += 1
+      return news.save()
+    })
+    .then(function(news) {
       res.status(200).send(news);
     })
     .catch(function(err) {
@@ -91,9 +95,6 @@ router.post('/', function(req, res, next) {
 
   var thumbnail = $('img').first().attr('src');
   var abstract = $('p').first().text();
-
-
-  console.log(data['tags']);
 
   if (newsId) {
     // 更新资讯
@@ -145,7 +146,7 @@ router.post('/', function(req, res, next) {
 /**
  * 删除资讯
  */
-router.delete('/news', function(req, res, next) {
+router.delete('/', function(req, res, next) {
   var newsId = req.query.id || '';
   if (!newsId) {
     res.status(204).send();

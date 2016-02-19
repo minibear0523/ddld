@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 招聘详情
+        small 添加 & 修改
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li
+          a(href='/dashboard/employment')
+            i.fa.fa-file-o
+            |  招聘信息
+        li.active 职位详情
+    section.content
+      .row
+        .col-xs-12
+          .box.box-info
+            form#form-employment.form-horizontal
+              .box-body
+                .form-group
+                  label.col-sm-2.control-label(for='inputTitle') 职位
+                  .col-sm-10
+                    input#inputTitle.form-control(type='text', placeholder='输入职位名称')
+                .form-group
+                  label.col-sm-2.control-label(for='inputDuty') 岗位职责
+                  .col-sm-10
+                    textarea#inputDuty.form-control(rows='25', placeholder='输入岗位职责')
+                .form-group
+                  label.col-sm-2.control-label(for='inputRequirement') 任职要求
+                  .col-sm-10
+                    textarea#inputRequirement.form-control(rows='25', placeholder='输入职位要求')
+                .form-group
+              .box-footer
+                button#delete-btn.btn.btn-danger.btn-flat(type='submit') 删除
+                button#submit-btn.btn.btn-info.pull-right(type='submit') 提交
+
+block js-external
+  script(src='/dashboard/js/employment.js')

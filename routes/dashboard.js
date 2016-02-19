@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Products = require('../models/product');
-var News = require('../models/news')
+var News = require('../models/news');
+var Employments = require('../models/employment');
 
 /**
  * 后台首页
@@ -98,4 +99,31 @@ router.get('/news', function(req, res, next) {
 router.get('/news/detail', function(req, res, next) {
   res.render('dashboard/news_detail');
 });
+
+/**
+ * 招聘信息列表
+ */
+router.get('/employment', function(req, res, next) {
+  Employments
+    .find()
+    .exec()
+    .then(function(employments) {
+      res.render('dashboard/employment', {employments: employments});
+    })
+    .catch(function(err) {
+      res.status(404).send(err);
+    });
+});
+
+/**
+ * 添加新的招聘信息
+ */
+router.get('/employment/new', function(req, res, next) {
+  res.render('dashboard/employment_new');
+});
+
+router.get('/employment/detail', function(req, res, next) {
+  res.render('dashboard/employment_new');
+});
+
 module.exports = router;

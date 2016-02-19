@@ -161,6 +161,34 @@
     });
   }
 
+  function deleteNews() {
+    var newsId = parseNewsId();
+    if (newsId) {
+      var url = '/news?id=' + newsId;
+      Messenger().ajax({
+        successMessage: '删除成功',
+        errorMessage: '删除失败, 请重试',
+        progressMessage: '删除中...',
+        retry: false,
+        showCloseButton: false,
+        hideAfter: 3
+      }, {
+        url: url,
+        type: 'DELETE',
+        success: function() {
+          location.href = '/dashboard/news';
+        }
+      });
+    } else {
+      Messenger().error({
+        message: '文章不存在',
+        showCloseButton: false,
+        hideAfter: 3,
+        retry: false
+      })
+    }
+  }
+
   $(function() {
     if (parseNewsId()) {
       updateNewsDetail(parseNewsId());
