@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-# Created by https://www.gitignore.io/api/node,osx,webstorm,sublimetext
-
-### Node ###
-=======
->>>>>>> 5950b57b7b4ec521e914312649d12d966068e039
 # Logs
 logs
 *.log
@@ -136,5 +129,5 @@ fabric.properties
 # sftp configuration file
 sftp-config.json
 
-=======
->>>>>>> 5950b57b7b4ec521e914312649d12d966068e039
+# upload folders
+/uploads/*

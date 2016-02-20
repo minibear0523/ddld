@@ -6,6 +6,9 @@ var router = express.Router();
 var Q = require('q');
 var News = require('../models/news');
 var cheerio = require('cheerio');
+var redis = require('redis');
+var client = redis.createClient();
+client.select(3);
 
 var PAGE_LIMIT = 10;
 /**
@@ -16,31 +19,35 @@ var PAGE_LIMIT = 10;
  * :params page: 分页的页数, 每页是PAGE_LIMIT条资讯.
  */
 router.get('/', function(req, res) {
- var kind = req.query.kind || "";
- var page = req.query.page || 1;
- var skip = (page - 1) * PAGE_LIMIT;
- var query = {};
- if (kind) {
-   query['kind'] = kind;
- }
+  var kind = req.query.kind || "";
+  var page = req.query.page || 1;
+  var skip = (page - 1) * PAGE_LIMIT;
+  var query = {};
+  if (kind) {
+    query['kind'] = kind;
+  }
+  var data = {
+    kind: kind
+  };
 
  News
-   .find(query)
-   .sort({date: -1})
-   .limit(PAGE_LIMIT)
-   .skip(skip)
-   .exec()
-   .then(function(news_list) {
-     var data = {
-       page: page,
-       kind: kind,
-       news_list: news_list
-     };
-     return res.render('news', data);
-   })
-   .catch(function(err) {
-     return res.status(404).send(err);
-   });
+    .find(query)
+    .sort({date: -1})
+    .limit(PAGE_LIMIT)
+    .skip(skip)
+    .exec()
+    .then(function(news_list) {
+      data['page'] = page;
+      data['news_list'] = news_list;
+      return News.count(query).exec();
+    })
+    .then(function(count) {
+      data['total'] = parseInt(count/PAGE_LIMIT) + 1;
+      return res.render('news', data);
+    })
+    .catch(function(err) {
+      return res.status(404).send(err);
+    });
 });
 
 /**
@@ -51,6 +58,10 @@ router.get('/detail/:id', function(req, res, next) {
   News
     .findById(newsId)
     .exec()
+    .then(function(news) {
+      news.pv += 1
+      return news.save();
+    })
     .then(function(news) {
       return res.render('news_detail', {news: news});
     })
@@ -142,6 +153,14 @@ router.post('/', function(req, res, next) {
       })
   }
 });
+
+function storeTags(tags) {
+  tags.forEach(function(tag, i, tags) {
+    client.zincrby('tags:news', 1, tag, function(err, response) {
+      console.log(response);
+    });
+  });
+}
 
 /**
  * 删除资讯
