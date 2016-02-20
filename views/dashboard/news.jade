@@ -27,6 +27,7 @@ block content
                     th 标题
                     th 来源
                     th 分类
+                    th 标签
                     th 浏览量
                     th 状态
                     th 发布日期
@@ -38,6 +39,7 @@ block content
                         a(href='/dashboard/news/detail?id=#{news.id}') #{news.title}
                       td #{news.source}
                       td #{news.kindString}
+                      td #{news.tags}
                       td #{news.pv}
                       td #{news.publishString}
                       td #{news.dateString}

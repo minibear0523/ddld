@@ -1,4 +1,5 @@
 extends layout
+block css-external
 
 block content
   .main-banner.seven
@@ -87,10 +88,8 @@ block content
           li
             a(href='#') 行业资讯
         h4.side-heading1 标签
-        ul.list-unstyled.list-inline.list-tags
-          li
-            a(href='#') 公司动态
-          li
-            a(href='#') 行业动态
-          li
-            a(href='#') 新药研发
+        ul#tags-list.list-unstyled.list-inline.list-tags
+          li(style='display:none;')
+            a(href='#')
+block js-external
+  script(src='/front/javascripts/news.js')
