@@ -1,7 +1,8 @@
 extends layout
 block css-external
   link(rel="stylesheet", href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css")
-  link(rel='stylesheet', href='plugins/mapsed/mapsed.css')
+  link(rel='stylesheet', href='/plugins/mapsed/mapsed.css')
+  link(rel='stylesheet', href='/front/stylesheets/intro.css')
 
 block content
   .main-banner.one
@@ -32,7 +33,7 @@ block content
           p
             | 十五年来，根据国家政策导向及市场需求，公司陆续建立了手性药物合成技术平台、精神类药物开发平台、创新制剂技术平台/经皮给药技术平台、儿童药开发平台、仿制药一致性评价技术支持平台等。
         .col-md-6.col-xs-12.intro-video
-          video()
+          video#intro-video(src='http://www.html5videoplayer.net/videos/toystory.mp4', autoplay, controls='controls', width='100%', height='100%') 您的浏览器不支持该视频播放
   section.about-featured.parallax
     .container
       h3.lite 经营理念
