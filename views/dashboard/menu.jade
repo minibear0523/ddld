@@ -19,10 +19,20 @@
               a(href='#')
                 i.fa.fa-dashboard
                 span 首页
-            li
+            li.treeview
               a(href='#')
                 i.fa.fa-file-image-o
                 span 内容管理
+                i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a(href='/dashboard/platforms')
+                    i.fa.fa-circle-o
+                    | 技术平台
+                li
+                  a(href='/dashboard/intro')
+                    i.fa.fa-circle-o
+                    | 多媒体管理
             li.treeview
               a(href='#')
                 i.fa.fa-plus-square

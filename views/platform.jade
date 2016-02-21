@@ -17,48 +17,15 @@ block content
     p
       | 我们的研发平台有着自己一套严格的研发管理流程，秉承研发全过程GMP管理理念，实行计划、落实、监督、结果落实的四步标准工作原则。公司力求创新，拥有先进的创新手性合成药物、口服制剂、贴剂、膜剂、注射剂的产业化技术及相关的设备平台，已获得创新技术发明授权专利10项，目前在申请相关领域的专利20余项，公司将规范化、专业化、和国家的法规政策有效结合、向国际化接轨作为始终的目标，力求为员工、客户、合作者打造一条阳光、正义、和谐、发展和共赢的平台和环境，共赢天下。
     #accordion-faqs.panel-group
-      .panel
-        .panel-heading
-          h5.panel-title
-            a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse1')
-              | 手性药技术合成平台
-        #collapse1.panel-collapse.collapse.in
-          .panel-body
-            p
-              | 公司从建设初期就立足于以研发为主，以合成药的开发研究为龙头，在一些高难手性药物合成药研究开发上名列前茅，非官方统计在近八年新药研发申请大排行中跻身国内百家研究单位之列，位列第82位，敢与国内百强企业研究所、国家级大的研究院校争高低，这是公司一直持续发展之根本。
-      .panel
-        .panel-heading
-          h5.panel-title
-            a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse2')
-              | 创新制剂技术平台/经皮给药技术平台
-        #collapse2.panel-collapse.collapse
-          .panel-body
-            p
-              | 经皮给药贴剂（transdermal patches, TP）是药物经过皮肤吸收，进入体循环而产生疗效的一类新制剂。TP一经出现，就以其持久、恒定和可控的血药浓度，避免肝首过效应，给药方便，患者依从性高等优点倍受医药界的关注。我公司与沈阳药科大学经皮给药实验室进行合作，并建立了自己的经皮给药实验平台，未来会有更多的经皮该药项目开发。
-      .panel
-        .panel-heading
-          h5.panel-title
-            a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse3')
-              | 儿童药物开发平台
-        #collapse3.panel-collapse.collapse
-          .panel-body
-            p
-              | 近年来,在保证儿童用药的合理安全方面、在儿童用药剂型的开发方面,临床医生和药物研究者都给予了极大的关注，针对当前儿童药物的市场现状，我公司首要将儿童用药在专科领域进行深入研究，包括新药研发、剂型开发等，在儿童用药领域药品开发，创立科学严谨的技术平台。
-      .panel
-        .panel-heading
-          h5.panel-title
-            a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse4')
-              | 精神药物开发平台
-        #collapse4.panel-collapse.collapse
-          .panel-body
-            p
-              | 随着人类生活水平的提高，人类老龄化社会发展进程加快、青壮年人群学习工作压力增加，老年痴呆症（AD）、抑郁症、焦虑症患者数量急剧增长，已成为全社会关注和亟待解决的焦点之一。我公司全面贯彻全民大健康概念，着眼于右旋佐匹克隆、伊潘立酮、左乙拉西坦、卡巴拉汀等一系列精神类药物研发，包括新药开发、新剂型开发等。
-      .panel
-        .panel-heading
-          h5.panel-title
-            a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse5')
-              | 仿制药一致性评价技术支持平台
-        #collapse5.panel-collapse.collapse
-          .panel-body
-            p
-              | 面对2018年底即将要通过一致性评价的月300个品种，近18000个批准文号，涉及1883个药品生产企业。作为专业的药品研发机构，我们推出规范化、专业化、与国际接轨全套一致性评价服务平台，该平台涵盖体外药学和体内BE试验部分。
+      - for (var i = 0; i < platforms.length; i++)
+        - var platform = platforms[i]
+        .panel
+          .panel-heading
+            h5.panel-title
+              a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse#{i}')
+                | #{platform.name}
+          - var id = 'collapse' + i
+          div.panel-collapse.collapse(id='#{id}')
+            .panel-body
+              p
+                | #{platform.intro}

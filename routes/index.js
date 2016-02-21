@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Employments = require('../models/employment');
+var Platforms = require('../models/platform');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,10 +14,6 @@ router.get('/404', function(req, res, next) {
 
 router.get('/intro', function(req, res, next) {
   res.render('intro');
-});
-
-router.get('/platform', function(req, res, next) {
-  res.render('platform');
 });
 
 router.get('/contact', function(req, res, next) {
@@ -105,6 +102,85 @@ router.delete('/employment', function(req, res, next) {
         res.status(200).send();
       }
     });
+});
+
+/**
+ * 技术平台相关API
+ */
+router.get('/platform', function(req, res, next) {
+  var platformId = req.query.id || "";
+  if (platformId) {
+    Platforms
+      .findById(platformId)
+      .exec()
+      .then(function(platform) {
+        res.status(200).send(platform);
+      })
+      .catch(function(err) {
+        res.status(404).send(err);
+      });
+  } else {
+    Platforms
+      .find()
+      .exec()
+      .then(function(platforms) {
+        res.render('platform', {platforms: platforms});
+      })
+      .catch(function(err) {
+        res.render('404', {err: err});
+      });
+  }
+});
+
+router.post('/platform', function(req, res, next) {
+  var platformId = req.query.id || "";
+  var name = req.body.name;
+  var intro = req.body.intro;
+  if (platformId) {
+    Platforms
+      .findById(platformId)
+      .exec()
+      .then(function(platform) {
+        platform.name = name;
+        platform.intro = intro;
+        return platform.save();
+      })
+      .then(function(platform) {
+        res.status(200).send();
+      })
+      .catch(function(err) {
+        res.status(404).send(err);
+      });
+  } else {
+    var platform = new Platforms({
+      name: name,
+      intro: intro
+    });
+    platform
+    .save()
+    .then(function(platform) {
+      res.status(200).send();
+    })
+    .catch(function(err) {
+      res.status(400).send(err);
+    });
+  }
+});
+
+router.delete('/platform', function(req, res, next) {
+  var platformId = req.query.id || "";
+  if (!platformId) {
+    res.status(404).send();
+  } else {
+    Platforms
+      .findByIdAndRemove(platformId, function(err) {
+        if (err) {
+          res.status(400).send(err);
+        } else {
+          res.status(200).send();
+        }
+      });
+  }
 });
 
 module.exports = router;

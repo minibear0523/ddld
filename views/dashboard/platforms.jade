@@ -1,0 +1,36 @@
+extends layout
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 技术平台
+        small
+          a.btn.btn-sm.btn-flat.btn-block(href='/dashboard/platform')  添加新技术平台
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li.active
+          a(href='#')
+            i.fa.fa-circle-o
+            |  技术平台
+    section.content
+      .row
+        .col-xs-12
+          .box
+            .box-header
+              h3.box-title 技术平台列表
+            .box-body
+              table#platforms.table.table-bordered.table-hover
+                thead
+                  tr
+                    th 名称
+                    th 介绍
+                tbody
+                  - for (var i = 0; i < platforms.length; i++)
+                    - var platform = platforms[i]
+                    tr
+                      td
+                        a(href='/dashboard/platform?id=#{platform.id}') #{platform.name}
+                      td #{platform.intro}

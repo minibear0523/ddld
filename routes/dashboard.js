@@ -3,6 +3,7 @@ var router = express.Router();
 var Products = require('../models/product');
 var News = require('../models/news');
 var Employments = require('../models/employment');
+var Platforms = require('../models/platform');
 
 /**
  * 后台首页
@@ -10,6 +11,29 @@ var Employments = require('../models/employment');
 router.get('/home', function(req, res, next) {
   res.render('dashboard/index');
 });
+
+/**
+ * 技术平台管理列表页
+ */
+router.get('/platforms', function(req, res, next) {
+  Platforms
+    .find()
+    .exec()
+    .then(function(platforms) {
+      res.render('dashboard/platforms', {platforms: platforms});
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.render('404', {err: err});
+    });
+});
+
+/**
+ * 技术平台详情页面
+ */
+router.get('/platform', function(req, res, next) {
+  res.render('dashboard/platform');
+})
 
 /**
  * 产品管理--转让产品列表

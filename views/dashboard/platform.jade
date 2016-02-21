@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 技术平台详情
+        small  添加 & 修改
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li
+          a(href='/dashboard/platforms')
+            i.fa.fa-circle-o
+            |  技术平台
+        li.active 技术平台详情
+      section.content
+        .row
+          .col-md-12.col-xs-12
+            .box.box-info
+              form.form-horizontal
+                .box-body
+                  .form-group
+                    label.col-sm-2.control-label(for='inputName') 平台名称
+                    .col-sm-10
+                      input#inputName.form-control(type='text', placeholder='输入技术平台名称')
+                  .form-group
+                    label.col-sm-2.control-label(for='inputIntro') 平台介绍
+                    .col-sm-10
+                      textarea#inputIntro.form-control(rows='50', placeholder='输入技术平台介绍')
+                .box-footer
+                  button#delete-btn.btn.btn-danger.btn-flat(type='submit') 删除
+                  button#submit-btn.btn.btn-info.btn-flat.pull-right(type='submit') 提交
+
+block js-external
+  script(src='/dashboard/js/platform.js')
