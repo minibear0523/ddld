@@ -1,4 +1,6 @@
 video#intro-video {
-  padding-top: 250px;
-  padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  margin-top: 250px;
+  margin-bottom: 20px;
 }
