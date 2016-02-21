@@ -131,3 +131,6 @@ sftp-config.json
 
 # upload folders
 /uploads/*
+
+#redis
+dump.rdb
