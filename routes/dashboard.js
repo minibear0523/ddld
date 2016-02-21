@@ -13,6 +13,13 @@ router.get('/home', function(req, res, next) {
 });
 
 /**
+ * 多媒体管理
+ */
+router.get('/intro', function(req, res, next) {
+  res.render('dashboard/intro');
+});
+
+/**
  * 技术平台管理列表页
  */
 router.get('/platforms', function(req, res, next) {
