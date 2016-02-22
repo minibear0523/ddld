@@ -40,25 +40,25 @@ header.main-header
         // Navbar Collapse Starts
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
-            li.active
+            li.home
               a(href="/") 首页
-            li
+            li.intro
               a(href='/intro') 走进大道
-            li.dropdown
+            li.platform.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 | 技术平台
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='/platform') 手性药合成技术平台
+                  a(href='/platform#collapse0') 手性药合成技术平台
                 li
-                  a(href='/platform') 经皮给药技术平台
+                  a(href='/platform#collapse1') 经皮给药技术平台
                 li
-                  a(href='/platform') 儿童药物开发平台
+                  a(href='/platform#collapse2') 儿童药物开发平台
                 li
-                  a(href='/platform') 精神类药物开发平台
+                  a(href='/platform#collapse3') 精神类药物开发平台
                 li
-                  a(href='/platform') 一致性评价技术平台
-            li.dropdown
+                  a(href='/platform#collapse4') 一致性评价技术平台
+            li.products.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 | 产品中心
               ul.dropdown-menu(role='menu')
@@ -66,10 +66,10 @@ header.main-header
                   a(href='/products/transfer') 转让品种
                 li
                   a(href='/products/merchant') 招商品种
-            li
+            li.news
               a(href='/news')
                 | 资讯中心
-            li
+            li.contact
               a(href='/contact')
                 | 关于我们
         // Navbar Collapse Ends
