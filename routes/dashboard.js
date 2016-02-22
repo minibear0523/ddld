@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
+var fs = require('fs');
 var Products = require('../models/product');
 var News = require('../models/news');
 var Employments = require('../models/employment');
@@ -16,7 +18,21 @@ router.get('/home', function(req, res, next) {
  * 多媒体管理
  */
 router.get('/intro', function(req, res, next) {
-  res.render('dashboard/intro');
+  var imagesPath = '/Users/MiniBear0523/Projects/ddld/uploads/certifications';
+  console.log(imagesPath);
+  fs.readdir(imagesPath, function(err, files) {
+    var images = new Array();
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      if (path.extname(file) == '.jpg' || path.extname(file) == '.png') {
+        var url = '/certifications/' + file;
+        images.push(url);
+      }
+    }
+    console.log(images);
+    res.render('dashboard/intro', {images: images});
+  })
+
 });
 
 /**

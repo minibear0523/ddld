@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+var path = require('path');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

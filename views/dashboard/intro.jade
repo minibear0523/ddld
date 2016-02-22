@@ -4,8 +4,7 @@ block content
     section.content-header
       h1
         | 多媒体管理
-        small
-          a.btn.btn-sm.btn-flat.btn-block(href='')  添加新文件
+        small  添加 & 修改
       ol.breadcrumb
         li
           a(href='/dashboard/home')
@@ -18,11 +17,13 @@ block content
           .box
             .box-header
               h3.box-title 图片列表
+              a.pull-right.btn-box-tool(href='')
+                  i.fa.fa-plus
             .box-body
-              table#images.table.table-bordered.table-hover
-                thead
-                  tr
-
+              .row.margin-bottom
+                - for (var i = 0; i < images.length; i++)
+                  .col-sm-4.col-xs-6
+                    img.img-responsive(src='#{images[i]}')
 
         .col-xs-12.col-md-6
           .box
