@@ -1,4 +1,6 @@
 extends layout
+block css-external
+  link(rel='stylesheet', href='/dashboard/css/intro.css')
 block content
   .content-wrapper
     section.content-header
@@ -23,7 +25,11 @@ block content
               .row.margin-bottom
                 - for (var i = 0; i < images.length; i++)
                   .col-sm-4.col-xs-6
-                    img.img-responsive(src='#{images[i]}')
+                    .hover-content
+                      img.img-responsive(src='#{images[i]}')
+                      .overlay
+                        a.btn.btn-secondary.zoom(href='#{images[i]}')
+                          i.fa.fa-image
 
         .col-xs-12.col-md-6
           .box

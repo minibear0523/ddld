@@ -1,7 +1,6 @@
 extends layout
 block css-external
   link(rel="stylesheet", href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css")
-  link(rel='stylesheet', href='/plugins/mapsed/mapsed.css')
   link(rel='stylesheet', href='/front/stylesheets/intro.css')
 
 block content
@@ -64,24 +63,14 @@ block content
     h2.main-heading2.nomargin-top 荣誉及成果
     .gallery-grid
       .row
-        .col-md-4.col-sm-6.col-xs-12
-          .hover-content
-            img.img-responsive(src='front/images/certification/approved_document.jpg')
-            .overlay
-              a.btn.btn-secondary.zoom(href='front/images/certification/approved_document.jpg')
-                i.fa.fa-image
-        .col-md-4.col-sm-6.col-xs-12
-          .hover-content
-            img.img-responsive(src='front/images/certification/company_certification.jpg')
-            .overlay
-              a.btn.btn-secondary.zoom(href='front/images/certification/company_certification.jpg')
-                i.fa.fa-image
-        .col-md-4.col-sm-6.col-xs-12
-          .hover-content
-            img.img-responsive(src='front/images/certification/high_tech_certification.jpg')
-            .overlay
-              a.btn.btn-secondary.zoom(href='front/images/certification/high_tech_certification.jpg')
-                i.fa.fa-image
+        - for (var i = 0; i < images.length; i++)
+          - var imageURL = images[i]
+          .col-md-4.col-sm-6.col-xs-12
+            .hover-content
+              img.img-responsive(src='#{imageURL}')
+              .overlay
+                a.btn.btn-secondary.zoom(href='#{imageURL}')
+                  i.fa.fa-image
     h2.main-heading2.nomargin-top 合作伙伴
     #partners.portfolio
       .container
@@ -92,7 +81,7 @@ block content
 
 
 
-block js-externals
+block js-external
   script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
   script(type="text/javascript", src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js")
   script(type="text/javascript", src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js")
