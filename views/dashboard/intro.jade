@@ -15,7 +15,13 @@ block content
         li.active 多媒体管理
     section.content
       .row
-        .col-xs-12.col-md-6
+        .col-xs-12.col-md-12
+          .box
+            .box-header
+              h3.box-title 视频管理
+            .box-body
+      .row
+        .col-xs-12.col-md-12
           .box
             .box-header
               h3.box-title 图片列表
@@ -28,11 +34,8 @@ block content
                     .hover-content
                       img.img-responsive(src='#{images[i]}')
                       .overlay
-                        a.btn.btn-secondary.zoom(href='#{images[i]}')
-                          i.fa.fa-image
+                        a#delete-image-btn.btn.btn-secondary.zoom(href='#{images[i]}')
+                          i.fa.fa-close
 
-        .col-xs-12.col-md-6
-          .box
-            .box-header
-              h3.box-title 视频管理
-            .box-body
+block js-external
+  script(src='/dashboard/js/intro.js')
