@@ -19,20 +19,22 @@ router.get('/home', function(req, res, next) {
  */
 router.get('/intro', function(req, res, next) {
   var imagesPath = '/Users/MiniBear0523/Projects/ddld/uploads/certifications';
-  console.log(imagesPath);
+  var images = new Array();
   fs.readdir(imagesPath, function(err, files) {
-    var images = new Array();
-    for (var i = 0; i < files.length; i++) {
-      var file = files[i];
-      if (path.extname(file) == '.jpg' || path.extname(file) == '.png') {
-        var url = '/certifications/' + file;
-        images.push(url);
+    if (err) {
+      res.render('dashboard/intro', {images: []});
+    } else {
+      for (var i = 0; i < files.length; i++) {
+        var images = new Array();
+        var file = files[i];
+        if (path.extname(file) == '.jpg' || path.extname(file) == '.png') {
+          var url = '/certifications/' + file;
+          images.push(url);
+        }
+        res.render('dashboard/intro', {images: images}); 
       }
     }
-    console.log(images);
-    res.render('dashboard/intro', {images: images});
-  })
-
+  });
 });
 
 /**

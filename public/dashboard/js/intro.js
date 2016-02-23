@@ -20,4 +20,7 @@
       }
     })
   });
+
+  $('#fileupload').fileupload({
+  });
 }(jQuery));

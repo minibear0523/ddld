@@ -1,5 +1,7 @@
 extends layout
 block css-external
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload.css')
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload-ui.css')
   link(rel='stylesheet', href='/dashboard/css/intro.css')
 block content
   .content-wrapper
@@ -25,7 +27,7 @@ block content
           .box
             .box-header
               h3.box-title 图片列表
-              a.pull-right.btn-box-tool(href='')
+              a.pull-right.btn-box-tool(data-toggle='modal', data-target='#imagesModal')
                   i.fa.fa-plus
             .box-body
               .row.margin-bottom
@@ -37,5 +39,30 @@ block content
                         a#delete-image-btn.btn.btn-secondary.zoom(href='#{images[i]}')
                           i.fa.fa-close
 
+            #imagesModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#imagesModalLabel')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='关闭')
+                      span(aria-hidden='true') &times;
+                    h4.modal-title 添加新图片
+                  .modal-body
+                    form#fileupload.form-horizontal
+                      .form-group
+                        .col-md-offset-5
+                          span.btn.btn-success.btn-flat.fileinput-button
+                            i.fa.fa-plus
+                            | 选择文件
+                            input(type='file', name='file')
+                  .modal-footer
+                    button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
+                    button.btn.btn-outline(type='button') 上传
+
 block js-external
+  script(src='/plugins/jquery-file-uploader/js/vendor/jquery.ui.widget.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.iframe-transport.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.fileupload.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.fileupload-image.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.fileupload-ui.js')
   script(src='/dashboard/js/intro.js')
+  

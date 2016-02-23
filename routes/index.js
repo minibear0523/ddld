@@ -18,15 +18,19 @@ router.get('/404', function(req, res, next) {
 router.get('/intro', function(req, res, next) {
   var imagesPath = '/Users/MiniBear0523/Projects/ddld/uploads/certifications';
   fs.readdir(imagesPath, function(err, files) {
-    var images = new Array();
-    for (var i = 0; i < files.length; i++) {
-      if (path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png') {
-        var url = '/certifications/' + files[i];
-        console.log(url);
-        images.push(url);
+    if (err) {
+      res.render('intro', {images: []});
+    } else {
+      var images = new Array();
+      for (var i = 0; i < files.length; i++) {
+        if (path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png') {
+          var url = '/certifications/' + files[i];
+          console.log(url);
+          images.push(url);
+        }
       }
+      res.render('intro', {images: images});
     }
-    res.render('intro', {images: images});
   });
 });
 
