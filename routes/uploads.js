@@ -7,7 +7,7 @@ var multer = require('multer');
 
 var newsStorage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, '/Users/MiniBear/Projects/DDLD/ddld/uploads/news/')
+    cb(null, '../uploads/news/')
   },
   filename: function(req, file, cb) {
     crypto.pseudoRandomBytes(16, function(err, raw) {
@@ -18,7 +18,7 @@ var newsStorage = multer.diskStorage({
 
 var introStorage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, '/Users/MiniBear/Projects/DDLD/ddld/uploads/certifications/')
+    cb(null, '../uploads/certifications/')
   },
   filename: function(req, file, cb) {
     crypto.pseudoRandomBytes(16, function(err, raw) {
@@ -47,7 +47,7 @@ router.post('/news', multer({storage: newsStorage}).single('file'), function(req
  */
 router.delete('/news/:filename', function(req, res, next) {
   var filename = req.params.filename;
-  var filePath = '/Users/MiniBear/Projects/ddld/uploads/news/' + filename;
+  var filePath = '../uploads/news/' + filename;
 
   fs.unlink(filePath, function(err) {
     if (err) {
@@ -75,7 +75,7 @@ router.post('/intro', multer({storage: introStorage}).single('file'), function(r
  */
 router.delete('/intro/:filename', function(req, res, next) {
   var filename = req.params.filename;
-  var filePath = '/Users/MiniBear/Projects/ddld/uploads/certifications/' + filename;
+  var filePath = '../uploads/certifications/' + filename;
   fs.unlink(filePath, function(err) {
     if (err) {
       res.status(400).send(err);
