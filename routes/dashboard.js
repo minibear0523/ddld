@@ -18,7 +18,7 @@ router.get('/home', function(req, res, next) {
  * 多媒体管理
  */
 router.get('/intro', function(req, res, next) {
-  var imagesPath = '/Users/MiniBear0523/Projects/ddld/uploads/certifications';
+  var imagesPath = '/Users/MiniBear/Projects/DDLD/ddld/uploads/certifications';
   var images = new Array();
   fs.readdir(imagesPath, function(err, files) {
     if (err) {
