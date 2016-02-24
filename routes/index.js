@@ -5,6 +5,7 @@ var path = require('path');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 
+var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,7 +17,7 @@ router.get('/404', function(req, res, next) {
 });
 
 router.get('/intro', function(req, res, next) {
-  var imagesPath = '/Users/MiniBear0523/Projects/ddld/uploads/certifications';
+  var imagesPath = introImagePath;
   fs.readdir(imagesPath, function(err, files) {
     if (err) {
       res.render('intro', {images: []});

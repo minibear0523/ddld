@@ -7,6 +7,7 @@ var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 
+var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications');
 /**
  * 后台首页
  */
@@ -18,10 +19,11 @@ router.get('/home', function(req, res, next) {
  * 多媒体管理
  */
 router.get('/intro', function(req, res, next) {
-  var imagesPath = '/Users/MiniBear/Projects/DDLD/ddld/uploads/certifications';
+  var imagesPath = introImagePath;
   var images = new Array();
   fs.readdir(imagesPath, function(err, files) {
     if (err) {
+      console.log(err);
       res.render('dashboard/intro', {images: []});
     } else {
       for (var i = 0; i < files.length; i++) {

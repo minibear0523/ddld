@@ -5,9 +5,12 @@ var crypto = require('crypto');
 var fs = require('fs');
 var multer = require('multer');
 
+var newsImagePath = path.join(__dirname, '..', 'uploads', 'news');
+var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications');
+
 var newsStorage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, '../uploads/news/')
+    cb(null, newsImagePath);
   },
   filename: function(req, file, cb) {
     crypto.pseudoRandomBytes(16, function(err, raw) {
@@ -18,7 +21,7 @@ var newsStorage = multer.diskStorage({
 
 var introStorage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, '../uploads/certifications/')
+    cb(null, introImagePath);
   },
   filename: function(req, file, cb) {
     crypto.pseudoRandomBytes(16, function(err, raw) {
@@ -47,7 +50,7 @@ router.post('/news', multer({storage: newsStorage}).single('file'), function(req
  */
 router.delete('/news/:filename', function(req, res, next) {
   var filename = req.params.filename;
-  var filePath = '../uploads/news/' + filename;
+  var filePath = path.join(newsImagePath, filename);
 
   fs.unlink(filePath, function(err) {
     if (err) {
@@ -75,7 +78,7 @@ router.post('/intro', multer({storage: introStorage}).single('file'), function(r
  */
 router.delete('/intro/:filename', function(req, res, next) {
   var filename = req.params.filename;
-  var filePath = '../uploads/certifications/' + filename;
+  var filePath = path.join(introImagePath, filename);
   fs.unlink(filePath, function(err) {
     if (err) {
       res.status(400).send(err);
