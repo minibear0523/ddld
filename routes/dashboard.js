@@ -22,7 +22,7 @@ router.get('/intro', function(req, res, next) {
   var imagesPath = introImagePath;
   var images = new Array();
   fs.readdir(imagesPath, function(err, files) {
-    if (err) {
+    if (err || files.length === 0) {
       console.log(err);
       res.render('dashboard/intro', {images: []});
     } else {

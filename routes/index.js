@@ -19,7 +19,7 @@ router.get('/404', function(req, res, next) {
 router.get('/intro', function(req, res, next) {
   var imagesPath = introImagePath;
   fs.readdir(imagesPath, function(err, files) {
-    if (err) {
+    if (err || files.length === 0) {
       res.render('intro', {images: []});
     } else {
       var images = new Array();
