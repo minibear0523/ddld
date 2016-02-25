@@ -31,13 +31,30 @@
   function replaceResults (img) {
     var content;
     if (!(img.src || img instanceof HTMLCanvasElement)) {
-      content = $('<span>Loading image file failed</span>');
+      content = $('<span>加载图片失败</span>');
     } else {
       content = $('<a target="_blank">').append(img)
         .attr('download', currentFile.name)
         .attr('href', img.src || img.toDataURL());
     }
     result.children().replaceWith(content);
+  }
+
+  /**
+   * 上传图片相关函数
+   */
+  var videoResult = $('#video-result');
+  var currentVideoFile;
+  function replaceVideoResults(video) {
+    // 模仿replaceResults函数, 替换video内容
+    var content;
+    if (!(video.src || video instanceof HTMLCanvasElement)) {
+      content = $('<span>加载视频失败</span>')
+    } else {
+      content = $('<a target="_blank"').append(video)
+        .attr('src', video.src || video.toDataURL());
+    }
+    videoResult.children().replaceWith(content);
   }
 
   function displayImage (file, options) {

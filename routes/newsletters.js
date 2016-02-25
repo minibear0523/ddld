@@ -10,7 +10,7 @@ var Q = require('q');
  * :param name: 姓名
  * :param email: 邮件地址
  */
-router.post('/', function(req, res, next) {
+router.post('/signup', function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
 
@@ -29,18 +29,31 @@ router.post('/', function(req, res, next) {
           name: name,
           email: email
         });
-        return newsletter.save().then(function(newsletter) {
-          res.status(201).send('订阅成功, 请前往邮箱验证.');
-        });
+        return newsletter.save();
       }
     })
+    .then(function(newsletter) {
+      // TODO: 发送邮件
+      res.status(201).send('订阅成功, 请前往邮箱验证.');
+    });
 });
 
 /**
  * 激活Newsletter
+ * Activation Key使用Newsletter的ID即可, 既保证unique, 又保证复杂性
  */
-router.get('/activate', function(req, res, next) {
-
+router.get('/activate/:key', function(req, res, next) {
+  var activationKey = req.params.key;
+  Newsletters
+    .findById(activationKey)
+    .exec()
+    .then(function(newsletter) {
+      if (newsletter) {
+        // 检验是否已经验证
+      } else {
+        // 没找到对应的newsletter
+      }
+    })
 });
 
 module.exports = router;
