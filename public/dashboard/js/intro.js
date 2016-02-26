@@ -4,7 +4,7 @@
   $('#delete-image-btn').on('click', function(e) {
     e.preventDefault();
     var url = e.target.parentElement.href;
-    var urlRegExp = new RegExp('\/certifications\/([a-zA-Z0-9_.]*)');
+    var urlRegExp = new RegExp('\/certifications\/images\/([a-zA-Z0-9_.]*)');
     var filename = urlRegExp.exec(url)[1];
     var deleteURL = '/uploads/intro/' + filename;
     Messenger().ajax({

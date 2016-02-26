@@ -57,9 +57,9 @@ block content
                 - for (var i = 0; i < images.length; i++)
                   .col-sm-4.col-xs-6
                     .hover-content
-                      img.img-responsive(src='#{images[i]}')
+                      img.img-responsive(src='#{images[i].thumbnail}')
                       .overlay
-                        a#delete-image-btn.btn.btn-secondary.zoom(href='#{images[i]}')
+                        a#delete-image-btn.btn.btn-secondary.zoom(href='#{images[i].image}')
                           i.fa.fa-close
 
             #imagesModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#imagesModalLabel')

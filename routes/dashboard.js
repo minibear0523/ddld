@@ -7,7 +7,7 @@ var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 
-var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications');
+var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
 /**
  * 后台首页
  */
@@ -25,15 +25,18 @@ router.get('/intro', function(req, res, next) {
     if (err || files.length === 0) {
       res.render('dashboard/intro', {images: []});
     } else {
+      var images = new Array();
       for (var i = 0; i < files.length; i++) {
-        var images = new Array();
         var file = files[i];
         if (path.extname(file) == '.jpg' || path.extname(file) == '.png') {
-          var url = '/certifications/' + file;
-          images.push(url);
+          var url = '/certifications/images/' + file;
+          images.push({
+            thumbnail: url.replace('images', 'thumbnails'),
+            image: url
+          });
         }
-        res.render('dashboard/intro', {images: images}); 
       }
+      res.render('dashboard/intro', {images: images}); 
     }
   });
 });

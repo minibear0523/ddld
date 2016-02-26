@@ -5,7 +5,7 @@ var path = require('path');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 
-var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications');
+var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,9 +25,11 @@ router.get('/intro', function(req, res, next) {
       var images = new Array();
       for (var i = 0; i < files.length; i++) {
         if (path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png') {
-          var url = '/certifications/' + files[i];
-          console.log(url);
-          images.push(url);
+          var url = '/certifications/images/' + files[i];
+          images.push({
+            image: url,
+            thumbnail: url.replace('images', 'thumbnails')
+          });
         }
       }
       res.render('intro', {images: images});

@@ -64,12 +64,12 @@ block content
     .gallery-grid
       .row
         - for (var i = 0; i < images.length; i++)
-          - var imageURL = images[i]
+          - var image = images[i]
           .col-md-4.col-sm-6.col-xs-12
             .hover-content
-              img.img-responsive(src='#{imageURL}')
+              img.img-responsive(src='#{image.thumbnail}')
               .overlay
-                a.btn.btn-secondary.zoom(href='#{imageURL}')
+                a.btn.btn-secondary.zoom(href='#{image.image}')
                   i.fa.fa-image
     h2.main-heading2.nomargin-top 合作伙伴
     #partners.portfolio
