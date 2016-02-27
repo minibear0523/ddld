@@ -131,95 +131,31 @@ block content
                 span.sr-only 下一个
               // Controls Ends
         // Products Carousel Ends
-        // Latest News Starts
         aside.col-md-4.col-xs-12
           .main-block1
             h2.main-heading1.lite 产品
             h2.main-heading2 转让 & 招商
             // Accordion Starts
             #accordion.panel-group
-              // Accordion #1 Starts
-              .panel
-                // Panel Heading Starts
-                .panel-heading
-                  h5.panel-title
-                    i.icon.fa.fa-plus-square
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse1')
-                      | 普乐沙福原料及注射液
-                // Panel Heading Ends
-                // Panel Body Starts
-                #collapse1.panel-collapse.collapse.in
-                  .panel-body
-                    p
-                      | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-                    a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 查看详情
-                // Panel Body Ends
-              // Accordion #1 Ends
-              // Accordion #2 Starts
-              .panel
-                // Panel Heading Starts
-                .panel-heading
-                  h5.panel-title
-                    i.icon.fa.fa-plus-square
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse2')
-                      | 盐酸法舒地尔注射液
-                #collapse2.panel-collapse.collapse
-                  .panel-body
-                    p
-                      | 商品名：祺利
-                      | 规格：2ml：30mg
-                      | 包装：3支/盒，360支/箱
-                      | 生产企业：山西普德药业有限公司
-                    a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 查看详情
-              // Accordion #2 Ends
-              // Accordion #2 Starts
-              .panel
-                // Panel Heading Starts
-                .panel-heading
-                  h5.panel-title
-                    i.icon.fa.fa-plus-square
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse3')
-                      | 盐酸法舒地尔注射液
-                #collapse3.panel-collapse.collapse
-                  .panel-body
-                    p
-                      | 商品名：祺利
-                      | 规格：2ml：30mg
-                      | 包装：3支/盒，360支/箱
-                      | 生产企业：山西普德药业有限公司
-                    a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 查看详情
-              // Accordion #2 Ends
-              .panel
-                // Panel Heading Starts
-                .panel-heading
-                  h5.panel-title
-                    i.icon.fa.fa-plus-square
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse4')
-                      | 普乐沙福原料及注射液
-                // Panel Heading Ends
-                // Panel Body Starts
-                #collapse4.panel-collapse.collapse
-                  .panel-body
-                    p
-                      | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-                    a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 查看详情
-
-              .panel
-                // Panel Heading Starts
-                .panel-heading
-                  h5.panel-title
-                    i.icon.fa.fa-plus-square
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse5')
-                      | 普乐沙福原料及注射液
-                // Panel Heading Ends
-                // Panel Body Starts
-                #collapse5.panel-collapse.collapse
-                  .panel-body
-                    p
-                      | 非霍奇金淋巴瘤（NHL）、多发性骨髓瘤（MM）和造血干细胞激活剂，规格20mg/ml 1.2ml/瓶，原研赛诺菲已完成临床，2015年申报进口注册许可证，另有3家已批临床，1家待批临床。属于孤儿药，可申请加快审评。
-                    a.btn.btn-sm.btn-transparent.inverse(href='/news/abc') 查看详情
-            // Accordion Ends
-        // Latest News Ends
+              - for (var i = 0; i < products_list.length; i++)
+                - var product = products_list[i]
+                .panel
+                  // Panel Heading Starts
+                  .panel-heading
+                    h5.panel-title
+                      i.icon.fa.fa-plus-square
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapse#{i}')
+                        | #{product.name}
+                  // Panel Heading Ends
+                  // Panel Body Starts
+                  - var id = 'collapse' + i
+                  div.panel-collapse.collapse(id='#{id}')
+                    .panel-body
+                      p
+                        | #{product.detail}
+                      a.btn.btn-sm.btn-transparent.inverse(href='/products/#{product.kind}') 查看所有产品
+                  // Panel Body Ends
+                // Accordion Ends
       // Company Introduction Section Starts
       section.company-intro
         .row
@@ -232,3 +168,6 @@ block content
             img.img-responsive.img-style1(src='front/images/image1.jpg', alt='image')
       // Company Introduction Section Ends
     // Main Container Ends
+
+block js-external
+  script(src='/front/javascripts/index.js')

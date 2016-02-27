@@ -19,7 +19,8 @@ var set = function(value) {
  */
 var get = function() {
   var _cache = this.cache;
-  if (expire && +new Date() - _cache.updateDate > expire) {
+  var _expire = this.expire;
+  if (_expire && (+new Date()) - _cache.updateDate > _expire) {
     // 数据已经过期, 返回null. Cache只负责储存数据, 但不负责数据的获取和更新, 这样可以保证解耦合性.
     return null;
   } else {
@@ -37,7 +38,6 @@ var createIndexPageCache = function() {
     cache: {},
     set: set,
     get: get,
-    clear: clear,
     updateDate: +new Date(),
     expire: CacheExpireTime,
   };
