@@ -142,7 +142,7 @@ router.get('/news', function(req, res, next) {
       res.render('dashboard/news', {news_list: news_list});
     })
     .catch(function(err) {
-      res.render('404');
+      res.render('../404');
     });
 });
 
