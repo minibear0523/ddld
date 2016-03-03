@@ -37,6 +37,8 @@ app.use(bodyParser.json({limit: '5MB'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '5MB' }));
 app.use(cookieParser());
 
+app.enable('trust proxy');
+
 // Static Files: 静态资源应该前置于路由之前
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
