@@ -34,7 +34,7 @@ var introStorage = multer.diskStorage({
 /**
  * 上传资讯图片
  */
-router.post('/news', multer({storage: newsStorage, limits: {fieldSize: '5MB'}}).single('file'), function(req, res, next) {
+router.post('/news', multer({storage: newsStorage, limits: {fieldSize: 5*1024*1024}}).single('file'), function(req, res, next) {
   var data = {
     url: '/news/' + req.file.filename,
     path: req.file.path,
@@ -65,7 +65,7 @@ router.delete('/news/:filename', function(req, res, next) {
 /**
  * 上传介绍图片
  */
-router.post('/intro', multer({storage: introStorage, limits: {fieldSize: '5MB'}}).single('file'), function(req, res, next) {
+router.post('/intro', multer({storage: introStorage, limits: {fieldSize: 5*1024*1024}}).single('file'), function(req, res, next) {
   var filename = req.file.filename;
   var data = {
     url: '/certifications/images/' + filename,
