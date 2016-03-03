@@ -1418,9 +1418,9 @@ ul#products-grid {
 	overflow: hidden;
 }
 	ul#products-grid.grid > li > .product-box {
-		min-height: 280px;
+		min-height: 300px;
 		height: auto !important;
-		height: 280px;
+		height: 300px;
 	}
 	.products-grid .product-box {
 		text-align: center;
