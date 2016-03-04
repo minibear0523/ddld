@@ -38,9 +38,6 @@ block content
                     - var tag = news.tags[i]
                     a(href='#') #{tag}
                     | ,
-                li
-                  //- i.fa.fa-share-alt
-                  #sosh-share
               .news-post-content
                 p
                   | !{news.detail}
@@ -58,6 +55,9 @@ block content
             - var tag = news.tags[i]
             li
               a(href='#') #{tag}
+
+        h4.side-heading1 分享
+        #sosh-share
 
 block js-external
   script(src='/plugins/sosh/sosh.js')
