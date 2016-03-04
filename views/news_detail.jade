@@ -35,12 +35,6 @@ block content
                 li
                   i.fa.fa-bars
                   |  #{news.kindString}
-                li
-                  i.fa.fa-tag
-                  - for (var i = 0; i < news.tags.length; i++)
-                    - var tag = news.tags[i]
-                    a(href='#') #{tag}
-                    | ,
               .news-post-content
                 p
                   | !{news.detail}
