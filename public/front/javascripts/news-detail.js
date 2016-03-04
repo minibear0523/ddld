@@ -12,7 +12,7 @@
         title: news.title,
         digest: news.abstract,
         pic: news.thumbnail,
-        sites: ['weixin', 'weibo', 'qzone']
+        sites: ['weixin', 'weixintimeline', 'weibo', 'qq', 'qzone']
       });
     }
   });
