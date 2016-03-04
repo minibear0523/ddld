@@ -107,6 +107,10 @@ router.post('/', function(req, res, next) {
   var thumbnail = $('img').first().attr('src');
   var abstract = $('p').first().text();
 
+  if (data['tags']) {
+    storeTags(data['tags']);
+  }
+
   if (newsId) {
     // 更新资讯
     News
