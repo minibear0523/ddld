@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
                 .exec()
       })
       .then(function(news) {
-        data['news_list'] = news;
+        data['news_list'] = splitNewsArray(news);
         // 更新数据, 保存到cache中
         indexPageCache.set(data);
         res.render('index', data);
@@ -42,9 +42,20 @@ router.get('/', function(req, res, next) {
       .catch(function(err) {
         console.log(err);
         res.render('404', {err: err});
-      })
+      });
   }
 });
+
+/**
+ * 将新闻数组分为几个子数组
+ */
+function splitNewsArray(news) {
+  var news_list = new Array();
+  while (news.length > 0) {
+    news_list.push(news.splice(0,2));
+  }
+  return news_list;
+}
 
 router.get('/404', function(req, res, next) {
   res.render('404');
