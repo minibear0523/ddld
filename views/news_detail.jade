@@ -33,6 +33,9 @@ block content
                     i.fa.fa-eye
                     |  #{news.pv}
                 li
+                  i.fa.fa-bars
+                  |  #{news.kindString}
+                li
                   i.fa.fa-tag
                   - for (var i = 0; i < news.tags.length; i++)
                     - var tag = news.tags[i]
