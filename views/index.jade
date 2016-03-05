@@ -39,9 +39,9 @@ block content
                   - var news_sub_list = news_list[i]
                   // Slide Starts
                   .item
-                    - for (var j = 0; j < news_sub_list.length; j ++)
-                      - var news = news_sub_list[j]
-                      .row
+                    .row
+                      - for (var j = 0; j < news_sub_list.length; j ++)
+                        - var news = news_sub_list[j]
                         .col-sm-6.col-xs-12
                           .news-post-box
                             img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}')
