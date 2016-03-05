@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
         data['products_list'] = products;
         return News
                 .find()
-                .limit(10)
+                .limit(6)
                 .sort({date: -1})
                 .exec()
       })
