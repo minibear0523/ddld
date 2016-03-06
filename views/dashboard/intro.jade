@@ -16,35 +16,35 @@ block content
             |  首页
         li.active 多媒体管理
     section.content
-      .row
-        .col-xs-12.col-md-12
-          .box
-            .box-header
-              h3.box-title 视频管理
-              a.pull-right.btn-box-tool(data-toggle='modal', data-target='#videoModal')
-                i.fa.fa-plus
-            .box-body
-            #videoModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#videoModalLabel')
-              .modal-dialog(role='document')
-                .modal-content
-                  .modal-header
-                    button.close(type='button', data-dismiss='modal', aria-label='关闭')
-                      span(aria-hidden='true') &times;
-                    h4.modal-title 上传视频文件
-                  .modal-body
-                    form#videoupload.form-horizontal(enctype='multipart/form-data')
-                      .form-group
-                        .col-md-offset-5
-                          span.btn.btn-success.fileinput-button
-                            i.fa.fa-plus
-                            span 选择视频文件
-                            input#video-input(type='file', name='file')
-                      .form-group
-                        #video-result.result
-                          p(style='display:none;')
-                  .modal-footer
-                    button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
-                    button#video-submit.btn.btn-outline(type='button') 上传
+      //- .row
+      //-   .col-xs-12.col-md-12
+      //-     .box
+      //-       .box-header
+      //-         h3.box-title 视频管理
+      //-         a.pull-right.btn-box-tool(data-toggle='modal', data-target='#videoModal')
+      //-           i.fa.fa-plus
+      //-       .box-body
+      //-       #videoModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#videoModalLabel')
+      //-         .modal-dialog(role='document')
+      //-           .modal-content
+      //-             .modal-header
+      //-               button.close(type='button', data-dismiss='modal', aria-label='关闭')
+      //-                 span(aria-hidden='true') &times;
+      //-               h4.modal-title 上传视频文件
+      //-             .modal-body
+      //-               form#videoupload.form-horizontal(enctype='multipart/form-data')
+      //-                 .form-group
+      //-                   .col-md-offset-5
+      //-                     span.btn.btn-success.fileinput-button
+      //-                       i.fa.fa-plus
+      //-                       span 选择视频文件
+      //-                       input#video-input(type='file', name='file')
+      //-                 .form-group
+      //-                   #video-result.result
+      //-                     p(style='display:none;')
+      //-             .modal-footer
+      //-               button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
+      //-               button#video-submit.btn.btn-outline(type='button') 上传
       .row
         .col-xs-12.col-md-12
           .box

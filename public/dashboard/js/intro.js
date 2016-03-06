@@ -43,19 +43,19 @@
   /**
    * 上传图片相关函数
    */
-  var videoResult = $('#video-result');
-  var currentVideoFile;
-  function replaceVideoResults(video) {
-    // 模仿replaceResults函数, 替换video内容
-    var content;
-    if (!(video.src || video instanceof HTMLCanvasElement)) {
-      content = $('<span>加载视频失败</span>')
-    } else {
-      content = $('<a target="_blank"').append(video)
-        .attr('src', video.src || video.toDataURL());
-    }
-    videoResult.children().replaceWith(content);
-  }
+  // var videoResult = $('#video-result');
+  // var currentVideoFile;
+  // function replaceVideoResults(video) {
+  //   // 模仿replaceResults函数, 替换video内容
+  //   var content;
+  //   if (!(video.src || video instanceof HTMLCanvasElement)) {
+  //     content = $('<span>加载视频失败</span>')
+  //   } else {
+  //     content = $('<a target="_blank"').append(video)
+  //       .attr('src', video.src || video.toDataURL());
+  //   }
+  //   videoResult.children().replaceWith(content);
+  // }
 
   function displayImage (file, options) {
     currentFile = file
