@@ -230,6 +230,10 @@ h6 { font-size: 16px; }
 			font-size: 42px;
 			vertical-align: middle;
 		}
+		#nav .navbar-brand ul > li {
+			margin-right: 10px;
+			vertical-align: middle;
+		}
 	#nav.navbar {
 		min-height: 100px;
 	}
