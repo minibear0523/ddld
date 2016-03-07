@@ -1,7 +1,7 @@
 body {
 	font: 14px/24px 'Roboto', Arial, Helvetica, sans-serif;
 	color: #232323;
-	background: #eee url(../images/bg.png) repeat fixed;
+	background: #eee url(/front/images/bg.png) repeat fixed;
 }
 
 /* Standard Styles Starts */
@@ -363,31 +363,31 @@ h6 { font-size: 16px; }
 	padding: 130px 30px 70px;
 }
 	.main-banner.one {
-		background: url(../images/banners/banner-img1.jpg) center top;
+		background: url(/front/images/banners/banner-img1.jpg) center top;
 	}
 
 	.main-banner.two {
-		background: url(../images/banners/banner-img2.jpg) center top;
+		background: url(/front/images/banners/banner-img2.jpg) center top;
 	}
 
 	.main-banner.three {
-		background: url(../images/banners/banner-img3.jpg) center top;
+		background: url(/front/images/banners/banner-img3.jpg) center top;
 	}
 
 	.main-banner.four {
-		background: url(../images/banners/banner-img4.jpg) center top;
+		background: url(/front/images/banners/banner-img4.jpg) center top;
 	}
 
 	.main-banner.five {
-		background: url(../images/banners/banner-img5.jpg) center top;
+		background: url(/front/images/banners/banner-img5.jpg) center top;
 	}
 
 	.main-banner.six {
-		background: url(../images/banners/banner-img6.jpg) center top;
+		background: url(/front/images/banners/banner-img6.jpg) center top;
 	}
 
 	.main-banner.seven {
-		background: url(../images/banners/banner-img7.jpg) center top;
+		background: url(/front/images/banners/banner-img7.jpg) center top;
 	}
 	.main-banner h2 {
 		margin-top: 0;
@@ -510,7 +510,7 @@ h6 { font-size: 16px; }
 	padding-top: 50px;
 	padding-bottom: 50px;
 	color: #fff;
-	background-image: url(../images/about/about-services-bg.jpg);
+	background-image: url(/front/images/about/about-services-bg.jpg);
 }
 	.about-featured > .container {
 		padding-left: 30px;
@@ -2711,8 +2711,8 @@ ul#doctors-grid {
 .recent-comments-list li:before,
 .list-tags li a:before {
 	font-family: 'FontAwesome';
-	src: url('../font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0');
-	src: url('../font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+	src: url('/plugins/font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0');
+	src: url('/plugins/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('/plugins/font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('/plugins/font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('/plugins/font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
 }
 
 .top-bar a,
