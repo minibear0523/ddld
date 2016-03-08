@@ -32,6 +32,10 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+// 使用express-bunyan-logger
+app.use(require('express-bunyan-logger')({
+    format: ":remote-address - :user-agent[major] custom logger"
+});
 app.use(compression());
 app.use(bodyParser.json({limit: '5MB'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '5MB' }));
