@@ -33,5 +33,6 @@ $(function() {
       enableSendToPhone: false,
     });
     var point = new BMap.Point(customPoi.point.lng, customPoi.point.lat);
+    
   }
 });
