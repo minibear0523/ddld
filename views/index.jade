@@ -1,6 +1,7 @@
 extends layout
 
 block css-external
+  link(rel='stylesheet', href='/plugins/animate/animate.css')
   link(rel='stylesheet', href='/front/stylesheets/index.css')
 
 block content
@@ -10,20 +11,23 @@ block content
       // Slide 1 Starts
       div(data-src='/front/images/slider/slider-img1.jpg')
         .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
-          h2
-            span 大道无形, 智者天成
+          h2 理念
+          p
+            | 大道无形 智者天成
       // Slider 1 Ends
       // Slider 2 Starts
       div(data-src='/front/images/slider/slider-img2.jpg')
         .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
-          h2
-            span 提供新药研究为核心的多模式合作服务和技术平台
+          h2 服务
+          p
+            | 专注新药研发 专注技术服务
       // Slider 2 Ends
       // Slider 3 Starts
       div(data-src='/front/images/slider/slider-img3.jpg')
         .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
-          h2
-            span 国际化、标准化、规范化的研发服务提供者
+          h2 标准
+          p
+            | 国际化、标准化、规范化的研发服务提供者
       // Slider 3 Ends
     // Slider Section Ends
     // Main Container Starts
