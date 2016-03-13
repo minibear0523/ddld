@@ -5,6 +5,14 @@
 	margin: 0 auto;
 }
 
+.camera_caption > div {
+	background: transparent;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+	box-shadow: none;
+	padding: 0;
+}
+
 .circle {
 	background: #fff;
 	border-radius: 50%;
@@ -32,7 +40,7 @@
 
 .circle-content {
 	bottom: 0;
-	padding: 20%;
+	padding: 15%;
 	position: absolute;
 	left: 0;
 	right: 0;
