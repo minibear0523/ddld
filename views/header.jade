@@ -6,6 +6,11 @@ header.main-header
     .top-bar.hidden-sm.hidden-xs
       .row
         .col-sm-6.col-xs-12
+          ul.list-unstyled.list-inline.pull-left
+            li
+              a(href='#') English
+            li.active
+              a(href='#') 中文
         .col-sm-6.col-xs-12
           ul.list-unstyled.list-inline
             li
@@ -33,8 +38,11 @@ header.main-header
           // Collapse Button Ends
           // Logo Starts
           a.navbar-brand(href='/')
-            i.fa.fa-heartbeat
-            | 大道隆达
+            ul.list-unstyled.list-inline
+              li
+                img.img-responsive(src='/front/images/logo.png', style='width: 40px; height: 40px')
+              li
+                span 大道隆达
           // Logo Ends
         // Navbar Header Ends
         // Navbar Collapse Starts

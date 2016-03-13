@@ -7,7 +7,7 @@
     $.get(url, function(tags, status, _) {
       if (status == 'success') {
         var tagsRootNode = document.getElementById('tags-list');
-        var tagTemplateNode = tagsRootNode.firtElementChild;
+        var tagTemplateNode = tagsRootNode.firstElementChild;
         for (var i = 0; i < tags.length; i++) {
           var tagNode = tagTemplateNode.cloneNode(true);
           tagNode.removeAttribute('style');

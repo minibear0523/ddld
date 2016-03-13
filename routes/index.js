@@ -1,19 +1,85 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+var path = require('path');
+var Q = require('q');
+var Products = require('../models/product');
+var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
+var indexPageCache = require('../utils/cache').createIndexPageCache();
+
+var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var indexPage = indexPageCache.get();
+  if (indexPage) {
+    // 没有过期, 存有数据
+    res.render('index', indexPage);
+  } else {
+    // 已经过期,或者没有数据
+    var data = {};
+    Products
+      .find()
+      .limit(10)
+      .sort({date: -1})
+      .exec()
+      .then(function(products) {
+        data['products_list'] = products;
+        return News
+                .find()
+                .limit(6)
+                .sort({date: -1})
+                .exec()
+      })
+      .then(function(news) {
+        data['news_list'] = splitNewsArray(news);
+        // 更新数据, 保存到cache中
+        indexPageCache.set(data);
+        res.render('index', data);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.render('404', {err: err});
+      });
+  }
 });
+
+/**
+ * 将新闻数组分为几个子数组
+ */
+function splitNewsArray(news) {
+  var news_list = new Array();
+  while (news.length > 0) {
+    news_list.push(news.splice(0,2));
+  }
+  return news_list;
+}
 
 router.get('/404', function(req, res, next) {
   res.render('404');
 });
 
 router.get('/intro', function(req, res, next) {
-  res.render('intro');
+  var imagesPath = introImagePath;
+  fs.readdir(imagesPath, function(err, files) {
+    if (err || files.length === 0) {
+      res.render('intro', {images: []});
+    } else {
+      var images = new Array();
+      for (var i = 0; i < files.length; i++) {
+        if (path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png') {
+          var url = '/certifications/images/' + files[i];
+          images.push({
+            image: url,
+            thumbnail: url.replace('images', 'thumbnails')
+          });
+        }
+      }
+      res.render('intro', {images: images});
+    }
+  });
 });
 
 router.get('/contact', function(req, res, next) {

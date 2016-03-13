@@ -33,11 +33,8 @@ block content
                     i.fa.fa-eye
                     |  #{news.pv}
                 li
-                  i.fa.fa-tag
-                  - for (var i = 0; i < news.tags.length; i++)
-                    - var tag = news.tags[i]
-                    a(href='#') #{tag}
-                    | ,
+                  i.fa.fa-bars
+                  |  #{news.kindString}
               .news-post-content
                 p
                   | !{news.detail}
@@ -50,9 +47,15 @@ block content
             a(href='#') 行业资讯
 
         h4.side-heading1 标签
-        ul.list-unstyled.list-inline
+        ul.list-unstyled.list-inline.list-tags
           - for (var i = 0; i < news.tags.length; i++)
             - var tag = news.tags[i]
             li
               a(href='#') #{tag}
 
+        h4.side-heading1 分享
+        #sosh-share
+
+block js-external
+  script(src='/plugins/sosh/sosh.js')
+  script(src='/front/javascripts/news-detail.js')

@@ -1,4 +1,7 @@
 extends layout
+block css-external
+  link(rel="stylesheet", href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css")
+  link(rel='stylesheet', href='/front/stylesheets/contact.css')
 
 block content
   .main-banner.three
@@ -68,6 +71,15 @@ block content
       .row
         .col-sm-12.col-xs-12
           h3.main-heading2(style="margin-top: 20px;")
+            |  公司地址  
+          #address.portfolio
+            .container
+              .col-md-10.col-md-offset-1
+                .portfolio-item
+                  #address-places.small-map
+      .row
+        .col-sm-12.col-xs-12
+          h3.main-heading2(style="margin-top: 20px;")
             | 加入我们
             small
               |  联系人: 何先生
@@ -96,3 +108,9 @@ block content
                         - for (var j = 0; j < employment.requirement.length; j++)
                           - var content = employment.requirement[j]
                           li #{content}
+
+block js-external
+  script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
+  script(type="text/javascript", src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js")
+  script(type="text/javascript", src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js")
+  script(src='/front/javascripts/contact.js')

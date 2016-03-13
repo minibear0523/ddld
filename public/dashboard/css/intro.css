@@ -1,0 +1,41 @@
+.hover-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+  .hover-content .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    opacity: 0;
+  }
+
+  .hover-content:hover .overlay {
+    opacity: 1;
+  }
+
+  .hover-content:hover img {
+    -webkit-transform: rotate(5deg) scale(1.3);
+       -moz-transform: rotate(5deg) scale(1.3);
+        -ms-transform: rotate(5deg) scale(1.3);
+         -o-transform: rotate(5deg) scale(1.3);
+            transform: rotate(5deg) scale(1.3);
+  }
+
+  .hover-content .overlay a.zoom {
+    margin-top: 25%;
+    font-size: 30px;
+  }
+
+  .hover-content .overlay a.btn-secondary:hover,
+  .hover-content .overlay a.btn-secondary:focus {
+    background-color: #15adec;
+    outline: none;
+  }

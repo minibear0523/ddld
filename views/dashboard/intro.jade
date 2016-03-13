@@ -1,11 +1,14 @@
 extends layout
+block css-external
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload.css')
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload-ui.css')
+  link(rel='stylesheet', href='/dashboard/css/intro.css')
 block content
   .content-wrapper
     section.content-header
       h1
         | 多媒体管理
-        small
-          a.btn.btn-sm.btn-flat.btn-block(href='')  添加新文件
+        small  添加 & 修改
       ol.breadcrumb
         li
           a(href='/dashboard/home')
@@ -13,5 +16,77 @@ block content
             |  首页
         li.active 多媒体管理
     section.content
+      //- .row
+      //-   .col-xs-12.col-md-12
+      //-     .box
+      //-       .box-header
+      //-         h3.box-title 视频管理
+      //-         a.pull-right.btn-box-tool(data-toggle='modal', data-target='#videoModal')
+      //-           i.fa.fa-plus
+      //-       .box-body
+      //-       #videoModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#videoModalLabel')
+      //-         .modal-dialog(role='document')
+      //-           .modal-content
+      //-             .modal-header
+      //-               button.close(type='button', data-dismiss='modal', aria-label='关闭')
+      //-                 span(aria-hidden='true') &times;
+      //-               h4.modal-title 上传视频文件
+      //-             .modal-body
+      //-               form#videoupload.form-horizontal(enctype='multipart/form-data')
+      //-                 .form-group
+      //-                   .col-md-offset-5
+      //-                     span.btn.btn-success.fileinput-button
+      //-                       i.fa.fa-plus
+      //-                       span 选择视频文件
+      //-                       input#video-input(type='file', name='file')
+      //-                 .form-group
+      //-                   #video-result.result
+      //-                     p(style='display:none;')
+      //-             .modal-footer
+      //-               button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
+      //-               button#video-submit.btn.btn-outline(type='button') 上传
       .row
-        .col-xs-12.col-md-6
+        .col-xs-12.col-md-12
+          .box
+            .box-header
+              h3.box-title 图片列表
+              a.pull-right.btn-box-tool(data-toggle='modal', data-target='#imagesModal')
+                  i.fa.fa-plus
+            .box-body
+              .row.margin-bottom
+                - for (var i = 0; i < images.length; i++)
+                  .col-sm-4.col-xs-6
+                    .hover-content
+                      img.img-responsive(src='#{images[i].thumbnail}')
+                      .overlay
+                        a#delete-image-btn.btn.btn-secondary.zoom(href='#{images[i].image}')
+                          i.fa.fa-close
+            #imagesModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#imagesModalLabel')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='关闭')
+                      span(aria-hidden='true') &times;
+                    h4.modal-title 添加新图片
+                  .modal-body
+                    form#fileupload.form-horizontal(enctype="multipart/form-data")
+                      .form-group
+                        .col-md-offset-5
+                          span.btn.btn-success.fileinput-button
+                            i.fa.fa-plus
+                            span 选择图片
+                            input#file-input(type='file', name='file')
+                      .form-group
+                        #result.result
+                          p(style='display:none;')
+                  .modal-footer
+                    button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
+                    button#submit-btn.btn.btn-outline(type='button') 上传
+
+block js-external
+  script(src='/plugins/jquery-file-uploader/js/vendor/jquery.ui.widget.js')
+  script(src='/plugins/javascript-load-image/load-image.all.min.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.iframe-transport.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.fileupload.js')
+  script(src='/dashboard/js/intro.js')
+  
