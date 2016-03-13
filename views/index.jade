@@ -3,6 +3,7 @@ extends layout
 block css-external
   link(rel='stylesheet', href='/plugins/animate/animate.css')
   link(rel='stylesheet', href='/front/stylesheets/index.css')
+  link(rel='stylesheet', href='/front/stylesheets/slider.css')
 
 block content
   // Slider Section Starts
@@ -10,24 +11,30 @@ block content
     #camera_wrap_1.camera_wrap.camera_white_skin
       // Slide 1 Starts
       div(data-src='/front/images/slider/slider-img1.jpg')
-        .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
-          h2 理念
-          p
-            | 大道无形 智者天成
+        div.circle.camera_effected.animated.fadeIn.hidden-sm.hidden-xs
+          div.circle-content.center
+            h2 理念
+            hr
+            p.animated.fadeInLeft
+              | 大道无形 智者天成
       // Slider 1 Ends
       // Slider 2 Starts
       div(data-src='/front/images/slider/slider-img2.jpg')
-        .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
-          h2 服务
-          p
-            | 专注新药研发 专注技术服务
+        div.circle.camera_effected.animated.fadeIn.hidden-sm.hidden-xs
+          div.circle-content.center
+            h2 服务
+            hr
+            p.animated.fadeInLeft
+              | 专注新药研发 专注技术服务
       // Slider 2 Ends
       // Slider 3 Starts
       div(data-src='/front/images/slider/slider-img3.jpg')
-        .camera_caption.fadeFromLeft.hidden-sm.hidden-xs
-          h2 标准
-          p
-            | 国际化、标准化、规范化的研发服务提供者
+        div.circle.camera_effected.animated.fadeIn.hidden-sm.hidden-xs
+          div.circle-content.center
+            h2 标准
+            hr
+            p.animated.fadeInLeft
+              | 国际化、标准化、规范化的研发服务提供者
       // Slider 3 Ends
     // Slider Section Ends
     // Main Container Starts
@@ -37,7 +44,7 @@ block content
         section.col-md-8.col-xs-12
           .main-block1
             h2.main-heading1.lite 资讯中心
-            h2.main-heading2 公司动态 & 行业资讯
+            h2.main-heading2 公司动态 &amp; 行业资讯
             // News Carousel Starts
             #news-carousel.news-carousel.carousel.slide(data-ride='carousel')
               // Wrapper for Slides Starts
