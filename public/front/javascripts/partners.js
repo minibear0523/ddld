@@ -38,7 +38,7 @@ $(function() {
 
           var tr = $("<tr><td width='75%;'>" + item.title + "<br>" + item.address + "</td><td width='25%'>" + item.province + "<br>" + item.city + "</td>");
           $('#partners-list').append(tr);
-          marker.addEventListener('click', showInfo());
+          marker.addEventListener('click', showInfo);
           function showInfo() {
             var content = "<p>大道隆达(北京)医药科技发展有限公司合作伙伴</p>" + 
                           "<p>名称: " + item.title + "</p>" +
@@ -54,7 +54,7 @@ $(function() {
                 BMAPLIB_TAB_FROM_HERE //从这里出发
               ]
             });
-            // searchInfoWindow.open(marker);
+            searchInfoWindow.open(marker);
           }
           map.addOverlay(marker);
         };
