@@ -30,13 +30,13 @@ $(function() {
     var url = '/geodata';
     $.get(url, function(data, status, _) {
       if (status == 'success') {
-        for (var i = 0; i < data.length; i++) {
+        $.each(data, function(i, item){ 
           var item = data[i];
           // 添加地图标记
           var point = new BMap.Point(item.location[0], item.location[1]);
           var marker = new BMap.Marker(point);
 
-          var tr = $("<tr><td width='75%;'>" + item.title + "<br>" + item.address + "</td><td width='25%'>" + item.province + "<br>" + item.city + "</td>");
+          var tr = $("<tr><td width='75%;'>" + item.title + "<br>" + item.address + "</td><td width='25%'>" + item.province + "<br>" + item.city + "</td>").click(showInfo);
           $('#partners-list').append(tr);
           marker.addEventListener('click', showInfo);
           function showInfo() {
@@ -45,7 +45,7 @@ $(function() {
                           "<p>地址: " + item.address + "</p>";
             var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
               title: item.title,
-              width: 280,
+              width: 300,
               panel: 'panel',
               enableAutoPan: true,
               searchTypes: [
@@ -57,7 +57,7 @@ $(function() {
             searchInfoWindow.open(marker);
           }
           map.addOverlay(marker);
-        };
+        });
       }
     })
   }
