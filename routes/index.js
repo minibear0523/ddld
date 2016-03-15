@@ -8,6 +8,7 @@ var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 var indexPageCache = require('../utils/cache').createIndexPageCache();
+var GeoDataGetter = require('../utils//geodata.js').GeoDataGetter();
 
 var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
 
@@ -80,6 +81,15 @@ router.get('/intro', function(req, res, next) {
       res.render('intro', {images: images});
     }
   });
+});
+
+/**
+ * geodata,百度地图数据
+ */
+router.get('/geodata', function(req, res, next){
+  var data = GeoDataGetter;
+  data.reverse();
+  res.status(200).send(data);
 });
 
 router.get('/contact', function(req, res, next) {

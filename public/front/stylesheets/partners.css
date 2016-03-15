@@ -80,3 +80,12 @@ li{
   top: 6px;
   width: 12px;
 }
+
+#partners-list-wrapper {
+  position:absolute;
+  left:0px;
+  right:0px;
+  top:0px;
+  bottom:41px;
+  overflow:auto;
+}

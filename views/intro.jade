@@ -80,11 +80,13 @@ block content
     #partners.portfolio
       .container
         .row
-          .col-md-10.col-md-offset-1
+          .col-md-8
             .portfolio-item
               #partners-places.small-map
-
-
+          .col-md-4
+            #partners-panel
+              table.table.table-hover
+                tbody#partners-list
 
 block js-external
   script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
