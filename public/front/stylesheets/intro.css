@@ -4,3 +4,12 @@ video#intro-video {
   margin-top: 195px;
   margin-bottom: 20px;
 }
+
+#partners-panel {
+	height: 700px;
+	overflow-y: scroll;
+}
+
+#partners table {
+	margin-bottom: 0;
+}
