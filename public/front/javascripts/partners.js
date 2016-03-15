@@ -2,7 +2,7 @@ $(function() {
 
   var center = new BMap.Point(106.05119,35.260616);
   var map = new BMap.Map("partners-places");
-  map.centerAndZoom(new BMap.Point(106.05119,35.260616), 5);
+  map.centerAndZoom(center, 5);
   map.setCurrentCity('北京');
   map.addControl(new BMap.ScaleControl());                // 添加比例尺控件
   map.addControl(new BMap.OverviewMapControl());          // 添加缩略地图控件
@@ -40,7 +40,7 @@ $(function() {
           $('#partners-list').append(tr);
           marker.addEventListener('click', showInfo());
           function showInfo() {
-            var content = "<p>大道隆达(北京)医药科技发展有限公司</p>" + 
+            var content = "<p>大道隆达(北京)医药科技发展有限公司合作伙伴</p>" + 
                           "<p>名称: " + item.title + "</p>" +
                           "<p>地址: " + item.address + "</p>";
             var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
@@ -54,7 +54,7 @@ $(function() {
                 BMAPLIB_TAB_FROM_HERE //从这里出发
               ]
             });
-            searchInfoWindow.open(marker);
+            // searchInfoWindow.open(marker);
           }
           map.addOverlay(marker);
         };
