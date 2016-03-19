@@ -7,6 +7,8 @@
 // 	font-family: 'Lato';
 // 	src: url('../../fonts/Lato/Lato-Black.ttf') format('truetype'), url('../../fonts/Lato/Lato-BlackItalic.ttf') format('truetype'), url('../../fonts/Lato/Lato-Bold.ttf') format('truetype'), url('../../fonts/Lato/Lato-BoldItalic.ttf') format('truetype'), url('../../fonts/Lato/Lato-Hairline.ttf') format('truetype'), url('../../fonts/Lato/Lato-HairlineItalic.ttf') format('truetype'), url('../../fonts/Lato/Lato-Italic.ttf') format('truetype'), url('../../fonts/Lato/Lato-Light.ttf') format('truetype'), url('../../fonts/Lato/Lato-LightItalic.ttf') format('truetype'), url('../../fonts/Lato/Lato-Regular.ttf') format('truetype');
 // }
+// optimaized for IE browsers
+@-ms-viewport       { width: device-width; }
 
 @font-face {
 	font-family: 'Lato';
