@@ -87,8 +87,8 @@ exports.createEmailQueue = Queue;
  */
 var sendActivationEmail = transporter.templateSender({
   subject: "{{ name  }}请确认您的邮箱--大道隆达(北京)医药科技发展公司",
-  text: "http://www.ddld.com.cn/newsletter/activate/{{ key }}",
-  html: "",
+  text: "点击链接http://www.ddld.com.cn/newsletter/activate/{{ key }} 进行激活",
+  html: "<a href='http://www.ddld.com.cn/newsletter/activate/{{ key }}>点击链接进行激活</a>",
 }, {
   from: "newsletter@ddld.com.cn"
 });
