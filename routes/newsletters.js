@@ -1,7 +1,8 @@
-var express = require('mongoose');
+var express = require('express');
 var router = express.Router();
 var Newsletters = require('../models/newsletter');
 var Q = require('q');
+var emailQueue = require('../utils/email').createEmailQueue();
 
 /**
  * Newsletter注册
@@ -13,6 +14,8 @@ var Q = require('q');
 router.post('/signup', function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
+
+  console.log(name, email);
 
   Newsletters
     .findOne({email: email})
@@ -33,7 +36,12 @@ router.post('/signup', function(req, res, next) {
       }
     })
     .then(function(newsletter) {
-      // TODO: 发送邮件
+      // 将这个邮箱添加到队列中
+      emailQueue.addTask({
+        to: newsletter.email,
+        name: newsletter.name,
+        key: newsletter.id
+      }, 'activation');
       res.status(201).send('订阅成功, 请前往邮箱验证.');
     });
 });
@@ -48,10 +56,23 @@ router.get('/activate/:key', function(req, res, next) {
     .findById(activationKey)
     .exec()
     .then(function(newsletter) {
-      if (newsletter) {
-        // 检验是否已经验证
+      if (newsletter && !newsletter.verified) {
+        // 存在这个newsletter, 并且没有验证过, 修改verified域
+        newsletter.verified = true;
+        newsletter
+          .save(function(err, newsletter) {
+            if (err) {
+              console.log(err);
+              res.status(400).send(err);
+            } else {
+              res.status(200).send('验证成功, 谢谢您的支持!');
+            }
+          });
+      } else if (newsletter.verified) {
+        // 已经验证过了
+        res.status(200).send('该邮箱已经过验证');
       } else {
-        // 没找到对应的newsletter
+        res.status(404).send('无法验证该邮箱, 请检查您的链接是否正确.');
       }
     })
 });
