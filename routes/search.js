@@ -53,14 +53,14 @@ router.get('/index/:model/create', function(req, res, next) {
               name: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               intro: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               }
             }
           }
@@ -83,26 +83,26 @@ router.get('/index/:model/create', function(req, res, next) {
               name: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               detail: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               kind: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               sub_kind: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               }
             }
           }
@@ -125,14 +125,14 @@ router.get('/index/:model/create', function(req, res, next) {
               title: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               abstract: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               kind: {
                 type: 'string',
@@ -163,20 +163,20 @@ router.get('/index/:model/create', function(req, res, next) {
               title: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               requirement: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               },
               duty: {
                 type: 'string',
                 term_vector: 'with_positions_offsets',
-                analyzer: 'ik_syno',
-                search_analyzer: 'ik_syno'
+                analyzer: 'ik_smart',
+                search_analyzer: 'ik_smart'
               }
             }
           }
