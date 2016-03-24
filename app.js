@@ -22,7 +22,8 @@ var news = require('./routes/news');
 var products = require('./routes/products');
 var dashboard = require('./routes/dashboard');
 var uploads = require('./routes/uploads');
-var newsletters = require('./routes/newsletters.js');
+var newsletters = require('./routes/newsletters');
+var search = require('./routes/search');
 
 var app = express();
 
@@ -66,6 +67,7 @@ app.use('/products', products);
 app.use('/dashboard', dashboard);
 app.use('/uploads', uploads);
 app.use('/newsletter', newsletters);
+app.use('/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
