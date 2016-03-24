@@ -19,22 +19,22 @@ router.get('/index/create', function(req, res, next) {
     .create({index: 'platform'})
     .then(function(response) {
       console.log('[*] Create index: platform response: ', response);
-      return searchClient.indices.create({index: 'product'});
+      searchClient.indices.create({index: 'product'});
     })
     .then(function(response) {
       console.log('[*] Create index: product response: ', response);
-      return searchClient.indices.create({index: 'news'});
+      searchClient.indices.create({index: 'news'});
     })
     .then(function(response) {
       console.log('[*] Create index: news response: ', response);
-      return searchClient.indices.create({index: 'employment'});
+      searchClient.indices.create({index: 'employment'});
     })
     .then(function(response) {
       console.log('[*] Create index: employment response: ', response);
-      return res.status(200).send("All databases' index has been created");
+      res.status(200).send("All databases' index has been created");
     })
     .catch(function(err) {
-      return res.status(400).send(err);
+      res.status(400).send(err);
     });
 });
 
@@ -68,7 +68,7 @@ router.get('/index/:model/create', function(req, res, next) {
       })
       .then(function(response) {
         console.log('[*] Create type: platforms response: ', response);
-        return res.status(200).send(response);
+        res.status(200).send(response);
       });
   } else if (model == 'product') {
     searchClient
@@ -110,7 +110,7 @@ router.get('/index/:model/create', function(req, res, next) {
       })
       .then(function(response) {
         console.log('[*] Create type: products response:', response);
-        return res.status(200).send(response);
+        res.status(200).send(response);
       });
   } else if (model == 'news') {
     searchClient
@@ -148,7 +148,7 @@ router.get('/index/:model/create', function(req, res, next) {
       })
       .then(function(response) {
         console.log('[*] Create type: news response: ', response);
-        return res.status(200).send(response);
+        res.status(200).send(response);
       });
   } else if (model == 'employment') {
     searchClient
@@ -184,7 +184,7 @@ router.get('/index/:model/create', function(req, res, next) {
       })
       .then(function(response) {
         console.log('[*] Create type: employments response: ', response);
-        return res.status(200).send(response);
+        res.status(200).send(response);
       });
   }
 });
