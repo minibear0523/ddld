@@ -294,7 +294,8 @@ router.get('/test', function(req, res, next) {
         body: {
           name: platform.name,
           intro: platform.intro
-        }
+        },
+        timeout: 6000000
       })
       .then(function(response) {
         res.send(response);
