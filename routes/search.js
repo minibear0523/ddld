@@ -38,6 +38,10 @@ router.get('/index/create', function(req, res, next) {
     });
 });
 
+/**
+ * 初始化elasticsearch中index的对应mapping,也就是table
+ * :param model: platform, news, product, employment
+ */
 router.get('/index/:model/create', function(req, res, next) {
   var model = req.params.model;
   if (model == 'platform') {
@@ -186,6 +190,75 @@ router.get('/index/:model/create', function(req, res, next) {
         console.log('[*] Create type: employments response: ', response);
         res.status(200).send(response);
       });
+  }
+});
+
+/**
+ * 同步数据, 之后设置为crontab更新
+ * :param model: product, news, employment, platform
+ */
+router.post('/index/:model/sync', function(req, res, next) {
+  var model = req.params.model;
+  if (model == 'product') {
+    Products
+      .find()
+      .select('name detail kind sub_kind')
+      .exec()
+      .then(function(products) {
+        var body = new Array();
+        for (var i = 0; i < products.length; i++) {
+          var product = products[i];
+          body.push({index: {_index: 'ddld', _type: 'products', _id: product.id}});
+          body.push(product);
+        }
+        console.log(body);
+        res.send(body);
+      })
+  } else if (model == 'news') {
+    News
+      .find()
+      .select('title abstract kind tags')
+      .exec()
+      .then(function(news_list) {
+        var body = new Array();
+        for (var i = 0; i < news_list.length; i++) {
+          var news = news_list[i];
+          body.push({index: {_index: 'ddld', _type: 'news', _id: news.id}});
+          body.push(news);
+        }
+        console.log(body);
+        res.send(body);
+      })
+  } else if (model == 'platform') {
+    Platforms
+      .find()
+      .select('name intro')
+      .exec()
+      .then(function(platforms) {
+        var body = new Array();
+        for (var i = 0; i < platforms.length; i++) {
+          var platform = platforms[i];
+          body.push({index: {_index: 'ddld', _type: 'news', _id: platform.id}});
+          body.push(platform);
+        }
+        console.log(body);
+        res.send(body);
+      })
+  } else if (model == 'employment') {
+    Employments
+      .find()
+      .select('title requirement duty')
+      .exec()
+      .then(function(employments) {
+        var body = new Array();
+        for (var i = 0; i < employments.length; i++) {
+          var employment = employments[i];
+          body.push({index: {_index: 'ddld', _type: 'employments', _id: employment.id}});
+          body.push(employment);
+        }
+        console.log(body);
+        res.send(body);
+      })
   }
 });
 
