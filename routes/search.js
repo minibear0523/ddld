@@ -211,9 +211,14 @@ router.post('/index/:model/sync', function(req, res, next) {
           body.push({index: {_index: 'ddld', _type: 'products', _id: product.id}});
           body.push(product);
         }
-        console.log(body);
-        res.send(body);
+        return searchClient.bulk({body: body});
       })
+      .then(function(response) {
+        res.send(response);
+      })
+      .catch(function(err) {
+        res.send(err);
+      });
   } else if (model == 'news') {
     News
       .find()
@@ -226,8 +231,13 @@ router.post('/index/:model/sync', function(req, res, next) {
           body.push({index: {_index: 'ddld', _type: 'news', _id: news.id}});
           body.push(news);
         }
-        console.log(body);
-        res.send(body);
+        return searchClient.bulk({body: body});
+      })
+      .then(function(response) {
+        res.send(response);
+      })
+      .catch(function(err) {
+        res.send(err);
       })
   } else if (model == 'platform') {
     Platforms
@@ -241,9 +251,14 @@ router.post('/index/:model/sync', function(req, res, next) {
           body.push({index: {_index: 'ddld', _type: 'news', _id: platform.id}});
           body.push(platform);
         }
-        console.log(body);
-        res.send(body);
+        return searchClient.bulk({body: body});
       })
+      .then(function(response) {
+        res.send(response);
+      })
+      .catch(function(err) {
+        res.send(err);
+      });
   } else if (model == 'employment') {
     Employments
       .find()
@@ -256,9 +271,14 @@ router.post('/index/:model/sync', function(req, res, next) {
           body.push({index: {_index: 'ddld', _type: 'employments', _id: employment.id}});
           body.push(employment);
         }
-        console.log(body);
-        res.send(body);
+        return searchClient.bulk({body: body});
       })
+      .then(function(response) {
+        res.send(response);
+      })
+      .catch(function(err) {
+        res.send(err);
+      });
   }
 });
 
