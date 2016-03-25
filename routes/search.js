@@ -248,7 +248,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         var body = new Array();
         for (var i = 0; i < platforms.length; i++) {
           var platform = platforms[i];
-          body.push({index: {_index: 'ddld', _type: 'news', _id: platform.id}});
+          body.push({index: {_index: 'ddld', _type: 'platforms', _id: platform.id}});
           body.push({name: platform.name, intro: platform.intro});
         }
         return searchClient.bulk({body: body});
@@ -281,5 +281,19 @@ router.post('/index/:model/sync', function(req, res, next) {
       });
   }
 });
+
+router.get('/', function(req, res, next) {
+  var q = req.query.q;
+  searchClient.search({
+    index: 'ddld',
+    q: q,
+  })
+  .then(function(response) {
+    res.send(response);
+  })
+  .catch(function(err) {
+    res.send(err);
+  });
+})
 
 module.exports = router;
