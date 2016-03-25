@@ -291,11 +291,11 @@ router.get('/test', function(req, res, next) {
       searchClient.index({
         index: 'ddld',
         type: 'platforms',
+        requestTimeout: Infinity,
         body: {
           name: platform.name,
           intro: platform.intro
-        },
-        timeout: 6000000
+        }
       })
       .then(function(response) {
         res.send(response);
