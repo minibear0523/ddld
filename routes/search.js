@@ -9,6 +9,7 @@ var Platforms = require('../models/platform');
 var News = require('../models/news');
 var Employments = require('../models/employment');
 var Products = require('../models/product');
+var async = require('async');
 
 /**
  * 创建并初始化Elasticsearch的Index, 包括几个重要的model, 例如platform, employment, news, product
@@ -197,90 +198,43 @@ router.get('/index/:model/create', function(req, res, next) {
  * 同步数据, 之后设置为crontab更新
  * :param model: product, news, employment, platform
  */
-router.post('/index/:model/sync', function(req, res, next) {
-  var model = req.params.model;
-  if (model == 'product') {
-    Products
-      .find()
-      .select('name detail kind sub_kind')
-      .exec()
-      .then(function(products) {
-        var body = new Array();
-        for (var i = 0; i < products.length; i++) {
-          var product = products[i];
-          body.push({index: {_index: 'ddld', _type: 'products', _id: product.id}});
-          body.push({name: product.name, detail: product.detail, kind: product.kind, sub_kind: product.sub_kind});
+router.post('/index/platform/sync', function(req, res, next) {
+  Platforms
+    .find()
+    .select('name intro')
+    .exec()
+    .then(function(platforms) {
+      async.map(platforms, function(platform, callback) {
+        searchClient.index({
+          index: 'ddld',
+          type: 'platforms',
+          requestTimeout: Infinity,
+          id: platform.id,
+          body: {
+            name: platform.name,
+            intro: platform.intro
+          }
+        }).then(function(response) {
+          callback(null, response);
+        })
+        .catch(function(err) {
+          callback(err);
+        })
+      }, function(err, results) {
+        if (err) {
+          console.log(err);
+          res.status(400).send(err);
+        } else {
+          console.log(results);
+          res.status(200).send(results);
         }
-        return searchClient.bulk({requestTimeout: Infinity, body: body});
       })
-      .then(function(response) {
-        res.send(response);
-      })
-      .catch(function(err) {
-        res.send(err);
-      });
-  } else if (model == 'news') {
-    News
-      .find()
-      .select('title abstract kind tags')
-      .exec()
-      .then(function(news_list) {
-        var body = new Array();
-        for (var i = 0; i < news_list.length; i++) {
-          var news = news_list[i];
-          body.push({index: {_index: 'ddld', _type: 'news', _id: news.id}});
-          body.push({title: news.title, abstract: news.abstract, kind: news.kind, tags: news.tags});
-        }
-        return searchClient.bulk({requestTimeout: Infinity, body: body});
-      })
-      .then(function(response) {
-        res.send(response);
-      })
-      .catch(function(err) {
-        res.send(err);
-      })
-  } else if (model == 'platform') {
-    Platforms
-      .find()
-      .select('name intro')
-      .exec()
-      .then(function(platforms) {
-        var body = new Array();
-        for (var i = 0; i < platforms.length; i++) {
-          var platform = platforms[i];
-          body.push({index: {_index: 'ddld', _type: 'platforms', _id: platform.id}});
-          body.push({name: platform.name, intro: platform.intro});
-        }
-        return searchClient.bulk({requestTimeout: Infinity, body: body});
-      })
-      .then(function(response) {
-        res.send(response);
-      })
-      .catch(function(err) {
-        res.send(err);
-      });
-  } else if (model == 'employment') {
-    Employments
-      .find()
-      .select('title requirement duty')
-      .exec()
-      .then(function(employments) {
-        var body = new Array();
-        for (var i = 0; i < employments.length; i++) {
-          var employment = employments[i];
-          body.push({index: {_index: 'ddld', _type: 'employments', _id: employment.id}});
-          body.push({title: employment.title, requirement: employment.requirement, duty: employment.duty});
-        }
-        return searchClient.bulk({requestTimeout: Infinity, body: body});
-      })
-      .then(function(response) {
-        res.send(response);
-      })
-      .catch(function(err) {
-        res.send(err);
-      });
-  }
+    });
 });
+
+function postToElasticsearchCallback(err, response) {
+
+}
 
 router.get('/', function(req, res, next) {
   var q = req.query.q;
