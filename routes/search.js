@@ -208,7 +208,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         var body = new Array();
         for (var i = 0; i < products.length; i++) {
           var product = products[i];
-          body.push({index: {_index: 'ddld', _type: 'products', _id: product.id}});
+          body.push({index: {_index: 'ddld', _type: 'products', _id: i}});
           body.push({name: product.name, detail: product.detail, kind: product.kind, sub_kind: product.sub_kind});
         }
         return searchClient.bulk({body: body});
@@ -228,7 +228,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         var body = new Array();
         for (var i = 0; i < news_list.length; i++) {
           var news = news_list[i];
-          body.push({index: {_index: 'ddld', _type: 'news', _id: news.id}});
+          body.push({index: {_index: 'ddld', _type: 'news', _id: i}});
           body.push({title: news.title, abstract: news.abstract, kind: news.kind, tags: news.tags});
         }
         return searchClient.bulk({body: body});
@@ -248,7 +248,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         var body = new Array();
         for (var i = 0; i < platforms.length; i++) {
           var platform = platforms[i];
-          body.push({index: {_index: 'ddld', _type: 'platforms', _id: platform.id}});
+          body.push({index: {_index: 'ddld', _type: 'platforms', _id: i}});
           body.push({name: platform.name, intro: platform.intro});
         }
         return searchClient.bulk({body: body});
@@ -268,7 +268,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         var body = new Array();
         for (var i = 0; i < employments.length; i++) {
           var employment = employments[i];
-          body.push({index: {_index: 'ddld', _type: 'employments', _id: employment.id}});
+          body.push({index: {_index: 'ddld', _type: 'employments', _id: i}});
           body.push({title: employment.title, requirement: employment.requirement, duty: employment.duty});
         }
         return searchClient.bulk({body: body});
@@ -280,32 +280,6 @@ router.post('/index/:model/sync', function(req, res, next) {
         res.send(err);
       });
   }
-});
-
-router.get('/test', function(req, res, next) {
-  Platforms
-    .find()
-    .exec()
-    .then(function(platforms) {
-      var platform = platform[0];
-      searchClient.index({
-        index: 'ddld',
-        type: 'platforms',
-        id: platform.id,
-        body: {
-          name: platform.name,
-          intro: platform.intro
-        }
-      })
-      .then(function(response) {
-        console.log(response);
-        res.status(200).send(response);
-      })
-      .catch(function(err) {
-        console.log(err);
-        res.status(400).send(err);
-      })
-    })
 });
 
 router.get('/', function(req, res, next) {
