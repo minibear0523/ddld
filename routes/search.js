@@ -282,7 +282,7 @@ router.post('/index/:model/sync', function(req, res, next) {
   }
 });
 
-router.get('/index/test', function(req, res, next) {
+router.get('/test', function(req, res, next) {
   Platforms
     .find()
     .exec()
