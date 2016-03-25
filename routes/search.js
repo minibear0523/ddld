@@ -209,7 +209,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         for (var i = 0; i < products.length; i++) {
           var product = products[i];
           body.push({index: {_index: 'ddld', _type: 'products', _id: product.id}});
-          body.push(product);
+          body.push({name: product.name, detail: product.detail, kind: product.kind, sub_kind: product.sub_kind});
         }
         return searchClient.bulk({body: body});
       })
@@ -229,7 +229,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         for (var i = 0; i < news_list.length; i++) {
           var news = news_list[i];
           body.push({index: {_index: 'ddld', _type: 'news', _id: news.id}});
-          body.push(news);
+          body.push({title: news.title, abstract: news.abstract, kind: news.kind, tags: news.tags});
         }
         return searchClient.bulk({body: body});
       })
@@ -249,7 +249,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         for (var i = 0; i < platforms.length; i++) {
           var platform = platforms[i];
           body.push({index: {_index: 'ddld', _type: 'news', _id: platform.id}});
-          body.push(platform);
+          body.push({name: platform.name, intro: platform.intro});
         }
         return searchClient.bulk({body: body});
       })
@@ -269,7 +269,7 @@ router.post('/index/:model/sync', function(req, res, next) {
         for (var i = 0; i < employments.length; i++) {
           var employment = employments[i];
           body.push({index: {_index: 'ddld', _type: 'employments', _id: employment.id}});
-          body.push(employment);
+          body.push({title: employment.title, requirement: employment.requirement, duty: employment.duty});
         }
         return searchClient.bulk({body: body});
       })
