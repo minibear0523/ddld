@@ -282,6 +282,32 @@ router.post('/index/:model/sync', function(req, res, next) {
   }
 });
 
+router.get('/index/test', function(req, res, next) {
+  Platforms
+    .find()
+    .exec()
+    .then(function(platforms) {
+      var platform = platform[0];
+      searchClient.index({
+        index: 'ddld',
+        type: 'platforms',
+        id: platform.id,
+        body: {
+          name: platform.name,
+          intro: platform.intro
+        }
+      })
+      .then(function(response) {
+        console.log(response);
+        res.status(200).send(response);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.status(400).send(err);
+      })
+    })
+});
+
 router.get('/', function(req, res, next) {
   var q = req.query.q;
   searchClient.search({
