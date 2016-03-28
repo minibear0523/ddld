@@ -4,14 +4,7 @@ video#intro-video {
 }
 
 #search-modal .modal-dialog {
-  height: 100%;
-  margin: 0 auto;
-  overflow-y: hidden;
-}
-
-#search-modal .modal-content {
-  position: relative;
-  top: 25%;
+  margin: 12% auto;
 }
 
 #search-form .form-control {
