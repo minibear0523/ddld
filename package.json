@@ -23,6 +23,7 @@
     "jimp": "^0.2.21",
     "kue": "^0.10.5",
     "mongo": "^0.1.0",
+    "mongoosastic": "^4.0.2",
     "mongoose": "^4.3.5",
     "morgan": "~1.6.1",
     "multer": "^1.1.0",

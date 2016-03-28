@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var mongoosastic = require('mongoosastic');
 var Schema = mongoose.Schema;
 var dateUtils = require('../utils/date');
 
@@ -14,9 +15,17 @@ var dateUtils = require('../utils/date');
  * :pv: pv
  */
 var News = new Schema({
-  title: String,
+  title: {
+    type: String,
+    es_indexed: true,
+    es_type: 'String'
+  },
   detail: String,
-  abstract: String,
+  abstract: {
+    type: String,
+    es_indexed: true,
+    es_type: 'String'
+  },
   date: {
     type: Date,
     default: Date.now
@@ -30,7 +39,9 @@ var News = new Schema({
   },
   tags: {
     type: [String],
-    required: false
+    required: false,
+    es_indexed: true,
+    es_type: 'nested'
   },
   pv: {
     type: Number,
@@ -54,4 +65,29 @@ News.virtual('publishString').get(function() {
   return this.published ? '已发布' : '未发布';
 });
 
-module.exports = mongoose.model('News', News);
+News.plugin(mongoosastic, {index: 'ddld'});
+
+var NewsModel = mongoose.model('News', News);
+var stream = NewsModel.synchronize()
+var count = 0;
+
+NewsModel.createMapping(function(err, mapping){  
+  if(err){
+    console.log('error creating mapping (you can safely ignore this)');
+    console.log(err);
+  }else{
+    console.log('NewsModel mapping created!');
+    console.log(mapping);
+  }
+});
+
+stream.on('data', function(err, doc){
+  count++;
+});
+stream.on('close', function(){
+  console.log('NewsModel indexed ' + count + ' documents!');
+});
+stream.on('error', function(err){
+  console.log(err);
+});
+module.exports = NewsModel;

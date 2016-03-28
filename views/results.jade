@@ -1,0 +1,64 @@
+extends layout
+
+block css-external
+
+block content
+  .main-banner.two
+    .container
+      h2
+        span 搜索结果
+  .breadcrumb
+    .container
+      ul.list-unstyled.list-inline
+        li
+          a(href='/') 首页
+        li.active 搜索结果
+  .main-container
+    ul#products-filter.list-unstyled.list-inline
+      li
+        a.active(href='#', data-group='all') 全部结果
+      li
+        a(href='#', data-group='platforms') 技术平台
+      li
+        a(href='#', data-group='products') 产品
+      li
+        a(href='#', data-group='news') 资讯
+      li
+        a(href='#', data-group='employments') 招聘信息
+    ul#products-grid.row.grid
+      - for (var i = 0; i < results.length; i++)
+        - var result = results[i];
+        - var dataGroupsString = '["all", "' + result['_type'] + '"]'
+        li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{dataGroupsString}')
+          .product-box
+            case result['_type']
+              when 'platforms'
+                .inner
+                  h4 #{result['_source']['name']}
+                  p.divider
+                    i.fa.fa-plus-square
+                  p
+                    | #{result['_source']['intro']}
+                a.btn.btn-secondary(href='/platform') 查看技术平台
+              when 'products'
+                .inner
+                  h4 #{result['_source']['name']}
+                  p.divider
+                    i.fa.fa-plus-square
+                  p
+                    | #{result['_source']['detail']}
+              when 'news'
+                .inner
+                  h4 #{result['_source']['title']}
+                  p.divider
+                    i.fa.fa-plus-square
+                  p
+                    | #{result['_source']['abstract']}
+                a.btn.btn-secondary(href='/news/detail/#{result["_id"]}') 查看资讯详情
+              when 'employments'
+                .inner
+                  h4 #{result['_source']['title']}
+                  p.divider
+                    i.fa.fa-plus-square
+                a.btn.btn-secondary(href='/contact') 查看招聘信息
+block js-external

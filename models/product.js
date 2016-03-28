@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var mongoosastic = require('mongoosastic');
 var dateUtils = require('../utils/date.js');
 
 /**
@@ -12,13 +13,21 @@ var dateUtils = require('../utils/date.js');
  */
 var Products = new Schema({
   // 药品名称
-  name: String,
+  name: {
+    type: String,
+    es_indexed: true,
+    es_type: 'String'
+  },
   // 商品名
   name_co: {
     type: String,
     required: false
   },
-  detail: String,
+  detail: {
+    type: String,
+    es_indexed: true,
+    es_type: 'String'
+  },
   kind: String,
   sub_kind: {
     type: [String],
@@ -69,4 +78,30 @@ Products.virtual('sub_kind_string').get(function() {
   return result;
 });
 
-module.exports = mongoose.model('Products', Products);
+Products.plugin(mongoosastic, {index: 'ddld'});
+var ProductsModel = mongoose.model('Products', Products);
+var stream = ProductsModel.synchronize();
+var count = 0;
+
+ProductsModel.createMapping(function(err, mapping) {
+  if (err) {
+    console.log('err creating mapping (you can safely ignore this)');
+    console.log(err);
+  } else {
+    console.log('ProductsModel mapping created!');
+    console.log(mapping);
+  }
+});
+
+stream.on('data', function(err, doc) {
+  count ++;
+});
+
+stream.on('close', function() {
+  console.log('ProductsModel indexed ' + count + ' documents!');
+})
+
+stream.on('error', function(err) {
+  console.log(err);
+});
+module.exports = ProductsModel;

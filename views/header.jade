@@ -21,8 +21,19 @@ header.main-header
               i.fa.fa-phone
               | 联系电话: 010-62188816
             li
-              a(href='/search')
+              a(href='#', data-toggle='modal', data-target='#search-modal')
                 i.fa.fa-search
+              #search-modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='search-modal')
+                .modal-dialog(role='document')
+                  .modal-content
+                    form#search-form(action='/search', method='POST')
+                      .modal-body
+                        .form-group
+                          input.form-control(placeholder='输入搜索内容', type='text', name='q')
+                      .modal-footer
+                        btn.btn.btn-default(data-dismiss='modal') 取消
+                        input.btn.btn-primary(type='submit', value='搜索')
+
     // Top Bar Ends
     // Navbar Starts
     nav#nav.navbar.navbar-default(role='navigation')
