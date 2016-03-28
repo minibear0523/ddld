@@ -121,4 +121,5 @@
    */
   $('#file-input').on('change', dropChangeHandler);
   $('#submit-btn').on('click', submitHandler);
+
 }(jQuery));

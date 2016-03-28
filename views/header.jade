@@ -27,12 +27,10 @@ header.main-header
                 .modal-dialog(role='document')
                   .modal-content
                     form#search-form(action='/search', method='POST')
-                      .modal-body
-                        .form-group
-                          input.form-control(placeholder='输入搜索内容', type='text', name='q')
-                      .modal-footer
-                        btn.btn.btn-default(data-dismiss='modal') 取消
-                        input.btn.btn-primary(type='submit', value='搜索')
+                      .modal-body.clearfix
+                        input.form-control(placeholder='输入搜索内容', type='text', name='q')
+                        button.btn.btn-primary(type='submit')
+                          i.fa.fa-search
 
     // Top Bar Ends
     // Navbar Starts
