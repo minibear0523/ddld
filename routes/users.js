@@ -20,23 +20,23 @@ router.get('/logout', function(req, res, next) {
 });
 
 /**
- * 注册用户
+ * 注册用户, 注册一次之后就暂时不再启用这个注册接口, 避免不必要的hacker行为
  */
-router.get('/register', function(req, res, next) {
-  res.render('dashboard/register', {});
-});
+// router.get('/register', function(req, res, next) {
+//   res.render('dashboard/register', {});
+// });
 
-router.post('/register', function(req, res, next) {
-  Account.register(new Account({username: req.body.username,}), req.body.password, function(err, user) {
-    if (err) {
-      console.log(err);
-      res.render('404', {err: err});
-    } else {
-      passport.authenticate('local')(req, res, function() {
-        res.redirect('/dashboard/home');
-      })
-    }
-  });
-});
+// router.post('/register', function(req, res, next) {
+//   Account.register(new Account({username: req.body.username,}), req.body.password, function(err, user) {
+//     if (err) {
+//       console.log(err);
+//       res.render('404', {err: err});
+//     } else {
+//       passport.authenticate('local')(req, res, function() {
+//         res.redirect('/dashboard/home');
+//       })
+//     }
+//   });
+// });
 
 module.exports = router;
