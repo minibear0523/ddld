@@ -9,6 +9,8 @@ var compression = require('compression');
 // database and set q as default promise.
 var mongoose = require("mongoose");
 mongoose.Promise = require('q').Promise;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var session = require("express-session");
 var MongoStore = require('connect-mongo')(session);
 
@@ -58,6 +60,16 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+var Account = require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+// passport.use(Account.createStrategy());
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 // Routers
 app.use('/', routes);
