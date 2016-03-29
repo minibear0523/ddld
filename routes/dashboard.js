@@ -8,6 +8,16 @@ var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 
 var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
+
+// 添加中间件, 用来限制管理员权限, 如果没有权限, 不能进入dashboard
+router.use(function checkUser(req, res, next) {
+  if (!req.user) {
+    res.redirect('/users/login');
+  } else {
+    next();
+  }
+})
+
 /**
  * 后台首页
  */
