@@ -496,7 +496,7 @@ h6 { font-size: 16px; }
 		color: #8d8d8d;
 	}
 	.welcome-area.about {
-		margin-top: 60px;
+		margin: 60px auto;
 		padding-left: 30px;
 		padding-right: 30px;
 		/*background: url(../images/about/about-img1.jpg) no-repeat right bottom;*/
@@ -586,11 +586,15 @@ h6 { font-size: 16px; }
 /* Company Introduction Section Styles Starts */
 .company-intro {
 	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-bottom: 25px;
 	text-align: left;
 	background-color: #009bdb;
 	color: #fff;
 }
+
+	.company-intro > div {
+		margin-bottom: 25px;
+	}
 	.company-intro > .container {
 		padding-left: 30px;
 		padding-right: 30px;
