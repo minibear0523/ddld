@@ -19,7 +19,7 @@
 }
 
 body {
-	font: 14px/24px 'Roboto', Arial, Helvetica, sans-serif;
+	font: 14px/24px 'Roboto', 'Microsoft YaHei' ,'STXihei', Arial, Helvetica, sans-serif;
 	color: #232323;
 	background: #eee url(/front/images/bg.png) repeat fixed;
 }
@@ -41,7 +41,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Lato', sans-serif;
+	font-family: 'LiSu', 'STFangsong', sans-serif;
+	font-weight: bold;
 }
 
 h1 { font-size: 45px; }
@@ -98,7 +99,7 @@ h6 { font-size: 16px; }
 .block-404 .btn,
 .book-appointment-box .btn-main,
 .footer-top-bar .btn-black {
-	font-family: 'Lato', sans-serif;
+	font-family: 'LiSu', 'STFangsong', sans-serif;
 }
 
 /* Form & Buttons Styles Starts */
@@ -262,7 +263,7 @@ h6 { font-size: 16px; }
 		}
 		#nav.navbar-default .navbar-nav > li > a {
 			font-size: 15px;
-			font-weight: normal;
+			font-weight: bold;
 			color: #313131;
 			line-height: normal;
 		}
@@ -292,6 +293,7 @@ h6 { font-size: 16px; }
 				text-transform: capitalize;
 			}
 				#nav .dropdown-menu > li > a {
+					font-weight: bold;
 					padding-top: 5px;
 					padding-bottom: 5px;
 					color: #fff;
@@ -2781,4 +2783,24 @@ ul#doctors-grid {
 	-webkit-transition: all 0.5s ease 0s;
 	   -moz-transition: all 0.5s ease 0s;
 	        transition: all 0.5s ease 0s;
+}
+
+#search-modal .modal-dialog {
+  margin: 12% auto;
+}
+
+#search-form .form-control {
+  float: left;
+  width: 90%;
+}
+
+#search-form .btn-primary {
+  background-color: #009bdb;
+  float: left;
+  width: 10%;
+}
+
+#search-form .btn-primary i {
+  font-size: 18px;
+  margin: 0;
 }

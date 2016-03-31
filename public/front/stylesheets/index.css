@@ -2,23 +2,3 @@ video#intro-video {
   width: 100%;
   height: 100%;
 }
-
-#search-modal .modal-dialog {
-  margin: 12% auto;
-}
-
-#search-form .form-control {
-  float: left;
-  width: 90%;
-}
-
-#search-form .btn-primary {
-  background-color: #009bdb;
-  float: left;
-  width: 10%;
-}
-
-#search-form .btn-primary i {
-  font-size: 18px;
-  margin: 0;
-}
