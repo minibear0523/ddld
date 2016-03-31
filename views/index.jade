@@ -39,95 +39,94 @@ block content
               p.animated.fadeInLeft
                 | 国际化、标准化、规范化的研发服务提供者
       // Slider 3 Ends
-    // Slider Section Ends
-    // Main Container Starts
-    .main-container
-      .row
-        // Products Sections Starts
-        section.col-md-8.col-xs-12
-          .main-block1
-            h2.main-heading1.lite 资讯中心
-            h2.main-heading2 公司动态 &amp; 行业资讯
-            // News Carousel Starts
-            #news-carousel.news-carousel.carousel.slide(data-ride='carousel')
-              // Wrapper for Slides Starts
-              .carousel-inner
-                - for (var i = 0; i < news_list.length; i++)
-                  - var news_sub_list = news_list[i]
-                  // Slide Starts
-                  .item
-                    .row
-                      - for (var j = 0; j < news_sub_list.length; j ++)
-                        - var news = news_sub_list[j]
-                        .col-sm-6.col-xs-12
-                          .news-post-box
-                            img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}')
-                            .inner
-                              h5
-                                a(href='/news/detail/#{news.id}') #{news.title}
-                              ul.list-unstyled.list-inline.post-meta
-                                li
-                                  i.fa.fa-calendar
-                                  |  发布于#{news.dateString}
-                                li
-                                  i.fa.fa-eye
-                                  |  #{news.pv}
-                                li
-                                  i.fa.fa-bars
-                                  |  #{news.kindString}
-                              p  #{news.abstract}
-                              a.btn.btn-secondary(href='/news/detail/#{news.id}')
-                                i.fa.fa-arrow-circle-right
-                                |  继续阅读
-                // Slide Ends
-              // Wrapper for Slides Ends
-              // Controls Starts
-              a.left.carousel-control(href='#news-carousel', role='button', data-slide='prev')
-                span.fa.fa-angle-left(aria-hidden='true')
-                span.sr-only 上一个
-              a.right.carousel-control(href='#news-carousel', role='button', data-slide='next')
-                span.fa.fa-angle-right(aria-hidden='true')
-                span.sr-only 下一个
-              // Controls Ends
-        // Products Carousel Ends
-        aside.col-md-4.col-xs-12
-          .main-block1
-            h2.main-heading1.lite 产品
-            h2.main-heading2 转让 & 招商
-            // Accordion Starts
-            #accordion.panel-group
-              - for (var i = 0; i < products_list.length; i++)
-                - var product = products_list[i]
-                .panel
-                  // Panel Heading Starts
-                  .panel-heading
-                    h5.panel-title
-                      i.icon.fa.fa-plus-square
-                      a(data-toggle='collapse', data-parent='#accordion', href='#collapse#{i}')
-                        | #{product.name}
-                  // Panel Heading Ends
-                  // Panel Body Starts
-                  - var id = 'collapse' + i
-                  div.panel-collapse.collapse(id='#{id}')
-                    .panel-body
-                      p
-                        | #{product.detail}
-                      a.btn.btn-sm.btn-transparent.inverse(href='/products/#{product.kind}') 查看所有产品
-                  // Panel Body Ends
-                // Accordion Ends
-      // Company Introduction Section Starts
-      section.company-intro
-        .row
-          .col-md-6.col-xs-12
-            h2.main-heading1.lite 大道无形, 智者天成
-            p
-              | 大道隆达（北京）医药科技发展有限公司注册于北京中关村，专业从事药品、保健品、辅料等医药相关领域研发、生产、销售的创新性企业。公司在北京博尔达生物技术发展有限公司的基础上发展走过了十五年发展历程，在经历了国家历次医药政策的调整和变化已走出自己独特的发展道路，围绕公司的发展业务，逐步形成了以大道隆达为核心，形成医药多渠道、多经营、多方向的集团性发展模式。
-            a.btn.btn-sm.btn-transparent(href='/intro') 走进大道
-          .col-md-6.col-xs-12(style='padding-right:45px;')
-            //- img.img-responsive.img-style1(src='front/images/image1.jpg', alt='image')
-            video#intro-video(src='http://www.html5videoplayer.net/videos/toystory.mp4', controls='controls', preload='meta') 您的浏览器不支持该视频播放
-      // Company Introduction Section Ends
-    // Main Container Ends
+  // Slider Section Ends
+  // Main Container Starts
+  main.main-container
+    section.product.row
+      // Products Sections Starts
+      .col-md-8.col-xs-12
+        .main-block1
+          h2.main-heading1.lite 资讯中心
+          h2.main-heading2 公司动态 &amp; 行业资讯
+          // News Carousel Starts
+          #news-carousel.news-carousel.carousel.slide(data-ride='carousel')
+            // Wrapper for Slides Starts
+            .carousel-inner
+              - for (var i = 0; i < news_list.length; i++)
+                - var news_sub_list = news_list[i]
+                // Slide Starts
+                .item
+                  .row
+                    - for (var j = 0; j < news_sub_list.length; j ++)
+                      - var news = news_sub_list[j]
+                      .col-sm-6.col-xs-12
+                        .news-post-box
+                          img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}')
+                          .inner
+                            h5
+                              a(href='/news/detail/#{news.id}') #{news.title}
+                            ul.list-unstyled.list-inline.post-meta
+                              li
+                                i.fa.fa-calendar
+                                |  发布于#{news.dateString}
+                              li
+                                i.fa.fa-eye
+                                |  #{news.pv}
+                              li
+                                i.fa.fa-bars
+                                |  #{news.kindString}
+                            p  #{news.abstract}
+                            a.btn.btn-secondary(href='/news/detail/#{news.id}')
+                              i.fa.fa-arrow-circle-right
+                              |  继续阅读
+              // Slide Ends
+            // Wrapper for Slides Ends
+            // Controls Starts
+            a.left.carousel-control(href='#news-carousel', role='button', data-slide='prev')
+              span.fa.fa-angle-left(aria-hidden='true')
+              span.sr-only 上一个
+            a.right.carousel-control(href='#news-carousel', role='button', data-slide='next')
+              span.fa.fa-angle-right(aria-hidden='true')
+              span.sr-only 下一个
+            // Controls Ends
+      // Products Carousel Ends
+      aside.col-md-4.col-xs-12
+        .main-block1
+          h2.main-heading1.lite 产品
+          h2.main-heading2 转让 &amp; 招商
+          // Accordion Starts
+          #accordion.panel-group
+            - for (var i = 0; i < products_list.length; i++)
+              - var product = products_list[i]
+              .panel
+                // Panel Heading Starts
+                .panel-heading
+                  h5.panel-title
+                    i.icon.fa.fa-plus-square
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse#{i}')
+                      | #{product.name}
+                // Panel Heading Ends
+                // Panel Body Starts
+                - var id = 'collapse' + i
+                div.panel-collapse.collapse(id='#{id}')
+                  .panel-body
+                    p
+                      | #{product.detail}
+                    a.btn.btn-sm.btn-transparent.inverse(href='/products/#{product.kind}') 查看所有产品
+                // Panel Body Ends
+              // Accordion Ends
+    // Company Introduction Section Starts
+    section.company-intro.clearfix
+      .col-md-6.col-xs-12
+        h2.main-heading1.lite 大道无形, 智者天成
+        p
+          | 大道隆达（北京）医药科技发展有限公司注册于北京中关村，专业从事药品、保健品、辅料等医药相关领域研发、生产、销售的创新性企业。公司在北京博尔达生物技术发展有限公司的基础上发展走过了十五年发展历程，在经历了国家历次医药政策的调整和变化已走出自己独特的发展道路，围绕公司的发展业务，逐步形成了以大道隆达为核心，形成医药多渠道、多经营、多方向的集团性发展模式。
+        a.btn.btn-sm.btn-transparent(href='/intro') 走进大道
+      .col-md-6.col-xs-12
+        //- img.img-responsive.img-style1(src='front/images/image1.jpg', alt='image')
+        video#intro-video(src='http://www.html5videoplayer.net/videos/toystory.mp4', controls='controls', preload='meta') 您的浏览器不支持该视频播放
+    // Company Introduction Section Ends
+  // Main Container Ends
 
 block js-external
   script(src='/front/javascripts/index.js')
