@@ -1,0 +1,38 @@
+{
+  apps : [
+    {
+      name      : "ddld",
+      script    : "www",
+      cwd       : "/root/project/ddld/bin",
+      log_date_format: "YYYY-MM-DD HH:mm Z",
+      error_file: "/root/project/logs/ddld-err.log",
+      out_file: "/root/project/logs/ddld-out.log",
+      pid_file: "/root/project/logs/ddld.pid",
+      instances: 4,
+      max_restarts: 10,
+      max_memory_restart: "500M",
+      watch: true,
+      ignore_watch: ["[\\/\\\]\\./", "node_modules", "uploads"],
+      autorestart: true,
+      exec_interpreter: "node",
+      exec_mode: "cluster",
+      env: {
+        COMMON_VARIABLE: "true"
+      },
+      env_production : {
+        NODE_ENV: "production"
+      }
+    }
+  ],
+
+  deploy : {
+    production : {
+      user : "root",
+      host : "123.57.208.179",
+      ref  : "origin/master",
+      repo : "git@github.com:minibear0523/ddld.git",
+      path : "/root/project/ddld",
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production"
+    },
+  }
+}
