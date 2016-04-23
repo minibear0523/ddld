@@ -46,8 +46,7 @@ block content
       // Products Sections Starts
       .col-md-8.col-xs-12
         .main-block1
-          h2.main-heading1.lite 资讯中心
-          h2.main-heading2 公司动态 &amp; 行业资讯
+          h2.main-heading2.lite 资讯中心
           // News Carousel Starts
           #news-carousel.news-carousel.carousel.slide(data-ride='carousel')
             // Wrapper for Slides Starts
@@ -92,8 +91,7 @@ block content
       // Products Carousel Ends
       aside.col-md-4.col-xs-12
         .main-block1
-          h2.main-heading1.lite 产品
-          h2.main-heading2 转让 &amp; 招商
+          h2.main-heading2.lite 产品
           // Accordion Starts
           #accordion.panel-group
             - for (var i = 0; i < products_list.length; i++)
@@ -115,18 +113,19 @@ block content
                     a.btn.btn-sm.btn-transparent.inverse(href='/products/#{product.kind}') 查看所有产品
                 // Panel Body Ends
               // Accordion Ends
-    // Company Introduction Section Starts
-    section.company-intro.clearfix
-      .col-md-6.col-xs-12
-        h2.main-heading1.lite 大道无形, 智者天成
-        p
-          | 大道隆达（北京）医药科技发展有限公司注册于北京中关村，专业从事药品、保健品、辅料等医药相关领域研发、生产、销售的创新性企业。公司在北京博尔达生物技术发展有限公司的基础上发展走过了十五年发展历程，在经历了国家历次医药政策的调整和变化已走出自己独特的发展道路，围绕公司的发展业务，逐步形成了以大道隆达为核心，形成医药多渠道、多经营、多方向的集团性发展模式。
-        a.btn.btn-sm.btn-transparent(href='/intro') 走进大道
-      .col-md-6.col-xs-12
-        //- img.img-responsive.img-style1(src='front/images/image1.jpg', alt='image')
-        video#intro-video(src='http://www.html5videoplayer.net/videos/toystory.mp4', controls='controls', preload='meta') 您的浏览器不支持该视频播放
-    // Company Introduction Section Ends
   // Main Container Ends
+
+  // Company Introduction Section Starts
+  section.company-intro.clearfix
+    .col-md-6.col-xs-12
+      h2.main-heading1.lite 大道无形, 智者天成
+      p
+        | 大道隆达（北京）医药科技发展有限公司注册于北京中关村，专业从事药品、保健品、辅料等医药相关领域研发、生产、销售的创新性企业。公司在北京博尔达生物技术发展有限公司的基础上发展走过了十五年发展历程，在经历了国家历次医药政策的调整和变化已走出自己独特的发展道路，围绕公司的发展业务，逐步形成了以大道隆达为核心，形成医药多渠道、多经营、多方向的集团性发展模式。
+      a.btn.btn-sm.btn-transparent(href='/intro') 走进大道
+    .col-md-6.col-xs-12
+      //- img.img-responsive.img-style1(src='front/images/image1.jpg', alt='image')
+      video#intro-video(src='http://www.html5videoplayer.net/videos/toystory.mp4', controls='controls', preload='meta') 您的浏览器不支持该视频播放
+  // Company Introduction Section Ends
 
 block js-external
   script(src='/front/javascripts/index.js')
