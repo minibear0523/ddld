@@ -27,6 +27,26 @@ router.get('/merchant', function(req, res, next) {
 });
 
 /**
+ * 获取产品详情页面
+ */
+router.get('/detail/:id', function(req, res, next) {
+  var productId = req.params.id || "";
+  if (!productId) {
+    return res.render('404');
+  }
+  Products
+  .findById(productId)
+  .exec()
+  .then(function(product) {
+    res.render('product_detail', {product: product});
+  })
+  .catch(function(err) {
+    res.render('404', {err: err});
+  })
+});
+
+// RESTful API
+/**
  * 上传或修改产品
  */
 router.post('/product', function(req, res, next) {

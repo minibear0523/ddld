@@ -18,17 +18,49 @@ var Products = new Schema({
     es_indexed: true,
     es_type: 'String'
   },
-  // 商品名
-  name_co: {
-    type: String,
-    required: false
-  },
-  detail: {
+  // 注册分类
+  registration_class: {
     type: String,
     es_indexed: true,
     es_type: 'String'
   },
+  // 适应症
+  indication: {
+    type: String,
+  },
+  // 剂型及规格
+  specification: {
+    type: String,
+    required: false
+  },
+  // 项目优势
+  advantage: {
+    type: String,
+    required: false
+  },
+  // 转让标的
+  transfer_target: {
+    type: String,
+    required: false
+  },
+  // 项目简介
+  introduction: {
+    type: String,
+    required: false
+  },
+  // 市场情况
+  market: {
+    type: String,
+    required: false
+  },
+  // 知识产权情况
+  intellectual_property: {
+    type: String,
+    required: false
+  },
+  // 分类
   kind: String,
+  // 子分类
   sub_kind: {
     type: [String],
     required: false
