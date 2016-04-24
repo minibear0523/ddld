@@ -1,0 +1,75 @@
+extends layout
+block css-external
+
+block content
+  .breadcrumb
+    .container
+      ul.list-unstyled.list-inline
+        li
+          a(href='/') 首页
+        li
+          a(href='/') #{product.kindString}
+        li.active 产品详情
+
+  .main-container
+    .row
+      .col-sm-5.col-xs-12
+        .profile-block
+          .panel.panel-profile
+            .panel-heading
+              img.img-responsive.img-center-xs(src='/front/images/doctors/doctor-bio-img1.jpg')
+              h3.panel-title #{product.name}
+              p.caption #{product.registration_class}
+            .panel-body
+              ul.list-unstyled
+                li.row
+                  span.col-sm-4.col-xs-12
+                    strong 适用症
+                  span.col-sm-8.col-xs-12 #{product.indication}
+                li.row
+                  span.col-sm-4.col-xs-12
+                    strong 剂型及规格
+                  span.col-sm-8.col-xs-12 #{product.specification}
+            .panel-footer
+              ul.list-unstyled
+                li.row
+                  span.col-sm-4.col-xs-12
+                    strong 项目优势
+                  span.col-sm-8.col-xs-12 #{product.advantage}
+                li.row
+                  span.col-sm-4.col-xs-12
+                    strong 转让标的
+                  span.col-sm-8.col-xs-12 #{product.transfer_target}
+      .col-sm-7.col-xs-12
+        .profile-details
+          h3.main-heading2 #{product.name}
+          h4 项目简介
+          p
+            | #{product.introduction}
+            br
+          h4 市场情况
+          p
+            | #{product.market}
+            br
+          h4 知识产权情况
+          p
+            | #{product.intellectual_property}
+            br
+    .spacer-block
+    h2.main-heading2.nomargin-top 相关产品推荐
+    ul#products-grid.row.grid
+      - for (var i = 0; i < products.length; i++)
+        - var product = products[i]
+        li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.sub_kind_string}')
+          .product-box
+            .inner
+              h4 #{product.name}
+              p.designation #{product.name_co}
+              p.divider
+                i.fa.fa-plus-square
+              p
+                | #{product.detail}
+            a.btn.btn-secondary(href='#')
+              | 查看详情 
+              i.fa.fa-arrow-circle-right
+      
