@@ -1372,11 +1372,16 @@ ul#products-grid {
 		text-align: center;
 		border: 1px solid #ebebeb;
 	}
+	.products-grid .product-box h4 {
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
 	.products-grid .product-box .profile-img .overlay ul.sm-links {
 		margin-top: 27%;
 	}
 	.products-grid .product-box .inner {
-		padding: 20px 20px 10px;
+		padding: 19px 19px 10px;
 	}
 	.products-grid .product-box p {
 		margin-top: 6px;
