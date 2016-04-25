@@ -1,22 +1,19 @@
 $(function() {
 
-  var companyPoint = new BMap.Point(116.565063,39.781406);
-  var companyMarker = new BMap.Marker(companyPoint);
+  function newMap(selector, coordinate) {
+    var markerPoint = new BMap.Point(coordinate.x, coordinate.y);
+    var marker = new BMap.Marker(markerPoint);
 
-  var headquarter = new BMap.Map('headquarter-map');
+    var embeddedMap = new BMap.Map(selector);
 
-  headquarter.centerAndZoom(new BMap.Point(116.56507,39.781388), 18);
-  headquarter.setCurrentCity('北京');
-  headquarter.addControl(new BMap.MapTypeControl());
-  headquarter.enableScrollWheelZoom(true);
-  headquarter.addOverlay(companyMarker);
+    embeddedMap.centerAndZoom(new BMap.Point(coordinate.x, coordinate.y), 18);
+    embeddedMap.setCurrentCity('北京');
+    embeddedMap.addControl(new BMap.MapTypeControl());
+    embeddedMap.enableScrollWheelZoom(true);
+    embeddedMap.addOverlay(marker);
+  }
 
-  var laboratory = new BMap.Map('laboratory-map');
-
-  laboratory.centerAndZoom(new BMap.Point(116.56507,39.781388), 18);
-  laboratory.setCurrentCity('北京');
-  laboratory.addControl(new BMap.MapTypeControl());
-  laboratory.enableScrollWheelZoom(true);
-  laboratory.addOverlay(companyMarker);
+  newMap('headquarter-map', {x: 116.3313, y: 39.972191});
+  newMap('laboratory-map', {x: 116.56507, y: 39.781406});
 
 }(jQuery));
