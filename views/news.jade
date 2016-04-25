@@ -2,7 +2,7 @@ extends layout
 block css-external
 
 block content
-  .main-banner.seven
+  .main-banner.prod
     .container
       h2
         span 资讯中心
@@ -13,12 +13,22 @@ block content
           - for (var i = 0; i < news_list.length; i++)
             - var news = news_list[i]
             article.news-post
-              - if (news.thumbnail != "")
-                img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}', alt='#{news.title}')
-              .inner
-                h4
-                  a(href='/news/detail/#{news.id}') #{news.title}
-                ul.list-unstyled.list-inline.post-meta
+              .inner.row
+                - if (news.thumbnail != "")
+                  .col-sm-4.col-xs-12
+                    .image-container
+                      .image-wrapper
+                        img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}', alt='#{news.title}')
+                .col-sm-8.col-xs-12
+                  h4
+                    a(href='/news/detail/#{news.id}') #{news.title}
+
+                  p.limit-line.three  #{news.abstract}
+                  a.btn.btn-secondary(href='/news/detail/#{news.id}')
+                    | 继续阅读
+                    i.fa.fa-arrow-circle-right
+              .row
+                ul.list-unstyled.list-inline.post-meta.col-xs-12
                   li
                     i.fa.fa-calendar
                     | 发布于#{news.dateString}
@@ -37,10 +47,6 @@ block content
                       - var tag = news.tags[j]
                       a(href='#') #{tag}
                       | ,
-                p  #{news.abstract}
-                a.btn.btn-secondary(href='/news/detail/#{news.id}')
-                  | 继续阅读
-                  i.fa.fa-arrow-circle-right
           -
         .clearfix.pagination-wrap
           ul.pagination.pull-right

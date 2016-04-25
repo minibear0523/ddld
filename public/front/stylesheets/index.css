@@ -1,0 +1,167 @@
+/* Latest News Carousel Starts */
+
+  .carousel-inner {
+  }
+  /*
+    .news-carousel .item {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  */
+    .news-carousel .carousel-control {
+      width: 32px;
+      height: 32px;
+      line-height: 28px;
+      top: -70px;
+      opacity: 1;
+      color: #8d8d8d;
+      font-size: 24px;
+      text-shadow: none;
+      background: #fff;
+      border: 1px solid #c2c2c2;
+    }
+    .news-carousel .carousel-control:hover,
+    .news-carousel .carousel-control:focus {
+      color: #fff;
+      background-color: #009bdb;
+      border-color: #009bdb;
+    }
+    .news-carousel .carousel-control.left {
+      left: auto;
+      right: 50px;
+    }
+    .news-carousel .carousel-control.right {
+      right: 10px;
+    }
+    .news-carousel .carousel-control .fa {
+      font-weight: bold;
+    }
+    .news-post-box {
+      border: 1px solid #ebebeb;
+      margin: 0 10px 15px 0;
+      padding: 10px;
+    }
+    .news-post-box:hover {
+      border-color: #d6d6d6;
+    }
+    .news-post-box .inner {
+      margin-bottom: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #8d8d8d;
+      text-align: center;
+    }
+
+    .news-post-box .news-title {
+      height: 68px;
+    }
+    .news-post-box .news-title .vc-title-wrapper {
+      display: table;
+      height: inherit;
+      width: 100%;
+    }
+
+      .news-post-box h5 {
+        display: table-cell;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+      .news-post-box,
+      .news-post-box h5 a {
+        color: #323232;
+      }
+      .news-post-box h5 a:hover {
+        color: #009bdb;
+      }
+      .news-post-box .post-meta {
+        margin: 0 -20px 15px -20px;
+        padding: 0 15px;
+        border: solid #ebebeb;
+        border-width: 1px 0;
+      }
+        .news-post-box .post-meta li {
+          margin-left: 5px;
+          padding: 5px;
+          font-size: 13px;
+          font-weight: bold;
+        }
+        .news-post-box .post-meta li + li {
+          margin-left: 10px;
+          padding-left: 15px;
+          border-left: 1px solid #ebebeb;
+        }
+        .news-post-box .post-meta li .fa {
+          margin-right: 5px;
+        }
+        .news-post-box .btn {
+          margin-top: 10px;
+        }
+        .news-post-box .btn .fa {
+          margin-right: 4px;
+        }
+        .news-post-box .btn-secondary:hover,
+        .news-post-box .btn-secondary:focus {
+          background-color: #323232;
+        }
+
+.news-post-box .news-image {
+  margin: -10px -10px 0 -10px;
+  overflow: hidden;
+  padding-top: 65%;
+  position: relative;
+}
+
+.news-post-box .news-image .image-wrapper {
+  bottom: 0;
+  border-bottom: 1px solid #ebebeb;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.image-wrapper img {
+    vertical-align: middle;
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.list {
+  border-top: 1px solid #e3e3e3;
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  border: 1px solid #e3e3e3;
+  border-top: 0;
+  color: #323232;
+  font-size: 18px;
+  height: 45px;
+  width: 100%;
+}
+
+.list li h5 {
+  line-height: 45px;
+  margin: 0;
+  padding: 0;
+}
+
+.list li h5 i {
+  background-color: #009bdb;
+  color: white;
+  font-size: 24px;
+  height: 44px;
+  line-height: 42px;
+  text-align: center;
+  width: 44px;
+}
+
+.list li:nth-child(2n) h5 i {
+  background-color: #4db1e2;
+}
+
+.list li h5 a {
+  padding: 10px 15px;
+}

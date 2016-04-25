@@ -4,7 +4,7 @@ block css-external
   link(rel='stylesheet', href='/front/stylesheets/contact.css')
 
 block content
-  .main-banner.three
+  .main-banner.prod
     .container
       h2
         span 关于我们
@@ -24,6 +24,8 @@ block content
               li
                 i.fa.fa-fax
                 |  010-51626391
+            .embedded-map
+              #headquarter-map.map-wrapper
         .col-sm-6.col-xs-12
           .cblock-1
             span.icon-wrap
@@ -37,6 +39,8 @@ block content
               li
                 i.fa.fa-fax
                 |  010-59755826转801
+            .embedded-map
+              #laboratory-map.map-wrapper
       .row
         .col-sm-6.col-xs-12
           .cblock-1
@@ -62,15 +66,6 @@ block content
               li
                 i.fa.fa-phone
                 |  010-59755826转805
-      .row
-        .col-sm-12.col-xs-12
-          h3.main-heading2(style="margin-top: 20px;")
-            |  公司地址  
-          #address.portfolio
-            .container
-              .col-md-10.col-md-offset-1
-                .portfolio-item
-                  #address-places.small-map
       .row
         .col-sm-12.col-xs-12
           h3.main-heading2(style="margin-top: 20px;")
