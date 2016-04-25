@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var Products = require('../models/product');
+var Transfer = require('../models/transfer');
+var Merchant = require('../models/merchant');
 
 router.get('/transfer', function(req, res, next) {
-  Products
-  .find({kind: 'transfer'})
+  Transfer
+  .find()
   .exec()
   .then(function(products) {
     res.render('transfer', {products: products});
@@ -15,8 +16,8 @@ router.get('/transfer', function(req, res, next) {
 });
 
 router.get('/merchant', function(req, res, next) {
-  Products
-  .find({kind: 'merchant'})
+  Merchant
+  .find()
   .exec()
   .then(function(products) {
     res.render('merchant', {products: products});
@@ -28,28 +29,45 @@ router.get('/merchant', function(req, res, next) {
 
 /**
  * 获取产品详情页面
+ * :kind: {transfer: '转让项目', merchant: '招商项目'}
  */
-router.get('/detail/:id', function(req, res, next) {
+router.get('/detail/:kind/:id', function(req, res, next) {
+  var kind = req.params.kind || "";
   var productId = req.params.id || "";
-  if (!productId) {
+  if (!productId || !kind) {
     return res.render('404');
   }
-  Products
-  .findById(productId)
-  .exec()
-  .then(function(product) {
-    res.render('product_detail', {product: product});
-  })
-  .catch(function(err) {
-    res.render('404', {err: err});
-  })
+
+  if (kind == 'transfer') {
+    // 转让项目产品
+    Transfer
+    .findById(productId)
+    .exec()
+    .then(function(product) {
+      res.render('product_transfer_detail', {product: product});
+    })
+    .catch(function(err) {
+      res.render('404', {err: err});
+    })
+  } else if (kind == 'merchant') {
+    // 招商项目产品
+    Merchant
+    .findById(productId)
+    .exec()
+    .then(function(product) {
+      res.render('product_merchant_detail', {product: product});
+    })
+    .catch(function(err) {
+      res.render('404', {err: err});
+    })
+  }
 });
 
 // RESTful API
 /**
  * 上传或修改产品
  */
-router.post('/product', function(req, res, next) {
+router.post('/product/', function(req, res, next) {
   var productId = req.query.id || "";
   var name = req.body.name;
   var nameCo = req.body.name_co;
@@ -62,60 +80,111 @@ router.post('/product', function(req, res, next) {
 
   if (productId) {
     // 更新产品信息
-    Products
-      .findById(productId)
-      .exec()
-      .then(function(product) {
-        product.name = name;
-        product.name_co = nameCo;
-        product.detail = detail;
-        product.kind = kind;
-        product.sub_kind = subKind;
+    if (kind == 'merchant') {
+      Merchant
+        .findById(productId)
+        .exec()
+        .then(function(product) {
+          product.name = name;
+          product.name_co = nameCo;
+          product.detail = detail;
+          product.kind = kind;
+          product.sub_kind = subKind;
 
-        return product.save();
-      })
-      .then(function(product) {
-        res.status(200).send();
-      })
-      .catch(function(err) {
-        res.status(400).send(err);
-      });
+          return product.save();
+        })
+        .then(function(product) {
+          res.status(200).send();
+        })
+        .catch(function(err) {
+          res.status(400).send(err);
+        });  
+    } else if (kind == 'transfer') {
+      Transfer
+        .findById(productId)
+        .exec()
+        .then(function(product) {
+          product.name = name;
+          product.name_co = nameCo;
+          product.detail = detail;
+          product.kind = kind;
+          product.sub_kind = subKind;
 
+          return product.save();
+        })
+        .then(function(product) {
+          res.status(200).send();
+        })
+        .catch(function(err) {
+          res.status(400).send(err);
+        });
+    }
   } else {
     // 创建新产品
-    var product = new Products({
-      name: name,
-      name_co: nameCo,
-      detail: detail,
-      kind: kind,
-      sub_kind: subKind
-    })
-    product
-      .save()
-      .then(function(product) {
-        res.status(200).send();
+    if (kind == 'merchant') {
+      var product = new Merchant({
+        name: name,
+        name_co: nameCo,
+        detail: detail,
+        kind: kind,
+        sub_kind: subKind
       })
-      .catch(function(err) {
-        res.status(400).send(err);
-      });
+      product
+        .save()
+        .then(function(product) {
+          res.status(200).send();
+        })
+        .catch(function(err) {
+          res.status(400).send(err);
+        });  
+    } else if (kind == 'transfer') {
+      var product = new Transfer({
+        name: name,
+        name_co: nameCo,
+        detail: detail,
+        kind: kind,
+        sub_kind: subKind
+      })
+      product
+        .save()
+        .then(function(product) {
+          res.status(200).send();
+        })
+        .catch(function(err) {
+          res.status(400).send(err);
+        });
+    }
   }
 });
 
 /**
  * 获取产品详情
  */
-router.get('/product', function(req, res, next) {
+router.get('/product/:kind', function(req, res, next) {
+  var kind = req.params.kind || "";
   var productId = req.query.id || "";
   if (productId) {
-    Products
-      .findById(productId)
-      .exec()
-      .then(function(product) {
-        res.status(200).send(product);
-      })
-      .catch(function(err) {
-        res.status(400).send(err);
-      })
+    if (kind == 'merchant') {
+      Merchant
+        .findById(productId)
+        .exec()
+        .then(function(product) {
+          res.status(200).send(product);
+        })
+        .catch(function(err) {
+          res.status(400).send(err);
+        })
+    } else if (kind == 'transfer') {
+      Transfer
+        .findById(productId)
+        .exec()
+        .then(function(product) {
+          res.status(200).send(product);
+        })
+        .catch(function(err) {
+          res.status(400).send(err);
+        })
+    }
   } else {
     res.status(404).send();
   }

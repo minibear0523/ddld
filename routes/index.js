@@ -3,7 +3,8 @@ var router = express.Router();
 var fs = require('fs');
 var path = require('path');
 var Q = require('q');
-var Products = require('../models/product');
+var Transfer = require('../models/transfer');
+var Merchant = require('../models/merchant');
 var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
   } else {
     // 已经过期,或者没有数据
     var data = {};
-    Products
+    Transfer
       .find()
       .limit(10)
       .sort({date: -1})
