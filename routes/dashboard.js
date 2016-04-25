@@ -134,10 +134,10 @@ router.get('/products/product/:type', function(req, res, next) {
     })
   } else {
     if (req.params.type == 'transfer') {
-        res.render('dashboard/product_transfer');
-      } else if (req.params.type == 'merchant') {
-        res.render('dashboard/product_merchant');
-      }
+      res.render('dashboard/product_transfer');
+    } else if (req.params.type == 'merchant') {
+      res.render('dashboard/product_merchant');
+    }
   }
 });
 
