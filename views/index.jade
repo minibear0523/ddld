@@ -60,10 +60,14 @@ block content
                       - var news = news_sub_list[j]
                       .col-sm-6.col-xs-12
                         .news-post-box
-                          img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}')
-                          .inner
-                            h5
-                              a(href='/news/detail/#{news.id}') #{news.title}
+                          div.news-image
+                            div.image-wrapper
+                              img.img-responsive.img-center-sm.img-center-xs(src='#{news.thumbnail}')
+                          .inner.clearfix
+                            div.news-title.clearfix
+                              div.vc-title-wrapper
+                                h5
+                                  a(href='/news/detail/#{news.id}') #{news.title}
                             ul.list-unstyled.list-inline.post-meta
                               li
                                 i.fa.fa-calendar
@@ -74,7 +78,7 @@ block content
                               li
                                 i.fa.fa-bars
                                 |  #{news.kindString}
-                            p  #{news.abstract}
+                            p.limit-line.three  #{news.abstract}
                             a.btn.btn-secondary(href='/news/detail/#{news.id}')
                               i.fa.fa-arrow-circle-right
                               |  继续阅读
@@ -92,27 +96,14 @@ block content
       aside.col-md-4.col-xs-12
         .main-block1
           h2.main-heading2.lite 产品
-          // Accordion Starts
-          #accordion.panel-group
+          ul.list
             - for (var i = 0; i < products_list.length; i++)
               - var product = products_list[i]
-              .panel
-                // Panel Heading Starts
-                .panel-heading
-                  h5.panel-title
-                    i.icon.fa.fa-plus-square
-                    a(data-toggle='collapse', data-parent='#accordion', href='#collapse#{i}')
-                      | #{product.name}
-                // Panel Heading Ends
-                // Panel Body Starts
-                - var id = 'collapse' + i
-                div.panel-collapse.collapse(id='#{id}')
-                  .panel-body
-                    p
-                      | #{product.detail}
-                    a.btn.btn-sm.btn-transparent.inverse(href='/products/#{product.kind}') 查看所有产品
-                // Panel Body Ends
-              // Accordion Ends
+              li
+                h5
+                  i.fa.fa-flask
+                  a(href='#collapse#{i}')
+                    | #{product.name}
   // Main Container Ends
 
   // Company Introduction Section Starts

@@ -41,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'LiSu', 'STFangsong', sans-serif;
+	font-family: 'Heiti SC', 'STHeiti', sans-serif;
 	font-weight: bold;
 }
 
@@ -57,7 +57,7 @@ h6 { font-size: 16px; }
 }
 
 .main-heading2 {
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 	position: relative;
 	color: #009bdb;
 }
@@ -382,7 +382,7 @@ h6 { font-size: 16px; }
 /* Main Banner Styles Starts */
 
 .main-banner {
-	padding: 130px 30px 70px;
+	padding: 50px 30px 50px;
 }
 	.main-banner.one {
 		background: url(/front/images/banners/banner-img1.jpg) center top;
@@ -411,13 +411,17 @@ h6 { font-size: 16px; }
 	.main-banner.seven {
 		background: url(/front/images/banners/banner-img7.jpg) center top;
 	}
+
+	.main-banner.prod {
+		background: url(/front/images/banners/banner.png) center top;
+	}
 	.main-banner h2 {
 		margin-top: 0;
 		margin-bottom: 0;
 		color: #323232;
 	}
 	.main-banner h2::first-letter {
-		color: #009bdb;
+		// color: #009bdb;
 	}
 		.main-banner h2 span {
 			padding: 20px 50px 16px 30px;
@@ -455,10 +459,10 @@ h6 { font-size: 16px; }
 /* Main Container Styles Starts */
 
 .main-container {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	padding-left: 30px;
-	padding-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* Notification Boxes Styles Starts */
@@ -844,7 +848,7 @@ h6 { font-size: 16px; }
 }
 	.main-block1 h2 {
 		margin-top: 0;
-		margin-bottom: 0;
+		margin-bottom: 15px;
 	}
 	.main-block1 h2 + h2 {
 		margin-top: 10px;
@@ -997,98 +1001,6 @@ h6 { font-size: 16px; }
 		.products-box .btn-secondary:focus {
 			background-color: #323232;
 		}
-/* Latest News Carousel Starts */
-
-	.news-carousel {
-	}
-		.news-carousel .item {
-			margin-right: 10px;
-			margin-bottom: 10px;
-		}
-		.news-carousel .carousel-control {
-			width: 32px;
-			height: 32px;
-			line-height: 28px;
-			top: -70px;
-			opacity: 1;
-			color: #8d8d8d;
-			font-size: 24px;
-			text-shadow: none;
-			background: #fff;
-			border: 1px solid #c2c2c2;
-		}
-		.news-carousel .carousel-control:hover,
-		.news-carousel .carousel-control:focus {
-			color: #fff;
-			background-color: #009bdb;
-			border-color: #009bdb;
-		}
-		.news-carousel .carousel-control.left {
-			left: auto;
-			right: 50px;
-		}
-		.news-carousel .carousel-control.right {
-			right: 10px;
-		}
-		.news-carousel .carousel-control .fa {
-			font-weight: bold;
-		}
-		.news-post-box {
-			padding: 10px;
-			border: 1px solid #ebebeb;
-		}
-		.news-post-box:hover {
-			border-color: #d6d6d6;
-		}
-		.news-post-box .inner {
-			margin-bottom: 15px;
-			padding-left: 10px;
-			padding-right: 10px;
-			color: #8d8d8d;
-			text-align: center;
-		}
-			.news-post-box h5 {
-				margin-top: 25px;
-				margin-bottom: 15px;
-				font-weight: bold;
-			}
-			.news-post-box,
-			.news-post-box h5 a {
-				color: #323232;
-			}
-			.news-post-box h5 a:hover {
-				color: #009bdb;
-			}
-			.news-post-box .post-meta {
-				margin: 0 -20px 15px -20px;
-				padding: 0 15px;
-				border: solid #ebebeb;
-				border-width: 1px 0;
-			}
-				.news-post-box .post-meta li {
-					margin-left: 5px;
-					padding: 5px;
-					font-size: 13px;
-					font-weight: bold;
-				}
-				.news-post-box .post-meta li + li {
-					margin-left: 10px;
-					padding-left: 15px;
-					border-left: 1px solid #ebebeb;
-				}
-				.news-post-box .post-meta li .fa {
-					margin-right: 5px;
-				}
-				.news-post-box .btn {
-					margin-top: 10px;
-				}
-				.news-post-box .btn .fa {
-					margin-right: 4px;
-				}
-				.news-post-box .btn-secondary:hover,
-				.news-post-box .btn-secondary:focus {
-					background-color: #323232;
-				}
 
 /* Accordions Styles Starts */
 
@@ -1452,7 +1364,7 @@ ul#products-grid {
 	overflow: hidden;
 }
 	ul#products-grid.grid > li > .product-box {
-		min-height: 315px;
+		min-height: 250px;
 		height: auto !important;
 		height: 315px;
 	}
@@ -1475,7 +1387,7 @@ ul#products-grid {
 		width: 48%;
 	}
 	.products-grid .product-box .btn {
-		margin-bottom: 25px;
+		margin-bottom: 20px;
 		font-weight: bold;
 	}
 	.products-grid .product-box .btn-secondary:hover,
@@ -1691,24 +1603,66 @@ ul#doctors-grid {
 .news-post-list {
 }
 	.news-post {
-		margin-right: 15px;
-		margin-bottom: 50px;
-		padding: 10px;
 		border: 1px solid #ebebeb;
+		margin-right: 15px;
+		margin-bottom: 15px;
+		padding: 15px;
+		padding-bottom: 0;
 	}
 	.news-post:hover {
 		border-color: #d6d6d6;
 	}
 	.news-post .inner {
-		margin-bottom: 20px;
-		padding-left: 20px;
-		padding-right: 20px;
+		position: relative;
+	}
+	.news-post .inner .image-container {
+		position: relative;
+	}
+	.news-post .inner .image-container .placeholder {
+	    content: ' ';
+	    display: inline-block;
+	    vertical-align: middle;
+	    height: 100%;
+	}
+	.news-post .inner .image-container .image-wrapper {
+		bottom: 0;
+		max-height: inherit;
+	    top: 0;
+	    left: 0;
+	    position: absolute;
+	    right: 0;
+	    text-align:center; /* Align center inline elements */
+	    font: 0/0 a;
+	}
+	.news-post .inner .image-container .image-wrapper:before {
+	    content: ' ';
+	    display: inline-block;
+	    vertical-align: middle;
+	    height: 100%;
+	}
+	.news-post .inner .image-container .image-wrapper img {
+	    display: inline-block;
+	    vertical-align: middle;
+	    max-height: inherit;
+	    height: inherit;
+	}
+	.news-post .inner > div {
+		margin-bottom: 15px;
 		color: #8d8d8d;
 	}
+	.news-post .inner p {
+		margin-bottom: 5px;
+	}
+
 		.news-post h4 {
-			margin-top: 30px;
-			margin-bottom: 20px;
+			margin-top: 0;
+			margin-bottom: 15px;
 			font-weight: bold;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.news-post h4 a {
+			white-space: nowrap;
 		}
 		.news-post,
 		.news-post h4 a {
@@ -1718,7 +1672,7 @@ ul#doctors-grid {
 			color: #009bdb;
 		}
 		.news-post .post-meta {
-			margin: 0 -30px 20px -30px;
+			margin: 0;
 			padding: 0 20px;
 			border: solid #ebebeb;
 			border-width: 1px 0;
@@ -1790,6 +1744,40 @@ ul#doctors-grid {
 		line-height: 22px;
 		border-color: #009bdb;
 	}
+
+.limit-line {
+  overflow: hidden;
+  position: relative;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.limit-line:before {
+  background: white;
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.limit-line:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+
+.limit-line.three {
+  max-height: 72px;
+}
+
+.limit-line.four {
+  max-height: 88px;
+}
 
 /* Blog Author Bio Box Styles Starts */
 
@@ -2807,4 +2795,22 @@ ul#doctors-grid {
 #search-form .btn-primary i {
   font-size: 18px;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .news-post .inner .image-container {
+  	height: 172px;
+  	max-height: 172px;
+  }
+}
+
+@media (max-width: 767px) {
+  .news-post .inner .image-container {
+	padding-top: 56.7%;
+    overflow: hidden;
+  }
+
+  .news-post .inner .image-container .image-wrapper {
+  	height: 100%;
+  }
 }
