@@ -8,7 +8,7 @@ var dateUtils = require('../utils/date.js');
  * :name: 通用名
  * :name_co: 商品名
  * :abstract: 介绍(用于列表页面显示)
- * :specification: 商品名
+ * :specification: 规格
  * :package: 包装
  * :wholesale_price: 批发价格
  * :investment_price: 招商价格
