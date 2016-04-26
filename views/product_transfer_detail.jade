@@ -8,7 +8,7 @@ block content
         li
           a(href='/') 首页
         li
-          a(href='/') #{product.kindString}
+          a(href='/products/transfer') 转让产品
         li.active 产品详情
 
   .main-container
@@ -18,43 +18,47 @@ block content
           .panel.panel-profile
             .panel-heading
               img.img-responsive.img-center-xs(src='/front/images/doctors/doctor-bio-img1.jpg')
-              h3.panel-title #{product.name}
-              p.caption #{product.registration_class}
+              h3.panel-title #{transfer.name}
+              p.caption #{transfer.registration_class}
             .panel-body
               ul.list-unstyled
                 li.row
                   span.col-sm-4.col-xs-12
                     strong 适用症
-                  span.col-sm-8.col-xs-12 #{product.indication}
+                  span.col-sm-8.col-xs-12 #{transfer.indication}
                 li.row
                   span.col-sm-4.col-xs-12
                     strong 剂型及规格
-                  span.col-sm-8.col-xs-12 #{product.specification}
+                  span.col-sm-8.col-xs-12 #{transfer.specification}
             .panel-footer
               ul.list-unstyled
                 li.row
                   span.col-sm-4.col-xs-12
                     strong 项目优势
-                  span.col-sm-8.col-xs-12 #{product.advantage}
+                  span.col-sm-8.col-xs-12 #{transfer.advantage}
                 li.row
                   span.col-sm-4.col-xs-12
                     strong 转让标的
-                  span.col-sm-8.col-xs-12 #{product.transfer_target}
+                  span.col-sm-8.col-xs-12 #{transfer.transfer_target}
       .col-sm-7.col-xs-12
         .profile-details
-          h3.main-heading2 #{product.name}
+          h3.main-heading2 #{transfer.name}
           h4 项目简介
           p
-            | #{product.introduction}
+            | #{transfer.introduction}
             br
           h4 市场情况
           p
-            | #{product.market}
+            | #{transfer.market}
             br
           h4 知识产权情况
           p
-            | #{product.intellectual_property}
+            | #{transfer.intellectual_property}
             br
+          - if (transfer.other)
+            h4 其他
+            p
+              | #{transfer.other}
     .spacer-block
     h2.main-heading2.nomargin-top 相关产品推荐
     ul#products-grid.row.grid

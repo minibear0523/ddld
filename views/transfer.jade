@@ -16,8 +16,11 @@ block content
           .product-box
             .inner
               h4 #{product.name}
-              p.designation #{product.name_co}
+              p.designation #{product.registration_class}
               p.divider
                 i.fa.fa-plus-square
               p.limit-line.four
-                | #{product.detail}
+                | #{product.abstract}
+            a.btn.btn-secondary(href='/products/detail/transfer/#{product.id}')
+              | 查看详情 
+              i.fa.fa-arrow-circle-right

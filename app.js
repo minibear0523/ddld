@@ -35,7 +35,7 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('combined'));
+app.use(logger('dev'));
 app.use(compression());
 app.use(bodyParser.json({limit: '5MB'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '5MB' }));
@@ -95,6 +95,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
+    console.log(err);
     res.render('error', {
       message: err.message,
       error: err

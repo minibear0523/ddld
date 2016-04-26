@@ -43,10 +43,10 @@ router.get('/detail/:kind/:id', function(req, res, next) {
       .findById(productId)
       .exec()
       .then(function(product) {
-        res.render('product_transfer_detail', {product: product});
+        return res.render('product_transfer_detail', {transfer: product, products: []});
       })
       .catch(function(err) {
-        res.render('404', {err: err});
+        return res.render('404', {err: err});
       })
   } else if (kind == 'merchant') {
     // 招商项目产品
@@ -54,10 +54,10 @@ router.get('/detail/:kind/:id', function(req, res, next) {
       .findById(productId)
       .exec()
       .then(function(product) {
-        res.render('product_merchant_detail', {product: product});
+        return res.render('product_merchant_detail', {merchant: product, products: []});
       })
       .catch(function(err) {
-        res.render('404', {err: err});
+        return res.render('404', {err: err});
       })
   }
 });
@@ -120,7 +120,7 @@ router.post('/product/', function(req, res, next) {
           return product.save();
         })
         .then(function(product) {
-          res.status(200).send();
+          res.status(200).send(product);
         })
         .catch(function(err) {
           res.status(400).send(err);
@@ -146,7 +146,7 @@ router.post('/product/', function(req, res, next) {
           return product.save();
         })
         .then(function(product) {
-          res.status(200).send();
+          res.status(200).send(product);
         })
         .catch(function(err) {
           res.status(400).send(err);
