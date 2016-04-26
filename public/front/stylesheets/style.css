@@ -239,7 +239,7 @@ h6 { font-size: 16px; }
 	text-transform: uppercase;
 }
 	#nav .navbar-brand {
-		padding: 18px 0 0;
+		padding: 15px 0 0;
 		color: #000;
 		font-size: 30px;
 		font-weight: 500;
@@ -263,7 +263,7 @@ h6 { font-size: 16px; }
 		}
 		#nav.navbar-default .navbar-nav > li > a {
 			font-size: 18px;
-			font-weight: bold;
+			font-weight: 300;
 			color: #313131;
 			line-height: normal;
 		}
