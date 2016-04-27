@@ -7,6 +7,7 @@ var Merchant = require('../models/merchant');
 var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
+var modalContentCache = require('../utils/modal_content').createModalContentCache();
 
 var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
 
@@ -88,6 +89,19 @@ router.get('/products/transfer', function(req, res, next) {
     .catch(function(err) {
       res.render('404');
     });
+});
+
+/**
+ * 推广内容相关
+ */
+router.get('/modal', function(req, res, next) {
+  modalContentCache.get(function(err, data) {
+    if (err) {
+      res.render('404', {err: err});
+    } else {
+      res.render('dashboard/modal', data);
+    }
+  })
 });
 
 /**

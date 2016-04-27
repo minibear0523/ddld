@@ -1,0 +1,43 @@
+extends layout
+block css-external
+  link(rel='stylesheet', href='/plugins/summernote/summernote.css')
+
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 推广内容
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li.active 推广内容
+    section.content
+      .row
+        .col-xs-12
+          .box.box-info
+            form#form-modal.form-horizontal
+              .box-header
+                .form-group
+                  label.col-sm-2.control-label(for='inputTitle') 标题
+                  .col-sm-10
+                    input#inputTitle.form-control(type='text', placeholder='请输入标题')
+              .box-body
+                .form-group
+                  label.col-sm-2.control-label(for='inputContent') 内容
+                  .col-sm-10
+                    textarea#inputContent.form-control(rows=50, placeholder='请输入内容')
+                .form-group
+                  label.col-sm-2.control-label(for='inputLink') 链接(用于页面跳转)
+                  .col-sm-10
+                    input#inputLink.form-control(type='text', placeholder='请输入链接')
+              .box-footer
+                .form-group
+                button#submit-btn.btn.btn-success.btn-flat(type='submit', style='width: 100%;') 提交
+                .form-group
+                button#delete-btn.btn.btn-danger.btn-flat(type='submit', style='width: 100%;') 删除
+block js-external
+  script(src='/plugins/summernote/summernote.min.js')
+  script(src='/plugins/summernote/summernote-zh-CN.js')
+  script(src='/dashboard/js/modal.js')

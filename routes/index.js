@@ -290,4 +290,14 @@ router.post('/modal_content', function(req, res, next) {
   });
 });
 
+router.delete('/modal_content', function(req, res, next) {
+  modalContentCache.clear(function(err) {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send();
+    }
+  });  
+});
+
 module.exports = router;

@@ -6,11 +6,10 @@ var fs = require('fs');
 var path = require('path');
 
 var update = function(data, cb) {
-  var _content = this.content;
-  _content['title'] = data.title;
-  _content['content'] = data.content;
-  _content['link'] = data.link;
-  fs.writeFile(path.join(__dirname, 'content.json'), JSON.stringify(_content), function(err){
+  this.content['title'] = data.title;
+  this.content['content'] = data.content;
+  this.content['link'] = data.link;
+  fs.writeFile(path.join(__dirname, 'content.json'), JSON.stringify(this.content), function(err){
     if (err) {
       cb(err);
     } else {
@@ -35,11 +34,24 @@ var get = function(cb) {
   }
 }
 
+var clear = function(cb) {
+  this.content = null;
+  cb(null);
+  fs.unlink(path.join(__dirname, 'content.json'), function(err) {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null);
+    }
+  });
+}
+
 var createModalContentCache = function() {
   var obj = {
     content: {},
     update: update,
-    get: get
+    get: get,
+    clear: clear
   }
   return obj;
 }
