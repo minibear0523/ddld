@@ -79,16 +79,15 @@ router.get('/platform', function(req, res, next) {
  * 产品管理--转让产品列表
  */
 router.get('/products/transfer', function(req, res, next) {
-  Products
-  .find({kind: 'transfer'})
-  .exec()
-  .then(function(products) {
-    res.render('dashboard/transfer', {products: products});
-  })
-  .catch(function(err) {
-    res.render('404');
-  });
-
+  Transfer
+    .find()
+    .exec()
+    .then(function(products) {
+      res.render('dashboard/transfer', {products: products});
+    })
+    .catch(function(err) {
+      res.render('404');
+    });
 });
 
 /**
@@ -96,13 +95,11 @@ router.get('/products/transfer', function(req, res, next) {
  */
 router.get('/products/merchant', function(req, res, next) {
   var sub_kind = req.query.kind || "";
-  var query = {
-    kind: 'merchant'
-  }
+  var query = {}
   if (sub_kind) {
-    query['sub_kind'] = {$in: [sub_kind]};
+    query['kind'] = {$in: [sub_kind]};
   }
-  Products
+  Merchant
     .find(query)
     .exec()
     .then(function(products) {
@@ -118,25 +115,34 @@ router.get('/products/merchant', function(req, res, next) {
  * :type: merchant | transfer
  */
 router.get('/products/product/:type', function(req, res, next) {
+  var type = req.params.type || "";
   var productId = req.query.id || "";
-  if (productId) {
-    Products
-    .findById(productId)
-    .exec()
-    .then(function(product) {
-      if (req.params.type == 'transfer') {
-        res.render('dashboard/product_transfer', {product: product});
-      } else if (req.params.type == 'merchant') {
-        res.render('dashboard/product_merchant', {product: product});
-      }
-    })
-    .catch(function(err) {
-      res.render('404');
-    })
-  } else {
-    if (req.params.type == 'transfer') {
+  if (type == 'transfer') {
+    if (productId) {
+      Transfer
+        .findById(productId)
+        .exec()
+        .then(function(product) {
+          res.render('dashboard/product_transfer', {product: product});
+        })
+        .catch(function(err) {
+          res.render('404');
+        })
+    } else {
       res.render('dashboard/product_transfer');
-    } else if (req.params.type == 'merchant') {
+    }
+  } else if (type == 'merchant') {
+    if (productId) {
+      Merchant
+        .findById(productId)
+        .exec()
+        .then(function(product) {
+          res.render('dashboard/product_merchant', {product: product});
+        })
+        .catch(function(err) {
+          res.render('404');
+        })
+    } else {
       res.render('dashboard/product_merchant');
     }
   }

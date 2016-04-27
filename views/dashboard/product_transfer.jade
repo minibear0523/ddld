@@ -1,4 +1,8 @@
 extends layout
+block css-external
+  link(rel='stylesheet', href='/plugins/select2/select2.min.css')
+  link(rel='stylesheet', href='/plugins/summernote/summernote.css')
+
 block content
   .content-wrapper
     section.content-header
@@ -24,15 +28,59 @@ block content
                   .col-sm-10
                     input#inputName.form-control(type='text', placeholder='请输入产品名称')
                 .form-group
-                  label.col-sm-2.control-label(for='inputNameCo') 商品名(可选)
+                  label.col-sm-2.control-label(for='inputAbstract') 简介(仅用于列表页面)
                   .col-sm-10
-                    input#inputNameCo.form-control(type='text', placeholder='请输入商品名(可选)', required=false)
+                    input#inputAbstract.form-control(type='text', placeholder='请输入简介')
                 .form-group
-                  label.col-sm-2.control-label(for='inputDetail') 介绍
+                  label.col-sm-2.control-label(for='inputRegistrationClass') 注册分类
                   .col-sm-10
-                    textarea#inputDetail.form-control(rows='4', placeholder='请输入产品介绍详情')
+                    input#inputRegistrationClass.form-control(type='text', placeholder='请输入注册分类')
+                .form-group
+                  label.col-sm-2.control-label(for='inputIndication') 适用症
+                  .col-sm-10
+                    input#inputIndication.form-control(type='text', placeholder='请输入适用症')
+                .form-group
+                  label.col-sm-2.control-label(for='inputSpecification') 剂型及规格
+                  .col-sm-10
+                    input#inputSpecification.form-control(type='text', placeholder='请输入剂型及规格')
+                .form-group
+                  label.col-sm-2.control-label(for='inputAdvantage') 项目优势
+                  .col-sm-10
+                    input#inputAdvantage.form-control(type='text', placeholder='请输入项目优势')
+                .form-group
+                  label.col-sm-2.control-label(for='inputTransferTarget') 转让标的
+                  .col-sm-10
+                    input#inputTransferTarget.form-control(type='text', placeholder='请输入转让标的')
+                .form-group
+                  label.col-sm-2.control-label(for='inputIntroduction') 项目介绍
+                  .col-sm-10
+                    textarea#inputIntroduction.form-control(rows='10', placeholder='请输入项目介绍')
+                .form-group
+                  label.col-sm-2.control-label(for='inputMarket') 市场情况
+                  .col-sm-10
+                    textarea#inputMarket.form-control(rows='10', placeholder='请输入市场情况')
+                .form-group
+                  label.col-sm-2.control-label(for='inputIntellectualProperty') 知识产权情况
+                  .col-sm-10
+                    textarea#inputIntellectualProperty.form-control(rows='10', placeholder='请输入知识产权情况')
+                .form-group
+                  label.col-sm-2.control-label(for='inputOther') 其他(可选)
+                  .col-sm-10
+                    input#inputOther.form-control(type='text', placeholder='请输入其他', required=false)
+                .form-group
+                  label.col-sm-2.control-label(for='inputKind') 分类
+                  .col-sm-10
+                    select#inputKind.form-control.select2(multiple='multiple', style='width=100%;')
+                      option(value='orphan') 孤儿药
+                      option(value='creative') 创新药剂(经皮给药系列)
+                      option(value='children') 儿童药
+                      option(value='generics') 其他仿制药
+                      option(value='psychiatric') 精神类药
               .box-footer
                 button#delete-btn.btn.btn-danger(type='submit') 删除
                 button#submit-btn.btn.btn-info.pull-right(type='submit') 提交
 block js-external
+  script(src='/plugins/select2/select2.full.min.js')
+  script(src='/plugins/summernote/summernote.min.js')
+  script(src='/plugins/summernote/summernote-zh-CN.js')
   script(src='/dashboard/js/product.js')

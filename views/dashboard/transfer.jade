@@ -25,8 +25,8 @@ block content
                 thead
                   tr
                     th 名称
-                    th 商品名(可选)
-                    th 介绍
+                    th 注册分类
+                    th 子分类
                     th 添加日期
                 tbody
                   - for (var i = 0; i < products.length; i++)
@@ -34,6 +34,6 @@ block content
                     tr
                       td
                         a(href='/dashboard/products/product/transfer?id=#{product.id}') #{product.name}
-                      td #{product.name_co}
-                      td #{product.detail}
+                      td #{product.registration_class}
+                      td #{product.kindString}
                       td #{product.dateString}

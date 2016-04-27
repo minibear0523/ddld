@@ -25,8 +25,11 @@ block content
                 thead
                   tr
                     th 名称
-                    th 介绍
+                    th 商品名
                     th 分类
+                    th 生产企业
+                    th 批发价格
+                    th 招商价格
                     th 添加日期
                 tbody
                   - for (var i = 0; i < products.length; i++)
@@ -34,6 +37,9 @@ block content
                     tr
                       td
                         a(href='/dashboard/products/product/merchant?id=#{product.id}') #{product.name}
-                      td #{product.detail}
-                      td #{product.subKindString}
+                      td #{product.name_co}
+                      td #{product.kindString}
+                      td #{product.production_company}
+                      td #{product.wholesale_price}
+                      td #{product.investment_price}
                       td #{product.dateString}

@@ -1,6 +1,7 @@
 extends layout
 block css-external
   link(rel='stylesheet', href='/plugins/select2/select2.min.css')
+  link(rel='stylesheet', href='/plugins/summernote/summernote.css')
 block content
   .content-wrapper
     section.content-header
@@ -30,21 +31,51 @@ block content
                   .col-sm-10
                     input#inputNameCo.form-control(type='text', placeholder='请输入商品名(可选)', required=false)
                 .form-group
-                  label.col-sm-2.control-label(for='inputDetail') 介绍
+                  label.col-sm-2.control-label(for='inputAbstract') 简介(仅用于列表页面)
                   .col-sm-10
-                    textarea#inputDetail.form-control(rows='4', placeholder='请输入产品介绍详情')
+                    input#inputAbstract.form-control(type='text', placeholder='请输入简介')
                 .form-group
-                  label.col-sm-2.control-label(for='inputSubKind') 分类
+                  label.col-sm-2.control-label(for='inputSpecification') 规格
                   .col-sm-10
-                    select#inputSubKind.form-control.select2(multiple='multiple', style='width=100%;')
+                    input#inputSpecification.form-control(type='text', placeholder='请输入规格')
+                .form-group
+                  label.col-sm-2.control-label(for='inputPackage') 包装
+                  .col-sm-10
+                    input#inputPackage.form-control(type='text', placeholder='请输入包装')
+                .form-group
+                  label.col-sm-2.control-label(for='inputWholesalePrice') 批发价(可选)
+                  .col-sm-10
+                    input#inputWholesalePrice.form-control(type='text', placeholder='请输入批发价', required=false)
+                .form-group
+                  label.col-sm-2.control-label(for='inputInvestmentPrice') 招商价(可选)
+                  .col-sm-10
+                    input#inputInvestmentPrice.form-control(type='text', placeholder='请输入招商价', required=false)
+                .form-group
+                  label.col-sm-2.control-label(for='inputProductionCompany') 生产企业(可选)
+                  .col-sm-10
+                    input#inputProductionCompany.form-control(type='text', placeholder='请输入生产企业', required=false)
+                .form-group
+                  label.col-sm-2.control-label(for='inputOther') 其他(可选)
+                  .col-sm-10
+                    input#inputOther.form-control(type='text', placeholder='请输入其他', required=false)
+                .form-group
+                  label.col-sm-2.control-label(for='inputKind') 分类
+                  .col-sm-10
+                    select#inputKind.form-control.select2(multiple='multiple', style='width=100%;')
                       option(value='orphan') 孤儿药
                       option(value='creative') 创新药剂(经皮给药系列)
                       option(value='children') 儿童药
                       option(value='generics') 其他仿制药
                       option(value='psychiatric') 精神类药
+                .form-group
+                  label.col-sm-2.control-label(for='inputManual') 说明书
+                  .col-sm-10
+                    textarea#inputManual.form-control(rows='20', placeholder='请输入产品说明书')
               .box-footer
                 button#delete-btn.btn.btn-danger(type='submit') 删除
                 button#submit-btn.btn.btn-info.pull-right(type='submit') 提交
 block js-external
   script(src='/plugins/select2/select2.full.min.js')
+  script(src='/plugins/summernote/summernote.min.js')
+  script(src='/plugins/summernote/summernote-zh-CN.js')
   script(src='/dashboard/js/product.js')

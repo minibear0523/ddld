@@ -60,20 +60,20 @@ block content
             p
               | #{transfer.other}
     .spacer-block
-    h2.main-heading2.nomargin-top 相关产品推荐
-    ul#products-grid.row.grid
-      - for (var i = 0; i < products.length; i++)
-        - var product = products[i]
-        li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.sub_kind_string}')
-          .product-box
-            .inner
-              h4 #{product.name}
-              p.designation #{product.name_co}
-              p.divider
-                i.fa.fa-plus-square
-              p
-                | #{product.detail}
-            a.btn.btn-secondary(href='#')
-              | 查看详情 
-              i.fa.fa-arrow-circle-right
+    //- h2.main-heading2.nomargin-top 相关产品推荐
+    //- ul#products-grid.row.grid
+    //-   - for (var i = 0; i < products.length; i++)
+    //-     - var product = products[i]
+    //-     li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.sub_kind_string}')
+    //-       .product-box
+    //-         .inner
+    //-           h4 #{product.name}
+    //-           p.designation #{product.name_co}
+    //-           p.divider
+    //-             i.fa.fa-plus-square
+    //-           p
+    //-             | #{product.detail}
+    //-         a.btn.btn-secondary(href='#')
+    //-           | 查看详情 
+    //-           i.fa.fa-arrow-circle-right
       

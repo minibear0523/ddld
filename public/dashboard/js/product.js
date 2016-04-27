@@ -1,7 +1,32 @@
 (function($) {
+  if (parseProductKind() == 'transfer') {
+    $('#inputIntroduction').summernote({
+      height: '200px',
+      width: '100%',
+      lang: 'zh-CN'
+    });
 
-  if ($('#inputSubKind').length > 0) {
-    var $subKindSelect2 = $('#inputSubKind.select2').select2({
+    $('#inputMarket').summernote({
+      height: '200px',
+      width: '100%',
+      lang: 'zh-CN'
+    });
+
+    $('#inputIntellectualProperty').summernote({
+      height: '200px',
+      width: '100%',
+      lang: 'zh-CN'
+    });
+  } else if (parseProductKind() == 'merchant') {
+    $('#inputManual').summernote({
+      height: '500px',
+      width: '100%',
+      lang: 'zh-CN'
+    });
+  }
+
+  if ($('#inputKind').length > 0) {
+    var $subKindSelect2 = $('#inputKind.select2').select2({
       minimumResultsForSearch: Infinity,
       tags: true,
       theme: 'classic'
@@ -46,27 +71,43 @@
     var productId = parseProductId();
     var url = '/products/product';
     if (productId) {
-      url = url + '/' + productId;
+      url = url + '?id=' + productId;
     }
     console.log(url);
-    var name = $('#inputName').val();
-    var nameCo = $('#inputNameCo').val();
-    var detail = $('#inputDetail').val();
-    var data = {
-      name: name,
-      detail: detail,
-      kind: kind
-    };
-    if (nameCo) {
-      data['name_co'] = nameCo;
-    } else {
-      data['name_co'] = "";
+    var data = {};
+    if (parseProductKind() == 'merchant') {
+      data = {
+        type: 'merchant',
+        name: $('#inputName').val(),
+        name_co: $('#inputNameCo').val(),
+        abstract: $('#inputAbstract').val(),
+        specification: $('#inputSpecification').val(),
+        package: $('#inputPackage').val(),
+        wholesale_price: $('#inputWholesalePrice').val(),
+        investment_price: $('#inputInvestmentPrice').val(),
+        production_company: $('#inputProductionCompany').val(),
+        manual: $('#inputManual').summernote('code'),
+        other: $('#inputOther').val(),
+        kind: $('#inputKind').val()
+      }
+    } else if (parseProductKind() == 'transfer') {
+      data = {
+        type: 'transfer',
+        name: $('#inputName').val(),
+        abstract: $('#inputAbstract').val(),
+        registration_class: $('#inputRegistrationClass').val(),
+        indication: $('#inputIndication').val(),
+        specification: $('#inputSpecification').val(),
+        advantage: $('#inputAdvantage').val(),
+        transfer_target: $('#inputTransferTarget').val(),
+        introduction: $('#inputIntroduction').summernote('code'),
+        market: $('#inputMarket').summernote('code'),
+        intellectual_property: $('#inputIntellectualProperty').summernote('code'),
+        other: $('#inputOther').val(),
+        kind: $('#inputKind').val()
+      }
     }
-    if ($('#inputSubKind').length > 0) {
-      data['sub_kind'] = $('#inputSubKind').val()
-    } else {
-      data['sub_kind'] = '';
-    }
+
     Messenger().ajax({
       successMessage: '提交成功',
       errorMessage: '提交失败, 请重试',
@@ -89,14 +130,50 @@
    * 获取已有产品的详情, 更新页面
    */
   function getProductDetail(productId) {
-    var url = '/products/product?id=' + productId;
+    var url = '/products/product/' + parseProductKind() + '?id=' + productId;
     $.get(url, function(product, status, xhr) {
       if (status == 'success') {
-        $('#inputName').val(product.name);
-        $('#inputNameCo').val(product.nameCo);
-        $('#inputDetail').val(product.detail);
         if (parseProductKind() == 'merchant') {
-          $('#inputSubKind').val(product.sub_kind).trigger('change');
+          $('#inputName').val(product.name);
+          $('#inputNameCo').val(product.nameCo);
+          $('#inputAbstract').val(product.abstract);
+          $('#inputSpecification').val(product.specification);
+          $('#inputPackage').val(product.package);
+          $('#inputWholesalePrice').val(product.wholesale_price);
+          $('#inputInvestmentPrice').val(product.investment_price);
+          $('#inputProductionCompany').val(product.production_company);
+          $('#inputOther').val(product.other);
+          $('#inputKind').val(product.kind).trigger('change');
+          var manualNode = document.createElement('div');
+          manualNode.innerHTML = product.manual;
+          for (var i = 0; i < manualNode.childNodes.length; i++) {
+            $('#inputManual') .summernote('insertNode', manualNode.childNodes[i]);
+          }
+        } else if (parseProductKind() == 'transfer') {
+          $('#inputName').val(product.name);
+          $('#inputAbstract').val(product.abstract);
+          $('#inputSpecification').val(product.specification);
+          $('#inputRegistrationClass').val(product.registration_class);
+          $('#inputIndication').val(product.indication);
+          $('#inputAdvantage').val(product.advantage);
+          $('#inputTransferTarget').val(product.transfer_target);
+          $('#inputOther').val(product.other);
+          $('#inputKind').val(product.kind).trigger('change');
+          var introductionNode = document.createElement('div');
+          introductionNode.innerHTML = product.introduction;
+          for (var i = 0; i < introductionNode.childNodes.length; i++) {
+            $('#inputIntroduction') .summernote('insertNode', introductionNode.childNodes[i]);
+          }
+          var marketNode = document.createElement('div');
+          marketNode.innerHTML = product.market;
+          for (var i = 0; i < marketNode.childNodes.length; i++) {
+            $('#inputMarket') .summernote('insertNode', marketNode.childNodes[i]);
+          }
+          var intellectualPropertyNode = document.createElement('div');
+          intellectualPropertyNode.innerHTML = product.intellectual_property;
+          for (var i = 0; i < intellectualPropertyNode.childNodes.length; i++) {
+            $('#inputIntellectualProperty') .summernote('insertNode', intellectualPropertyNode.childNodes[i]);
+          }
         }
       }
     })
