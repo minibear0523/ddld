@@ -266,6 +266,7 @@ router.delete('/platform', function(req, res, next) {
  */
 router.get('/modal_content', function(req, res, next) {
   modalContentCache.get(function(err, data) {
+    console.log(data);
     if (err) {
       res.status(400).send(err);
     } else {
@@ -280,12 +281,11 @@ router.post('/modal_content', function(req, res, next) {
     content: req.body.content,
     link: req.body.link
   }
-  console.log(data);
   modalContentCache.update(data, function(err) {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).send();
+      res.status(200).send(data);
     }
   });
 });

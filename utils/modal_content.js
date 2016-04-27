@@ -6,6 +6,7 @@ var fs = require('fs');
 var path = require('path');
 
 var update = function(data, cb) {
+  console.log(data);
   this.content['title'] = data.title;
   this.content['content'] = data.content;
   this.content['link'] = data.link;
@@ -20,23 +21,22 @@ var update = function(data, cb) {
 
 var get = function(cb) {
   var _content = this.content;
-  if (!_content) {
+  if (!_content.title) {
     fs.readFile(path.join(__dirname, 'content.json'), function(err, data) {
       if (err) {
         cb(err, null);
       } else {
         this.content = JSON.parse(data)
-        cb(null, data);
+        cb(null, this.content);
       }
     });
   } else {
-    return cb(null, _content);
+    cb(null, _content);
   }
 }
 
 var clear = function(cb) {
   this.content = null;
-  cb(null);
   fs.unlink(path.join(__dirname, 'content.json'), function(err) {
     if (err) {
       cb(err);
