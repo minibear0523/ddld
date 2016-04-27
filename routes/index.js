@@ -9,6 +9,7 @@ var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
 var indexPageCache = require('../utils/cache').createIndexPageCache();
+var modalContentCache = require('../utils/modal_content').createModalContentCache();
 var GeoDataGetter = require('../utils//geodata.js').GeoDataGetter();
 
 var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
@@ -258,6 +259,35 @@ router.delete('/platform', function(req, res, next) {
         }
       });
   }
+});
+
+/**
+ * 创建modal需要显示的内容的RESTful API
+ */
+router.get('/modal_content', function(req, res, next) {
+  modalContentCache.get(function(err, data) {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
+
+router.post('/modal_content', function(req, res, next) {
+  var data = {
+    title: req.body.title,
+    content: req.body.content,
+    link: req.body.link
+  }
+  console.log(data);
+  modalContentCache.update(data, function(err) {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send();
+    }
+  });
 });
 
 module.exports = router;
