@@ -34,11 +34,6 @@ block content
                   span.col-sm-4.col-xs-12
                     strong 包装
                   span.col-sm-8.col-xs-12 #{merchant.package}
-                - if (merchant.other)
-                  li.row
-                    span.col-sm-4.col-xs-12
-                      strong 其他
-                    span.col-sm-8.col-xs-12 #{merchant.other}
             .panel-footer
               ul.list-unstyled
                 li.row
@@ -55,6 +50,10 @@ block content
           h4 说明书
           p
             | !{merchant.manual}
+          - if (merchant.other)
+            h4 其他
+            p
+              | !{merchant.other}
     .spacer-block
     //- h2.main-heading2.nomargin-top 相关产品推荐
     //- ul#products-grid.row.grid
