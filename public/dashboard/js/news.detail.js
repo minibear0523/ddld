@@ -146,11 +146,7 @@
     $.get(url, function(news, status, xhr) {
       if (status == 'success') {
         $('#form-editor > input').val(news.title);
-        var rootNode = document.createElement('div')
-        rootNode.innerHTML = news.detail;
-        for (var i = 0; i < rootNode.childNodes.length; i++) {
-          $('.textarea').summernote('insertNode', rootNode.childNodes[i]);
-        }
+        $('.textarea').summernote('code', news.detail);
         $('#inputSource').val(news.source);
         $('#kind').val(news.kind);
         $('#tags').val(news.tags).trigger('change');
