@@ -45,20 +45,20 @@ block content
           h3.main-heading2 #{transfer.name}
           h4 项目简介
           p
-            | #{transfer.introduction}
+            | !{transfer.introduction}
             br
           h4 市场情况
           p
-            | #{transfer.market}
+            | !{transfer.market}
             br
           h4 知识产权情况
           p
-            | #{transfer.intellectual_property}
+            | !{transfer.intellectual_property}
             br
           - if (transfer.other)
             h4 其他
             p
-              | #{transfer.other}
+              | !{transfer.other}
     .spacer-block
     //- h2.main-heading2.nomargin-top 相关产品推荐
     //- ul#products-grid.row.grid

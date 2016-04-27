@@ -33,6 +33,12 @@
     });
   }
 
+  $('#inputOther').summernote({
+    height: '200px',
+    width: '100%',
+    lang: 'zh-CN'
+  });
+
   /**
    * 根据URL解析得到产品ID
    */
@@ -87,7 +93,7 @@
         investment_price: $('#inputInvestmentPrice').val(),
         production_company: $('#inputProductionCompany').val(),
         manual: $('#inputManual').summernote('code'),
-        other: $('#inputOther').val(),
+        other: $('#inputOther').summernote('code'),
         kind: $('#inputKind').val()
       }
     } else if (parseProductKind() == 'transfer') {
@@ -103,7 +109,7 @@
         introduction: $('#inputIntroduction').summernote('code'),
         market: $('#inputMarket').summernote('code'),
         intellectual_property: $('#inputIntellectualProperty').summernote('code'),
-        other: $('#inputOther').val(),
+        other: $('#inputOther').summernote('code'),
         kind: $('#inputKind').val()
       }
     }
@@ -144,11 +150,9 @@
           $('#inputProductionCompany').val(product.production_company);
           $('#inputOther').val(product.other);
           $('#inputKind').val(product.kind).trigger('change');
-          var manualNode = document.createElement('div');
-          manualNode.innerHTML = product.manual;
-          for (var i = 0; i < manualNode.childNodes.length; i++) {
-            $('#inputManual') .summernote('insertNode', manualNode.childNodes[i]);
-          }
+          // summernote get & set code
+          $('#inputManual').summernote('code', product.manual);
+          $('#inputOther').summernote('code', product.other);
         } else if (parseProductKind() == 'transfer') {
           $('#inputName').val(product.name);
           $('#inputAbstract').val(product.abstract);
@@ -159,21 +163,11 @@
           $('#inputTransferTarget').val(product.transfer_target);
           $('#inputOther').val(product.other);
           $('#inputKind').val(product.kind).trigger('change');
-          var introductionNode = document.createElement('div');
-          introductionNode.innerHTML = product.introduction;
-          for (var i = 0; i < introductionNode.childNodes.length; i++) {
-            $('#inputIntroduction') .summernote('insertNode', introductionNode.childNodes[i]);
-          }
-          var marketNode = document.createElement('div');
-          marketNode.innerHTML = product.market;
-          for (var i = 0; i < marketNode.childNodes.length; i++) {
-            $('#inputMarket') .summernote('insertNode', marketNode.childNodes[i]);
-          }
-          var intellectualPropertyNode = document.createElement('div');
-          intellectualPropertyNode.innerHTML = product.intellectual_property;
-          for (var i = 0; i < intellectualPropertyNode.childNodes.length; i++) {
-            $('#inputIntellectualProperty') .summernote('insertNode', intellectualPropertyNode.childNodes[i]);
-          }
+          // 将product.introduction这段HTML代码作为code存入summernote
+          $('#inputIntroduction').summernote('code', product.introduction);
+          $('#inputMarket').summernote('code', product.market);
+          $('#inputIntellectualProperty').summernote('code', product.intellectual_property);
+          $('#inputOther').summernote('code', product.other);
         }
       }
     })
