@@ -22,7 +22,7 @@
       '</div>' +
       '<div class="modal-footer">' +
       '<hr>' +
-      '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
+      '<button id="btn-goto" type="button" class="btn btn-primary" data-dismiss="modal">前往查看</button>' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -43,7 +43,8 @@
       var modal = $('#' + id);
 
       modal
-        .on('hide.bs.modal', function(e) {
+        .find('#btn-goto')
+        .on('click', function(e) {
           window.location = data.link;
         });
 
