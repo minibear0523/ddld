@@ -95,13 +95,7 @@ router.get('/products/transfer', function(req, res, next) {
  * 推广内容相关
  */
 router.get('/modal', function(req, res, next) {
-  modalContentCache.get(function(err, data) {
-    if (err) {
-      res.render('404', {err: err});
-    } else {
-      res.render('dashboard/modal', data);
-    }
-  })
+  res.render('dashboard/modal');
 });
 
 /**
