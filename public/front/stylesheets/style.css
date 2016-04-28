@@ -262,7 +262,7 @@ h6 { font-size: 16px; }
 			margin-top: 12px;
 		}
 		#nav.navbar-default .navbar-nav > li > a {
-			font-size: 18px;
+			font-size: 15px;
 			font-weight: 300;
 			color: #313131;
 			line-height: normal;
@@ -1488,11 +1488,12 @@ ul#doctors-grid {
 	.panel-profile > .panel-body {
 		padding: 20px 30px;
 	}
-		.panel-profile > .panel-body ul {
+		.panel-profile > .panel-body ul,
+		.panel-profile > .panel-footer ul {
 			margin-bottom: 0;
 		}
 			.panel-profile > .panel-body ul > li {
-				padding: 7px 5px;
+				// padding: 7px 5px;
 			}
 			.panel-profile > .panel-body ul > li:first-of-type {
 				padding-top: 0;
