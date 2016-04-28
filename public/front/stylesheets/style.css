@@ -533,8 +533,8 @@ h6 { font-size: 16px; }
 /* About Featured Section Starts */
 
 .about-featured {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 	color: #fff;
 	background-image: url(/front/images/about/about-services-bg.jpg);
 }
@@ -560,8 +560,7 @@ h6 { font-size: 16px; }
 	.about-featured ul.list {
 	}
 		.about-featured ul.list > li {
-			margin-top: 40px;
-			margin-bottom: 30px;
+			margin-top: 30px;
 		}
 		.about-featured ul.list > li .fa {
 			margin-top: 5px;
