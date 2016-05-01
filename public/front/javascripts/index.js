@@ -13,4 +13,9 @@
     console.log('yes');
     $(this).find('input[type="text"]').focus();
    });
+
+   /*
+    * initialize modal in current page, details are in modal.js
+    */
+   initModal()
 }(jQuery));
