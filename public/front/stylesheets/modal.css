@@ -13,11 +13,35 @@
 .modal-header {
   border-bottom: 0;
   padding-bottom: 0;
+  text-align: center;
+}
+
+.modal-header .logo {
+  vertical-align: middle;
+}
+
+.modal-header .logo-img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.modal-header .logo-text {
+  font: 1.2em 'Roboto', 'Microsoft YaHei' ,'STXihei', Arial, Helvetica, sans-serif
 }
 
 .modal-header hr {
   border-bottom: 1px solid #d3d3d3;
   padding-top: 15px;
+}
+
+#subscription-form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+#subscription-form .errmsg {
+  margin-bottom: 10px;
 }
 
 .modal-footer {
@@ -29,4 +53,8 @@
 .modal-footer hr {
   border-top: 1px solid #d3d3d3;
   padding-bottom: 15px;
+}
+
+.modal-dialog {
+  margin: 100px auto
 }

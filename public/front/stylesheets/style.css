@@ -255,6 +255,9 @@ h6 { font-size: 16px; }
 			margin-right: 10px;
 			vertical-align: middle;
 		}
+		#nav .navbar-brand ul > li span {
+			line-height: 40px;
+		}
 	#nav.navbar {
 		min-height: 70px;
 	}
@@ -502,7 +505,7 @@ h6 { font-size: 16px; }
 		color: #8d8d8d;
 	}
 	.welcome-area.about {
-		margin: 60px auto;
+		margin: 30px auto;
 		padding-left: 30px;
 		padding-right: 30px;
 		/*background: url(../images/about/about-img1.jpg) no-repeat right bottom;*/
