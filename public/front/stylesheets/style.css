@@ -1261,14 +1261,25 @@ h6 { font-size: 16px; }
 	.products-grid .product-box .inner {
 		padding: 30px 20px 10px;
 	}
+	.products-grid .product-box .title {
+		height: 3.8em;
+	}
+	.products-grid .product-box .sub-title {
+		height: 3.8em;
+	}
 	.products-grid .product-box h4 {
+		display: inline;
 		margin-top: 0;
 		margin-bottom: 0;
 		font-weight: bold;
 	}
+	.products-grid .product-box .sub-title p {
+		display: inline;
+	}
 	.products-grid .product-box h4,
 	.products-grid .product-box .designation {
 		color: #323232;
+		float: left;
 	}
 	.products-grid .product-box p {
 		margin-top: 5px;
@@ -1277,9 +1288,10 @@ h6 { font-size: 16px; }
 		color: #8d8d8d;
 	}
 	.products-grid .product-box .divider {
-		margin-top: 5px;
-		margin-bottom: 10px;
+		margin-top: 10px;
+		margin-bottom: 0;
 		position: relative;
+		text-align: center;
 	}
 	.products-grid .product-box .divider:before {
 		left: 0;
@@ -1374,19 +1386,16 @@ ul#products-grid {
 		text-align: center;
 		border: 1px solid #ebebeb;
 	}
-	.products-grid .product-box h4 {
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	}
 	.products-grid .product-box .profile-img .overlay ul.sm-links {
 		margin-top: 27%;
 	}
 	.products-grid .product-box .inner {
 		padding: 19px 19px 10px;
+		min-height: 219px;
 	}
 	.products-grid .product-box p {
-		margin-top: 6px;
+		margin-top: 10px;
+		margin-bottom: 0;
 	}
 	.products-grid .product-box .divider:before,
 	.products-grid .product-box .divider:after {
@@ -1754,11 +1763,13 @@ ul#doctors-grid {
 	}
 
 .limit-line {
+  line-height: 1em;
+  margin-right: -1em;
   overflow: hidden;
+  padding-right: 1em;
   position: relative;
   text-align: justify;
-  margin-right: -1em;
-  padding-right: 1em;
+
 }
 
 .limit-line:before {
@@ -1770,13 +1781,18 @@ ul#doctors-grid {
 }
 
 .limit-line:after {
+  background: white;
   content: '';
+  font-size: 1.5em;
   position: absolute;
   right: 0;
-  width: 1em;
-  height: 1em;
+  height: 1.5em;
   margin-top: 0.2em;
-  background: white;
+  width: 13px;
+}
+
+.limit-line.two {
+	max-height: 3.6em;
 }
 
 .limit-line.three {
@@ -1785,6 +1801,20 @@ ul#doctors-grid {
 
 .limit-line.four {
   max-height: 88px;
+}
+
+.limit-line.six {
+  max-height: 9.8em;
+}
+
+.vc-title-wrapper {
+  display: table;
+  height: inherit;
+  width: 100%;
+}
+.vc-title {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* Blog Author Bio Box Styles Starts */

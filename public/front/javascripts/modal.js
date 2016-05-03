@@ -1,4 +1,4 @@
-(function() {
+var initModal = (function() {
   'use strict';
 
   function Cookie(id, expiry) {
@@ -275,8 +275,8 @@
     });
   }
 
-  // document ready
-  $(function($) {
+  // classic way export
+  return function() {
     var cookie = new Cookie('ddld-subscription-icon', 3);
     /*
      * Subscription Icon
@@ -292,5 +292,5 @@
      * Customized Modal - subscription modal is also binded with icon in customizeModal
      */
     initCustomizedModal('customize-modal', '/modal_content', true, subscription, cookie);
-  });
+  }
 })();

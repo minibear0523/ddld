@@ -25,12 +25,20 @@ block content
         li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.sub_kind_string}')
           .product-box
             .inner
-              h4 #{product.name}
-              p.designation #{product.name_co}
-              p.divider
-                i.fa.fa-plus-square
-              p.limit-line.four
-                | #{product.abstract}
+              .title
+                .vc-title-wrapper
+                  .vc-title
+                    .limit-line.two
+                      h4 #{product.name}
+              .vc-title
+                .limit-line.six
+                  .vc-title
+                    .limit-line.two
+                      p.designation #{product.name_co}
+                    p.divider
+                      i.fa.fa-plus-square
+                    p.limit-line.four
+                      | #{product.abstract}
             a.btn.btn-secondary(href='/products/detail/merchant/#{product.id}')
               | 查看详情 
               i.fa.fa-arrow-circle-right

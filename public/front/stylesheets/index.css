@@ -55,16 +55,8 @@
     .news-post-box .news-title {
       height: 68px;
     }
-    .news-post-box .news-title .vc-title-wrapper {
-      display: table;
-      height: inherit;
-      width: 100%;
-    }
-
       .news-post-box h5 {
-        display: table-cell;
-        font-weight: bold;
-        vertical-align: middle;
+        font-weight: bold; 
       }
       .news-post-box,
       .news-post-box h5 a {
