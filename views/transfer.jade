@@ -15,14 +15,11 @@ block content
         li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all"]')
           .product-box
             .inner
-              .title
-                .vc-title-wrapper
-                  .vc-title
-                    .limit-line.two
-                      h4 #{product.name}
-              .limit-line.six
-                .limit-line.two
-                  p.designation #{product.name_co}
+              .limit-line.product
+                .limit-line.title
+                  h4 #{product.name}
+                .designation
+                  p #{product.registration_class}
                 p.divider
                   i.fa.fa-plus-square
                 p.limit-line.four

@@ -17,7 +17,8 @@ var initModal = (function() {
 
   Cookie.prototype.expired = function(){
     var expiry = new Date(docCookies.getItem(this.id));
-    return (expiry == null || expiry.getTime() < Date.now());
+    var now = new Date();
+    return (expiry == null || expiry < now);
   };
 
   // initialize
@@ -227,7 +228,8 @@ var initModal = (function() {
   function initCustomizedModal(id, url, autoShow, subscription, cookie) {
     // set default to false
     autoShow = autoShow || false;
-    subscription.$icon.hide();
+    // TODO: update modal - add cookie into customized modal
+    // subscription.$icon.hide();
 
     var $customizedModal;
 
@@ -265,12 +267,13 @@ var initModal = (function() {
           bindIcon($customizedModal, subscription.$icon);
         }
 
+        // TODO: update modal - add cookie into customized modal
         // show after ajax finished
-        setTimeout(function() {
-          if (autoShow && $customizedModal) {
-            $customizedModal.modal('show');
-          }
-        }, 2000);
+        // setTimeout(function() {
+        //   if (autoShow && $customizedModal) {
+        //     $customizedModal.modal('show');
+        //   }
+        // }, 2000);
       }
     });
   }
