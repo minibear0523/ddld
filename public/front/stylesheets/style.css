@@ -1262,10 +1262,8 @@ h6 { font-size: 16px; }
 		padding: 30px 20px 10px;
 	}
 	.products-grid .product-box .title {
-		height: 3.8em;
-	}
-	.products-grid .product-box .sub-title {
-		height: 3.8em;
+		font-size: 24px;
+    height: 3.2em;
 	}
 	.products-grid .product-box h4 {
 		display: inline;
@@ -1288,10 +1286,12 @@ h6 { font-size: 16px; }
 		color: #8d8d8d;
 	}
 	.products-grid .product-box .divider {
-		margin-top: 10px;
-		margin-bottom: 0;
+    height: 22px;
+    float: left;
+		margin: 0;
 		position: relative;
 		text-align: center;
+    width: 100%;
 	}
 	.products-grid .product-box .divider:before {
 		left: 0;
@@ -1390,11 +1390,12 @@ ul#products-grid {
 		margin-top: 27%;
 	}
 	.products-grid .product-box .inner {
-		padding: 19px 19px 10px;
-		min-height: 219px;
+		padding: 19px 30px 10px;
+		min-height: 232px;
 	}
 	.products-grid .product-box p {
-		margin-top: 10px;
+		float: left;
+		margin-top: 0;
 		margin-bottom: 0;
 	}
 	.products-grid .product-box .divider:before,
@@ -1763,7 +1764,7 @@ ul#doctors-grid {
 	}
 
 .limit-line {
-  line-height: 1em;
+  line-height: 1.6em !important;
   margin-right: -1em;
   overflow: hidden;
   padding-right: 1em;
@@ -1788,23 +1789,33 @@ ul#doctors-grid {
   right: 0;
   height: 1.5em;
   margin-top: 0.2em;
-  width: 13px;
+  width: 0.65em;
 }
 
 .limit-line.two {
-	max-height: 3.6em;
+	max-height: 3.2em;
 }
 
 .limit-line.three {
-  max-height: 72px;
+  max-height: 4.8em;
 }
 
 .limit-line.four {
-  max-height: 88px;
+  max-height: 6.4em;
+}
+
+.limit-line.five {
+  max-height: 8em;
 }
 
 .limit-line.six {
-  max-height: 9.8em;
+  max-height: 9em;
+}
+
+.limit-line.five,
+.limit-line.six {
+  color: #8d8d8d;
+  font-size: 14px;
 }
 
 .vc-title-wrapper {
