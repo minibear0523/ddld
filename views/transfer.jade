@@ -20,15 +20,13 @@ block content
                   .vc-title
                     .limit-line.two
                       h4 #{product.name}
-              .sub-title
-                .vc-title-wrapper
-                    .vc-title
-                      .limit-line.two
-                        p.designation #{product.registration_class}
-              p.divider
-                i.fa.fa-plus-square
-              p.limit-line.four
-                | #{product.abstract}
+              .limit-line.six
+                .limit-line.two
+                  p.designation #{product.name_co}
+                p.divider
+                  i.fa.fa-plus-square
+                p.limit-line.four
+                  | #{product.abstract}
             a.btn.btn-secondary(href='/products/detail/transfer/#{product.id}')
               | 查看详情 
               i.fa.fa-arrow-circle-right
