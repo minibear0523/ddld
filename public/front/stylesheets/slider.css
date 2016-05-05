@@ -60,9 +60,10 @@
 }
 
 .circle-content p {
-	font-size: 18px;
+	font-size: 20px;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	color: #404040;
 
 	-webkit-animation-delay: .5s;
 	animation-delay: .5s;
