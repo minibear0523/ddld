@@ -15,14 +15,22 @@
 
 .circle {
 	background: #fff;
-	border-radius: 50%;
-	-webkit-box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+
+  -webkit-box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
 	box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
+  
 	float: right;
 	max-width: 270px;
 	overflow: hidden;
 	position: relative;
+
+  behavior: url(../../plugins/pie/PIE.htc);
+  
 }
 
 /* circle position */
@@ -52,9 +60,8 @@
 }
 
 .circle-content hr {
-	border-top: 3px solid #000;
+	border-top: 3px solid #d9d9d9;
 	left: -50%;
-	opacity: .1;
 	position: relative;
 	width: 200%;
 }

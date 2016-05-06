@@ -25,15 +25,14 @@ block content
         li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.sub_kind_string}')
           .product-box
             .inner
-              .title
-                .vc-title-wrapper
-                  .vc-title
-                    h4.limit-line.two #{product.name}
-              .limit-line.six
-                p.limit-line.two.designation #{product.name_co}
+              .limit-line.product
+                .limit-line.title
+                  h4 #{product.name}
+                .designation
+                  p #{product.name_co}
                 p.divider
                   i.fa.fa-plus-square
-                p.limit-line.five
+                p.limit-line.four
                   | #{product.abstract}
             a.btn.btn-secondary(href='/products/detail/merchant/#{product.id}')
               | 查看详情 

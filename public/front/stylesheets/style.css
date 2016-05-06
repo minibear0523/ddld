@@ -292,6 +292,7 @@ h6 { font-size: 16px; }
 				background-color: #009bdb;
 				padding: 10px 0;
 				left: 0;
+                right: auto;
 				border: none;
 				text-transform: capitalize;
 			}
@@ -427,8 +428,9 @@ h6 { font-size: 16px; }
 		// color: #009bdb;
 	}
 		.main-banner h2 span {
-			padding: 20px 50px 16px 30px;
+			padding: 16px 50px 16px 30px;
 			letter-spacing: 0.3px;
+      background: #fff; /* ie compitable */
 			background: rgba(255, 255, 255, 0.8);
 		}
 
@@ -1259,11 +1261,12 @@ h6 { font-size: 16px; }
 	background-color: #fff;
 }
 	.products-grid .product-box .inner {
-		padding: 30px 20px 10px;
+    padding: 19px 19px 10px;
+    min-height: 197px;
 	}
 	.products-grid .product-box .title {
-		font-size: 24px;
-    height: 3.2em;
+    margin-bottom: 6px;
+		text-align: center;
 	}
 	.products-grid .product-box h4 {
 		display: inline;
@@ -1271,13 +1274,28 @@ h6 { font-size: 16px; }
 		margin-bottom: 0;
 		font-weight: bold;
 	}
+	.products-grid .product-box .designation {
+    margin-right: -1em;
+    overflow: hidden;
+	}
+	.products-grid .product-box .designation p {
+    float: none;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	}
 	.products-grid .product-box .sub-title p {
 		display: inline;
+    float: none;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 	}
-	.products-grid .product-box h4,
-	.products-grid .product-box .designation {
+	.products-grid .product-box .title h4,
+	.products-grid .product-box .designation p {
 		color: #323232;
-		float: left;
 	}
 	.products-grid .product-box p {
 		margin-top: 5px;
@@ -1353,9 +1371,6 @@ h6 { font-size: 16px; }
 	.products-grid .product-box .overlay ul.sm-links {
 		margin-top: 27%;
 	}
-	.products-grid .product-box .inner {
-		padding: 20px 20px 10px;
-	}
 	.products-grid.product-box p {
 		margin-top: 6px;
 	}
@@ -1388,10 +1403,6 @@ ul#products-grid {
 	}
 	.products-grid .product-box .profile-img .overlay ul.sm-links {
 		margin-top: 27%;
-	}
-	.products-grid .product-box .inner {
-		padding: 19px 30px 10px;
-		min-height: 232px;
 	}
 	.products-grid .product-box p {
 		float: left;
@@ -1764,13 +1775,13 @@ ul#doctors-grid {
 	}
 
 .limit-line {
+  font-size: 14px;
   line-height: 1.6em !important;
   margin-right: -1em;
   overflow: hidden;
   padding-right: 1em;
   position: relative;
   text-align: justify;
-
 }
 
 .limit-line:before {
@@ -1790,6 +1801,14 @@ ul#doctors-grid {
   height: 1.5em;
   margin-top: 0.2em;
   width: 0.65em;
+}
+
+.limit-line.title {
+	max-height: 4em;
+}
+
+.limit-line.product {
+	max-height: 12em;
 }
 
 .limit-line.two {

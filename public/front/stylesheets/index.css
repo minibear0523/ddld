@@ -141,7 +141,10 @@
 .list li h5 {
   line-height: 45px;
   margin: 0;
+  overflow: hidden;
   padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .list li h5 i {
