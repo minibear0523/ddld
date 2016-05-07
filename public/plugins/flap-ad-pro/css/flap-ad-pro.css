@@ -95,10 +95,11 @@ a.flap-default-gradient:active{
   background-color:#dd0;
   display:block;
   left:0;
-  position: absolute;
+  position: relative;
   /* position: fixed; - Use to keep in view after scroll*/
   right:0;
   top:0;
+  margin-bottom: 10px;
   z-index:500;
 
 /*Start flipped up*/

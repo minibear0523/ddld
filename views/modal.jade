@@ -1,35 +1,12 @@
-#subscription-modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='subscription')
-  .modal-dialog(role='document')
-    .modal-content
-      .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
-        h4#subscription.modal-title
-          img.logo.logo-img(src="/front/images/logo.png")
-          span.logo.logo-text 大道隆达
-      .modal-body
-        form#subscription-form
-          p 订阅我们的邮件，您可以第一时间收到关于大道隆达的最新咨询。
-          .name.form-group
-            input.form-control(type="text", name="name", placeholder='姓名')
-          .email.form-group
-            input.form-control(type="email", name="email", placeholder='电子邮箱地址')
-      .modal-footer
-        button.btn.btn-secondary(type='button')
-          i.flap-icon.fa.fa-envelope-o
-          span 订阅我们
+#modal-shortcut-list.flap-stage.cf.rightpos.fixedonscroll
 
-script#subscription-icon-template(type="text/html")
-  #subscription-icon.flap-stage.cf.rightpos.fixedonscroll
-    .flap-little.flap-cyanine
-      .flap-little-inner
-        h3.flap-title
-          span 订阅
-          span 我们
-        .flap-description
-          i.flap-icon.fa.fa-envelope-o
-      .flap-footer
-        a.flap-close(href='#') 关闭
+script#shortcut-template(type="text/html")
+  .flap-little
+    .flap-little-inner
+      h3.flap-title
+      .flap-description
+    .flap-footer
+      a.flap-close(href='#') 关闭
 
 script#modal-template(type="text/html")
   .modal.fade(tabindex='-1', role='dialog')
@@ -41,6 +18,4 @@ script#modal-template(type="text/html")
           h4.modal-title
         .modal-body
         .modal-footer
-          button.btn.btn-secondary(type='button', data-dismiss='modal')
-            i.fa.fa-arrow-circle-right
-            span 前往查看
+          button.btn.btn-secondary(type='button')

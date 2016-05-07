@@ -1,0 +1,5 @@
+{
+	"title": "<img src=\"/front/images/logo.png\" class=\"logo logo-img\"/><span class=\"logo logo-text\">大道隆达</span>",
+	"content": "<form id=\"subscription-form\"><p>订阅我们的邮件， 您可以第一时间收到关于大道隆达的最新咨询。</p><div class=\"name form-group\"><input type=\"text\" name=\"name\" placeholder=\"姓名\" class=\"form-control\"/></div><div class=\"email form-group\"><input type=\"email\" name=\"email\" placeholder=\"电子邮箱地址\" class=\"form-control\"/></div></form>",
+	"link": "/newsletter/signup"
+}
