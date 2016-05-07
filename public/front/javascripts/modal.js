@@ -349,8 +349,8 @@ var ModalFactory = (function() {
         // TODO: update error handler once api completed
         error: function(jqXHR) {
           _getContent.error.call(modal, jqXHR);
-
-          defer.reject();
+          // TODO: temporary use resolve for error handler
+          defer.resolve(modal.id);
         }
       });
 
