@@ -1,3 +1,7 @@
+#modal-icon-list {
+  display: hidden;
+}
+
 .modal-content {
   border: 1px solid #ebebeb;
   border-radius: 0;
