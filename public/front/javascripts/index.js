@@ -20,20 +20,20 @@
 
 // option sample
 // {
-//   expiry: 2,
-//   icon: "envelope-o",
-//   'icon-text': "订阅我们"
-//   shortcut: {
-//     text: "<span>订阅</span><span>我们</span>"
-//     icon: "envelope-o" / false
-//     style: "cyanine"
-//   },
-//   confirm: {
-//     text: "订阅我们"
-//     method: 'POST'
-//     icon: "envelope-o" / false
-//   },
 //   autoShow: false
+//   , confirm: {
+//     text: "订阅我们"
+//     , method: 'POST'
+//     , icon: "envelope-o" | false
+//   }
+//   , expiry: 2
+//   , icon: "envelope-o"
+//   , 'icon-text': "订阅我们"
+//   , shortcut: {
+//     text: "<span>订阅</span><span>我们</span>"
+//     , icon: "envelope-o" | false
+//     , style: "cyanine"
+//   }
 // }
 
 // shortcut style options
