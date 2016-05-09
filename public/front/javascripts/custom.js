@@ -152,14 +152,4 @@ $(function() {
 			}
 		});
 	});
-
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement({
-			pageLanguage: 'zh-CN',
-			includedLanguages: 'en',
-			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-			multilanguagePage: true
-		}, 'google_translate_element');
-	}
-	
 });
