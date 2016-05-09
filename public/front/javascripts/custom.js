@@ -153,14 +153,13 @@ $(function() {
 		});
 	});
 
-	// // Search Form
-	// $('#search-form-submit').click(function(e) {
-	// 	e.preventDefault();
-	// 	var data = $('#search-form').serialize();
-	// 	$.post('/search', data, function(result, status, _) {
-	// 		// Do nothing
-	// 		return;
-	// 	});
-	// });
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'zh-CN',
+			includedLanguages: 'en',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			multilanguagePage: true
+		}, 'google_translate_element');
+	}
 	
 });
