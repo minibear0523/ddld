@@ -40,7 +40,7 @@ router.get('/intro', function(req, res, next) {
       var images = new Array();
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        if (path.extname(file).toLowerCase() == '.jpg' || path.extname(file).toLowerCase() == '.png') {
+        if (path.extname(file).toLowerCase() == '.jpg' || path.extname(file).toLowerCase() == '.png' || path.extname(file).toLowerCase() == '.jpeg') {
           var url = '/certifications/images/' + file;
           images.push({
             thumbnail: url.replace('images', 'thumbnails'),
