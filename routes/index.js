@@ -72,7 +72,7 @@ router.get('/intro', function(req, res, next) {
     } else {
       var images = new Array();
       for (var i = 0; i < files.length; i++) {
-        if (path.extname(files[i]) == '.jpg' || path.extname(files[i]) == '.png') {
+        if (path.extname(files[i]).toLowerCase() == '.jpg' || path.extname(files[i]).toLowerCase() == '.png' || path.extname(files[i]).toLowerCase() == '.jpeg') {
           var url = '/certifications/images/' + files[i];
           images.push({
             image: url,
