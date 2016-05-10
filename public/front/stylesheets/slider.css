@@ -37,7 +37,7 @@
 .circle {
 	right: 10%;
 	top: 30%;
-	width: 45%;
+	width: 35%;
 }
 
 .circle:before {
@@ -48,7 +48,7 @@
 
 .circle-content {
 	bottom: 0;
-	padding: 15%;
+	padding: 8%;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -60,18 +60,24 @@
 }
 
 .circle-content hr {
-	border-top: 3px solid #d9d9d9;
-	left: -50%;
-	position: relative;
-	width: 200%;
+  border-top: 3px solid #d9d9d9;
+  left: -15%;
+  position: relative;
+  width: 130%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .circle-content p {
 	font-size: 20px;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	color: #404040;
-
 	-webkit-animation-delay: .5s;
 	animation-delay: .5s;
+}
+
+.circle-content p > span {
+	display: inline-block;
+	white-space: nowrap;
 }
