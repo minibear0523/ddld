@@ -23,6 +23,7 @@ router.get('/', function(req, res, next) {
   } else {
     // 已经过期,或者没有数据
     var data = {};
+    var news_list = {};
     Transfer
       .find()
       .limit(10)
@@ -31,13 +32,22 @@ router.get('/', function(req, res, next) {
       .then(function(products) {
         data['products_list'] = products;
         return News
-                .find()
-                .limit(6)
+                .find({kind: 'company'})
+                .limit(3)
                 .sort({date: -1})
                 .exec()
       })
       .then(function(news) {
-        data['news_list'] = splitNewsArray(news);
+        news_list['company'] = news;
+        return News
+                .find({kind: 'industry'})
+                .limit(3)
+                .sort({date: -1})
+                .exec();
+      })
+      .then(function(news) {
+        news_list['industry'] = news;
+        data['news_list'] = splitNewsArray(news_list);
         // 更新数据, 保存到cache中
         indexPageCache.set(data);
         res.render('index', data);
@@ -52,11 +62,11 @@ router.get('/', function(req, res, next) {
 /**
  * 将新闻数组分为几个子数组
  */
-function splitNewsArray(news) {
+function splitNewsArray(original_news_list) {
   var news_list = new Array();
-  while (news.length > 0) {
-    news_list.push(news.splice(0,2));
-  }
+  for (var i = 0; i < original_news_list['company'].length ; i++) {
+    news_list.push([original_news_list['company'][i], original_news_list['industry'][i]]);
+  };
   return news_list;
 }
 
