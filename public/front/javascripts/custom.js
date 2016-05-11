@@ -1,4 +1,13 @@
-$(function() {
+(function($){
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'zh-CN', 
+			includedLanguages: 'en', 
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+		}, 'google_translate_element');
+	}
+
+	$(function() {
 
     "use strict";
 
@@ -153,3 +162,4 @@ $(function() {
 		});
 	});
 });
+}(jQuery))
