@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var path = require('path');
 var Q = require('q');
+var async = require('async');
 var Transfer = require('../models/transfer');
 var Merchant = require('../models/merchant');
 var News = require('../models/news');
@@ -75,22 +76,28 @@ router.get('/404', function(req, res, next) {
 });
 
 router.get('/intro', function(req, res, next) {
-  var imagesPath = introImagePath;
-  fs.readdir(imagesPath, function(err, files) {
-    if (err || files.length === 0) {
+  fs.readdir(introImagePath, function(err, files) {
+    if (err || files.length <= 0) {
       res.render('intro', {images: []});
     } else {
-      var images = new Array();
-      for (var i = 0; i < files.length; i++) {
-        if (path.extname(files[i]).toLowerCase() == '.jpg' || path.extname(files[i]).toLowerCase() == '.png' || path.extname(files[i]).toLowerCase() == '.jpeg') {
-          var url = '/certifications/images/' + files[i];
-          images.push({
-            image: url,
-            thumbnail: url.replace('images', 'thumbnails')
-          });
+      var oriImageList = {};
+      files.forEach(function(file) {
+        var ext = path.extname(file).toLowerCase();
+        if (ext == '.jpg' || ext == '.jpeg' || ext == '.png' || ext == '.gif') {
+          var mtime = new Date(fs.statSync(path.join(introImagePath, file)).mtime).getTime();
+          oriImageList[mtime.toString()] = file;
         }
-      }
-      res.render('intro', {images: images});
+      });
+      var keys = Object.keys(oriImageList);
+      var sortedImageList = Object.keys(oriImageList).sort();
+      var imageList = [];
+      sortedImageList.forEach(function(key) {
+        imageList.push({
+          image: '/certifications/images/' + oriImageList[key],
+          thumbnail: '/certifications/thumbnails/' + oriImageList[key]
+        });
+      });
+      res.render('intro', {images: imageList});  
     }
   });
 });

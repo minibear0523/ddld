@@ -46,24 +46,28 @@ router.get('/home', function(req, res, next) {
  * 多媒体管理
  */
 router.get('/intro', function(req, res, next) {
-  var imagesPath = introImagePath;
-  var images = new Array();
-  fs.readdir(imagesPath, function(err, files) {
-    if (err || files.length === 0) {
+  fs.readdir(introImagePath, function(err, files) {
+    if (err || files.length <= 0) {
       res.render('dashboard/intro', {images: []});
     } else {
-      var images = new Array();
-      for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        if (path.extname(file).toLowerCase() == '.jpg' || path.extname(file).toLowerCase() == '.png' || path.extname(file).toLowerCase() == '.jpeg') {
-          var url = '/certifications/images/' + file;
-          images.push({
-            thumbnail: url.replace('images', 'thumbnails'),
-            image: url
-          });
+      var oriImageList = {};
+      files.forEach(function(file) {
+        var ext = path.extname(file).toLowerCase();
+        if (ext == '.jpg' || ext == '.jpeg' || ext == '.png' || ext == '.gif') {
+          var mtime = new Date(fs.statSync(path.join(introImagePath, file)).mtime).getTime();
+          oriImageList[mtime.toString()] = file;
         }
-      }
-      res.render('dashboard/intro', {images: images}); 
+      });
+      var keys = Object.keys(oriImageList);
+      var sortedImageList = Object.keys(oriImageList).sort();
+      var imageList = [];
+      sortedImageList.forEach(function(key) {
+        imageList.push({
+          image: '/certifications/images/' + oriImageList[key],
+          thumbnail: '/certifications/thumbnails/' + oriImageList[key]
+        });
+      });
+      res.render('dashboard/intro', {images: imageList});  
     }
   });
 });
