@@ -2882,3 +2882,125 @@ ul#doctors-grid {
   	height: 100%;
   }
 }
+
+/* sitelinks */
+.sitelinks {
+	background: #575757;
+	padding-bottom: 15px;
+	position: relative;
+}
+
+.sitelinks .title {
+	color: #f8f8f8;
+	margin: 15px 0 5px;
+	padding-bottom: 5px;
+	position: relative;
+	width: 100%;
+}
+
+.sitelinks .title:after {
+  content: "";
+  position: absolute;
+  width: 69px;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #009bdb;
+}
+
+.sitelinks ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sitelinks ul li a {
+	color: #8d8d8d;
+}
+
+.sitelinks ul li a:hover {
+	color: #009bdb;
+	cursor: pointer;
+}
+
+.sitelinks .license-num {
+	position: relative;
+	bottom: 0;
+}
+
+.sitelinks .license-num li {
+	color: #8d8d8d;
+}
+
+@media (min-width: 1200px) {
+  .col-lg-15 {
+    width: 20%;
+    float: left;
+  }
+
+  .col-lg-30 {
+    width: 40%;
+    float: left;
+  }
+
+	.placeholder {
+		height: 32px;
+	}
+}
+
+@media (min-width: 992px) {
+  .col-md-15 {
+    width: 20%;
+    float: left;
+  }
+
+  .col-md-30 {
+    width: 40%;
+    float: left;
+  }
+
+	.placeholder {
+		height: 32px;
+	}
+}
+
+@media (min-width: 768px) {
+	.col-sm-15 {
+    width: 20%;
+    float: left;
+  }
+
+	.col-sm-30 {
+    width: 40%;
+    float: left;
+  }
+
+	.placeholder {
+		height: 32px;
+	}
+}
+
+/* 5 column bootstrap layout */
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15,
+.col-xs-30,
+.col-sm-30,
+.col-md-30,
+.col-lg-30 {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.col-xs-15 {
+  width: 20%;
+  float: left;
+}
+
+.col-xs-30 {
+  width: 40%;
+  float: left;
+}

@@ -80,7 +80,8 @@ block content
                               li
                                 i.fa.fa-bars
                                 |  #{news.kindString}
-                            p.limit-line.three  #{news.abstract}
+                            .abstract
+                              p.limit-line.three  #{news.abstract}
                             a.btn.btn-secondary(href='/news/detail/#{news.id}')
                               i.fa.fa-arrow-circle-right
                               |  继续阅读
@@ -118,6 +119,8 @@ block content
     .col-md-6.col-xs-12.intro-video
       iframe#intro-video(src="//fast.wistia.net/embed/iframe/uv8i5ep43q", allowtransparency="true", frameborder="0", scrolling="no", class="wistia_embed", name="wistia_embed", allowfullscreen, mozallowfullscreen, webkitallowfullscreen, oallowfullscreen, msallowfullscreen, width="520", height="293", style='margin-top:10px;')
   // Company Introduction Section Ends
+
+  include sitelinks
 
 block js-external
   script(src='/front/javascripts/index.js')
