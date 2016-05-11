@@ -7,9 +7,24 @@ var Merchant = require('../models/merchant');
 var News = require('../models/news');
 var Employments = require('../models/employment');
 var Platforms = require('../models/platform');
+var Parterners = require('../models/parterner.js');
 var modalContentCache = require('../utils/modal_content').createModalContentCache();
+var multer = require('multer');
+var crypto = require('crypto');
 
+var partnerImagePath = path.join(__dirname, '..', 'uploads', 'partners');
 var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
+
+var partnerStorage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, partnerImagePath);
+  },
+  filename: function(req, file, cb) {
+    crypto.pseudoRandomBytes(16, function(err, raw) {
+      cb(err, err ? undefined : (raw.toString('hex') + path.extname(file.originalname)));
+    });
+  }
+});
 
 // 添加中间件, 用来限制管理员权限, 如果没有权限, 不能进入dashboard
 router.use(function checkUser(req, res, next) {
@@ -202,6 +217,72 @@ router.get('/employment/new', function(req, res, next) {
 
 router.get('/employment/detail', function(req, res, next) {
   res.render('dashboard/employment_new');
+});
+
+/**
+ * 合作伙伴API
+ */
+router.get('/partners', function(req, res, next) {
+  Parterners
+    .find()
+    .exec()
+    .then(function(partners) {
+      res.render('dashboard/partners', {partners: partners});
+    })
+    .catch(function(err) {
+      res.render('404').send(err);
+    })
+});
+
+router.get('/partner', function(req, res, next) {
+  var partnerId = req.params.id || "";
+  if (partnerId) {
+    Parterners
+      .findById(partnerId)
+      .exec()
+      .then(function(partner) {
+        res.render('dashboard/partner', {data: partner});
+      })
+      .catch(function(err) {
+        res.render('dashboard/partner');
+      })
+  } else {
+    res.render('dashboard/partner');
+  }
+});
+
+router.post('/partner', multer({storage: partnerStorage, limits: {fieldSize: 5*1024*1024}}).single('file'), function(req, res, next) {
+  var name = req.body.name;
+  var logoPath = '/partners/' + req.file.filename;
+  var partner = new Parterners({
+    name: name,
+    logo: logoPath
+  });
+  partner
+    .save()
+    .then(function(partner) {
+      res.status(200).send(partner);
+    })
+    .catch(function(err) {
+      res.status(400).send(err);
+    })
+});
+
+router.delete('/partner/', function(req, res, next) {
+  var partnerId = req.query.id;
+  console.log(partnerId);
+  if (partnerId) {
+    Parterners
+      .findByIdAndRemove(partnerId, function(err) {
+        if (err) {
+          res.status(204).send(err);
+        } else {
+          res.status(200).send();
+        }
+      });
+  } else {
+    res.status(404).send();
+  }
 });
 
 module.exports = router;

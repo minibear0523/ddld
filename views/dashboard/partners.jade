@@ -1,0 +1,75 @@
+extends layout
+block css-external
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload.css')
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload-ui.css')
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 合作伙伴
+        small
+          a.btn.btn-sm.btn-flat.btn-block(data-toggle='modal', data-target='#partnerModal') 添加新合作伙伴
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li.active 合作伙伴
+    section.content
+      .row
+        .col-xs-12
+          .box
+            .box-header
+              h3.box-title 合作伙伴列表
+            .box-body
+              table#partners.table.table-bordered.table-hover
+                thead
+                  tr
+                    th 伙伴名称
+                    th logo
+                    th 删除
+                tbody
+                  - for (var i = 0; i < partners.length; i++)
+                    - var partner = partners[i]
+                    tr
+                      td
+                        #{partner.name}
+                      td
+                        img.img-responsive(src='#{partner.logo}')
+                      td
+                        a.delete-btn.btn.btn-danger.btn-flat.btn-block(href='/dashboard/partner?id=#{partner.id}')
+                          i.fa.fa-times
+                          |  删除
+            #partnerModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#partnerModalLabel')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='关闭')
+                      span(aria-hidden='true') &times;
+                    h4.modal-title 添加新合作伙伴
+                  .modal-body
+                    form#fileupload.form-horizontal(enctype="multipart/form-data")
+                      .row
+                        .col-md-offset-1.col-md-10
+                          .form-group
+                            label 合作伙伴名称
+                            input.form-control(type='text', name='name', placeholder='合作伙伴名称')
+                          .form-group
+                            .col-md-offset-5
+                              span.btn.btn-success.fileinput-button
+                                i.fa.fa-plus
+                                span 选择图片
+                                input#file-input(type='file', name='file')
+                          .form-group
+                            #result.result
+                              p(style='display:none;')
+                  .modal-footer
+                    button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
+                    button#submit-btn.btn.btn-outline(type='button') 提交
+
+block js-external
+  script(src='/plugins/jquery-file-uploader/js/vendor/jquery.ui.widget.js')
+  script(src='/plugins/javascript-load-image/load-image.all.min.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.iframe-transport.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.fileupload.js')
+  script(src='/dashboard/js/partners.js')

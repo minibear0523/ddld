@@ -1,0 +1,44 @@
+extends layout
+block css-external
+  link(rel='stylesheet', href='/front/stylesheets/contact.css')
+
+block content
+  .main-banner.prod
+    .container
+      h2
+        span 加入我们
+  .main-container
+    .contact-content
+      .row
+        .col-sm-12.col-xs-12
+          h3.main-heading2(style="margin-top: 20px;")
+            | 加入我们
+            small
+              |  联系人: 何先生
+              a(href='mailto:695152004@qq.com') (邮箱)
+          #accordion-faqs.panel-group
+            - for (var i = 0; i < employments.length; i++)
+              - var employment = employments[i]
+              .panel
+                .panel-heading
+                  h5.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion-faqs', href='#collapse#{i}')
+                      | #{employment.title}
+                - var id = "collapse" + i
+                div.panel-collapse.collapse(id='#{id}')
+                  .panel-body
+                    - if (employment.duty != '')
+                      h6 岗位职责:
+                      ul.list-unstyled
+                        - for (var j = 0; j < employment.duty.length; j++)
+                          - var content = employment.duty[j]
+                          li #{content}
+
+                    - if (employment.requirement != '')
+                      h6 任职要求:
+                      ul.list-unstyled
+                        - for (var j = 0; j < employment.requirement.length; j++)
+                          - var content = employment.requirement[j]
+                          li #{content}
+block js-external
+  script(src='/front/javascripts/contact.js')

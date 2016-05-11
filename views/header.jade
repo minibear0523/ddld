@@ -86,9 +86,20 @@ header.main-header
                   a(href='/products/transfer') 转让品种
                 li
                   a(href='/products/merchant') 招商品种
-            li.contact
-              a(href='/contact')
+            //- li.contact
+            //-   a(href='/contact')
+            //-     | 关于我们
+            li.contact.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
                 | 关于我们
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='/contact') 联系我们
+                li
+                  a(href='/company') 组织结构
+                li
+                  a(href='/employ') 加入我们
+
         // Navbar Collapse Ends
       // Navbar Headers Ends
     // Navbar Ends

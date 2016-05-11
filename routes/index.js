@@ -104,6 +104,9 @@ router.get('/geodata', function(req, res, next){
   res.status(200).send(data);
 });
 
+/**
+ * 联系我们
+ */
 router.get('/contact', function(req, res, next) {
   Employments
     .find()
@@ -114,6 +117,28 @@ router.get('/contact', function(req, res, next) {
     .catch(function(err) {
       res.render('404', {err: err});
     })
+});
+
+/**
+ * 加入我们
+ */
+router.get('/employ', function(req, res, next) {
+  Employments
+    .find()
+    .exec()
+    .then(function(employments) {
+      res.render('employ', {employments: employments});
+    })
+    .catch(function(err) {
+      res.render('404', {err: err});
+    });
+});
+
+/**
+ * 友情链接
+ */
+router.get('/friend', function(req, res, next) {
+
 });
 
 /**
