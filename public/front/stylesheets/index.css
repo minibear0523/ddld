@@ -1,3 +1,21 @@
+.intro-video {
+  float: right;
+  margin-bottom: 10px;
+}
+
+#intro-video {
+  width: 100%;
+}
+
+#partners-panel {
+  height: 700px;
+  overflow-y: scroll;
+}
+
+#partners table {
+  margin-bottom: 0;
+}
+
 /* Latest News Carousel Starts */
 
   .carousel-inner {
@@ -90,6 +108,9 @@
         }
         .btn .fa {
           margin-right: 4px;
+        }
+        .news-post-box .abstract {
+          height: 68px;
         }
         .news-post-box .btn-secondary:hover,
         .news-post-box .btn-secondary:focus {
