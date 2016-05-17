@@ -14,14 +14,24 @@ var crypto = require('crypto');
 
 var partnerImagePath = path.join(__dirname, '..', 'uploads', 'partners');
 var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'images');
+var orgnizationImagePath = path.join(__dirname, '..', 'uploads', 'orgnizations');
 
 var partnerStorage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, partnerImagePath);
   },
   filename: function(req, file, cb) {
+    cb(err, err ? undefined : ('company_orgnization' + path.extname(file.originalname)));
+  }
+});
+
+var orgnizationStorage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, orgnizationImagePath);
+  },
+  filename: function(req, file, cb) {
     crypto.pseudoRandomBytes(16, function(err, raw) {
-      cb(err, err ? undefined : (raw.toString('hex') + path.extname(file.originalname)));
+      cb(err, err ? undefined : ('company_orgnization' + path.extname(file.originalname)));
     });
   }
 });
@@ -287,6 +297,57 @@ router.delete('/partner/', function(req, res, next) {
   } else {
     res.status(404).send();
   }
+});
+
+/**
+ * 组织结构API
+ * URL:/dashboard/company
+ */
+router.get('/company', function(req, res, next) {
+  //company_orgnization
+  fs.readdir(orgnizationImagePath, function(err, files) {
+    if (err || files.length == 0) {
+      res.render('dashboard/company', {image: null});
+    } else {
+      var finished = false;
+      files.forEach(function(file) {
+        var extname = path.extname(file).toLowerCase();
+        if (extname == '.jpg' || extname == '.png' || extname == '.gif') {
+          finished = true;
+          var imagePath = '/orgnizations/' + file;
+          res.render('dashboard/company', {image: imagePath});
+        }
+      });
+      if (finished == false) {
+        res.render('dashboard/company', {image: null});  
+      }
+    }
+  });
+});
+
+/**
+ * 上传组织结构图片
+ * 1. 删除已有的图片
+ * 2. 上传新图片
+ */
+router.post('/company', multer({storage: orgnizationStorage, limits: {fieldSize: 10*1024*1024}}).single('file'), function(req, res, next) {
+  res.status(200).send('/orgnizations/' + req.file.filename);
+});
+
+router.delete('/company', function(req, res, next) {
+  fs.readdir(orgnizationImagePath, function(err, files) {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      files.forEach(function(file) {
+        var extname = path.extname(file).toLowerCase();
+        if (extname == '.jpg' || extname == '.png' || extname == '.gif') {
+          fs.unlinkSync(path.join(orgnizationImagePath, file));
+        }
+      });
+      res.status(200).send();
+    }
+  });
 });
 
 module.exports = router;

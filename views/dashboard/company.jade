@@ -1,0 +1,50 @@
+extends layout
+block css-external
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload.css')
+  link(rel='stylesheet', href='/plugins/jquery-file-uploader/css/jquery.fileupload-ui.css')
+block content
+  .content-wrapper
+    section.content-header
+      h1
+        | 组织结构
+        small
+          a.btn.btn-sm.btn-flat.btn-block(data-toggle='modal', data-target='#companyModal') 上传新的组织结构图片
+      ol.breadcrumb
+        li
+          a(href='/dashboard/home')
+            i.fa.fa-dashboard
+            |  首页
+        li.active 组织结构
+    section.content
+      .row
+        .col-xs-12
+          img.img-responsive(src='#{image}')
+
+          #companyModal.modal.modal-info.fade(tabindex='-1', role='dialog', aria-labelledby='#companyModalLabel')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='关闭')
+                    span(aria-hidden='true') &times;
+                  h4.modal-title 上传组织结构图片
+                .modal-body
+                  form#fileupload.form-horizontal(enctype="multipart/form-data")
+                    .form-group
+                      .col-md-offset-5
+                        span.btn.btn-success.fileinput-button
+                          i.fa.fa-plus
+                          span 选择图片
+                          input#file-input(type='file', name='file')
+                    .form-group
+                      #result.result
+                        p(style='display:none;')
+                .modal-footer
+                  button.btn.btn-outline.pull-left(type='button', data-dismiss='modal') 关闭
+                  button#submit-btn.btn.btn-outline(type='button') 上传
+
+block js-external
+  script(src='/plugins/jquery-file-uploader/js/vendor/jquery.ui.widget.js')
+  script(src='/plugins/javascript-load-image/load-image.all.min.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.iframe-transport.js')
+  script(src='/plugins/jquery-file-uploader/js/jquery.fileupload.js')
+  script(src='/dashboard/js/company.js')

@@ -342,4 +342,28 @@ router.delete('/modal_content', function(req, res, next) {
   });  
 });
 
+/**
+ * 公司组织结构
+ */
+router.get('/company', function(req, res, next) {
+  var orgnizationImagePath = path.join(__dirname, '..', 'uploads', 'orgnizations');
+  fs.readdir(orgnizationImagePath, function(err, files) {
+    if (err || files.length == 0) {
+      res.render('company', {image: null});
+    } else {
+      var finished = false;
+      files.forEach(function(file) {
+        var extname = path.extname(file).toLowerCase();
+        if (extname == '.jpg' || extname == '.png' || extname == '.gif') {
+          finished = true;
+          res.render('company', {image: '/orgnizations/' + file});
+        }
+      });
+      if (finished == false) {
+        res.render('company', {image: null});
+      }
+    }
+  });
+});
+
 module.exports = router;
