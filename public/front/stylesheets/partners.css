@@ -8,7 +8,6 @@
   -webkit-animation-duration: .45s;
   animation-duration: .45s;
 }
-}
 
 .no-padding {
   padding: 0;
@@ -24,14 +23,22 @@
   width: 100%;
 }
 
+.flip a {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 .flip .front,
 .flip .back {
+  display: table;
   height: 100%;
-  left: 0;
   line-height: 100%;
-  position: absolute;
+  position: relative;
   text-align: center;
-  top: 0;
   width: 100%;
 }
 
@@ -43,8 +50,10 @@
   margin-right: -0.25em; /* Adjusts for spacing */
 }
 
-.flip .back {
+.flip .back span {
+  display: table-cell;
   vertical-align: middle;
+  text-align: center;
 }
 
 .hidden { display: none; }
