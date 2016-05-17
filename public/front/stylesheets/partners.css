@@ -1,12 +1,12 @@
 .animated {
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
 }
 
 .animated.flipOutX,
 .animated.flipOutY {
-  -webkit-animation-duration: .45s;
-  animation-duration: .45s;
+  -webkit-animation-duration: .18s;
+  animation-duration: .18s;
 }
 
 .no-padding {
@@ -32,9 +32,16 @@
   left: 0;
 }
 
-.flip .front,
+.flip .front {
+  display: block;
+}
+
 .flip .back {
   display: table;
+}
+
+.flip .front,
+.flip .back {
   height: 100%;
   line-height: 100%;
   position: relative;

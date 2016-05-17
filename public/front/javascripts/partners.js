@@ -76,7 +76,7 @@ $(function() {
       setTimeout(function() {
         $delegate.find(curr).addClass('hidden');
         $delegate.find(oppo).removeClass('hidden flipOutX').addClass('flipInX');
-      }, 500);
+      }, 200);
     }
 
     $('.flip').hover(function(e){ flip(e, 'front'); }, function(e){ flip(e, 'back'); });
