@@ -168,6 +168,7 @@ router.post('/update/tags', function(req, res, next) {
     .exec()
     .then(function(news_tags_list) {
       news_tags_list.forEach(function(tags_list) {
+        console.log(tags_list);
         storeTags(tags_list);
       });
       res.status(200).send();
