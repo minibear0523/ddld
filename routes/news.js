@@ -158,6 +158,25 @@ router.post('/', function(req, res, next) {
   }
 });
 
+/**
+ * 更新新闻的tag
+ */
+router.post('/update/tags', function(req, res, next) {
+  News
+    .find()
+    .select('tags')
+    .exec()
+    .then(function(news_tags_list) {
+      news_tags_list.forEach(function(tags_list) {
+        storeTags(tags_list);
+      });
+      res.status(200).send();
+    })
+    .catch(function(err) {
+      res.status(400).send(err);
+    });
+});
+
 function storeTags(tags) {
   tags.forEach(function(tag, i, tags) {
     // zincrby命令: 有序集合的名称, 增加的score数值, 和对应的key值.
