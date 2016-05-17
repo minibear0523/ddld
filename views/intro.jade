@@ -1,7 +1,7 @@
 extends layout
 block css-external
   link(rel="stylesheet", href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css")
-  link(href='/front/stylesheets/partners.css', rel='stylesheet')
+  link(rel='stylesheet', href='/front/stylesheets/partners.css')
   link(rel='stylesheet', href='/front/stylesheets/intro.css')
 
 block content
@@ -65,19 +65,130 @@ block content
                 a.btn.btn-secondary.zoom(href='#{image.image}')
                   i.fa.fa-image
     h2.main-heading2.nomargin-top 合作伙伴
-    #partners.portfolio
-      .row
-        .col-md-8
-          .portfolio-item
-            #partners-places.small-map
-        .col-md-4
-          #partners-panel
-            table.table.table-hover
-              tbody#partners-list
+    #partners.portfolio.clearfix
+      //- .row
+      //-   .col-md-8
+      //-     .portfolio-item
+      //-       #partners-places.small-map
+      //-   .col-md-4
+      //-     #partners-panel
+      //-       table.table.table-hover
+      //-         tbody#partners-list
+      ul.col-xs-6.col-sm-3.no-padding
+        li.flip
+          a(href='http://www.qilu-pharma.com/')
+            img.front.animated(src='/front/images/partners/齐鲁制药集团.png')
+            span.back.animated.hidden 齐鲁制药集团
+        li.flip
+          a(href='http://www.yangzijiang.com/')
+            img.front.animated(src='/front/images/partners/扬子江药业集团.png')
+            span.back.animated.hidden 扬子江药业集团
+        li.flip
+          a(href='http://www.pudepharma.com/')
+            img.front.animated(src='/front/images/partners/山西普德医药股份.png')
+            span.back.animated.hidden 山西普德医药股份
+        li.flip
+          a(href='http://www.whjm.com/')
+            img.front.animated(src='/front/images/partners/武汉健民药业集团.png')
+            span.back.animated.hidden 武汉健民药业集团
+        li.flip
+          a(href='http://www.szerye.com/')
+            img.front.animated(src='/front/images/partners/苏州二叶制药公司.png')
+            span.back.animated.hidden 苏州二叶制药公司
+        li.flip
+          a(href='http://www.sinepharm.com/')
+            img.front.animated(src='/front/images/partners/上海信谊药业有限公司.png')
+            span.back.animated.hidden 上海信谊药业有限公司
+        li.flip
+          a(href='http://www.xinyapharm.com/')
+            img.front.animated(src='/front/images/partners/上海新亚药业有限公司.png')
+            span.back.animated.hidden 上海新亚药业有限公司
+
+      ul.col-xs-6.col-sm-3.no-padding
+        li.flip
+          a(href='http://www.bjyimin.com.cn/')
+            img.front.animated(src='/front/images/partners/北京益民药业有限公司.png')
+            span.back.animated.hidden 北京益民药业有限公司
+        li.flip
+          a(href='http://www.simcere.com/')
+            img.front.animated(src='/front/images/partners/南京先声药业有限公司.png')
+            span.back.animated.hidden 南京先声药业有限公司
+        li.flip
+          a(href='http://www.weijiegroup.com/')
+            img.front.animated(src='/front/images/partners/天津炜捷药业有限公司.png')
+            span.back.animated.hidden 天津炜捷药业有限公司
+        li.flip
+          a(href='http://www.boyuanchem.com/cgi/search-cn.cgi?f=introduction_cn_1_+company_cn_1_&t=introduction_cn_1_')
+            img.front.animated(src='/front/images/partners/山东铂源化学有限公司.png')
+            span.back.animated.hidden 山东铂源化学有限公司
+        li.flip
+          a(href='http://www.hnlfyy.com/')
+            img.front.animated(src='/front/images/partners/海南先通药业有限公司.png')
+            span.back.animated.hidden 海南先通药业有限公司
+        li.flip
+          a(href='http://www.zhshzy.com/')
+            img.front.animated(src='/front/images/partners/珠海同源药业有限公司.png')
+            span.back.animated.hidden 珠海同源药业有限公司
+        li.flip
+          a(href='http://www.lixinpharm.com/c/index.html')
+            img.front.animated(src='/front/images/partners/苏州立新制药有限公司.png')
+            span.back.animated.hidden 苏州立新制药有限公司
+
+      ul.col-xs-6.col-sm-3.no-padding
+        li.flip
+          a(href='http://www.gloria.cc/')
+            img.front.animated(src='/front/images/partners/哈尔滨誉衡药业有限公司.png')
+            span.back.animated.hidden 哈尔滨誉衡药业有限公司
+        li.flip
+          a(href='http://www.alkpharm.com/')
+            img.front.animated(src='/front/images/partners/浙江昂立康制药有限公司.png')
+            span.back.animated.hidden 浙江昂立康制药股份有限公司
+        li.flip
+          a(href='http://www.slpharm.com.cn/')
+            img.front.animated(src='/front/images/partners/北京双鹭药业股份有限公司.png')
+            span.back.animated.hidden 北京双鹭药业股份有限公司
+        li.flip
+          a(href='http://www.shkb.com.cn/')
+            img.front.animated(src='/front/images/partners/北京四环科宝制药有限公司.png')
+            span.back.animated.hidden 北京四环科宝制药有限公司
+        li.flip
+          a(href='http://www.huayao.com/')
+            img.front.animated(src='/front/images/partners/华北制药集团有限责任公司.png')
+            span.back.animated.hidden 华北制药集团有限责任公司
+        li.flip
+          a(href='http://www.saike.com.cn/')
+            img.front.animated(src='/front/images/partners/华润赛科药业有限责任公司.png')
+            span.back.animated.hidden 华润赛科药业有限责任公司
+
+      ul.col-xs-6.col-sm-3.no-padding
+        li.flip
+          a(href='http://www.sanjing.com.cn/')
+            img.front.animated(src='/front/images/partners/哈药集团三精制药有限公司.png')
+            span.back.animated.hidden 哈药集团三精制药有限公司
+        li.flip
+          a(href='http://www.luoxin.cn/')
+            img.front.animated(src='/front/images/partners/山东罗欣药业股份有限公司.png')
+            span.back.animated.hidden 山东罗欣药业股份有限公司
+        li.flip
+          a(href='http://www.hkqili.com/')
+            img.front.animated(src='/front/images/partners/海口奇力制药股份有限公司.png')
+            span.back.animated.hidden 海口奇力制药股份有限公司
+        li.flip
+          a(href='http://www.boldere.com/')
+            img.front.animated(src='/front/images/partners/吉林省博大制药有限责任公司.png')
+            span.back.animated.hidden 吉林省博大制药有限责任公司
+        li.flip
+          a(href='http://www.haisco.com/index.php')
+            img.front.animated(src='/front/images/partners/辽宁海思科医药集团有限公司.png')
+            span.back.animated.hidden 辽宁海思科医药集团有限公司
+        li.flip
+          a(href='http://www.wuliangyeyiyao.com/')
+            img.front.animated(src='/front/images/partners/四川省宜宾五粮液集团宜宾制药有限责任公司.png')
+            span.back.animated.hidden 四川省宜宾五粮液集团宜宾制药有限责任公司
 
 block js-external
-  script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
-  script(type="text/javascript", src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js")
-  script(type="text/javascript", src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js")
+  //- script(src='http://api.map.baidu.com/api?v=2.0&ak=Bdf0LKK08QFak6AD7ibhSSDt', type='text/javascript')
+  //- script(type="text/javascript", src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js")
+  //- script(type="text/javascript", src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js")
   script(src='front/javascripts/partners.js')
   script(src="//fast.wistia.net/assets/external/E-v1.js", async)

@@ -1,3 +1,61 @@
+.animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  -webkit-animation-duration: .45s;
+  animation-duration: .45s;
+}
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.portfolio ul {
+  list-style: none;
+}
+
+.flip {
+  padding-top: 27%;
+  position: relative;
+  width: 100%;
+}
+
+.flip .front,
+.flip .back {
+  height: 100%;
+  left: 0;
+  line-height: 100%;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.flip .back:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.flip .back {
+  vertical-align: middle;
+}
+
+.hidden { display: none; }
+// .flip:hover .front {
+//   display: none;
+// }
+
+// .flip:hover .back {
+//   display: inline-block;
+// }
+
 .small-map {
   width: 100%;
   height: 700px;
