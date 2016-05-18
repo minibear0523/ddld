@@ -62,10 +62,10 @@
 // , wood
 // , yellow
 
-  var customizedModal = ModalFactory.new('customized', '/modal_content', {
+  var customizedModal = ModalFactory.create('customized', '/modal_content', {
     autoShow: true
   });
-  var subscriptionModal = ModalFactory.new('subscription', '/front/data/subscription.json', {
+  var subscriptionModal = ModalFactory.create('subscription', '/front/data/subscription.json', {
     icon: "envelope-o",
     'btn-text': "订阅我们",
     shortcut: {

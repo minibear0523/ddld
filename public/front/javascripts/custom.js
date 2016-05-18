@@ -7,6 +7,12 @@
 		}, 'google_translate_element');
 	}
 
+  if(typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g, ''); 
+    };
+  }
+  
 	$(function() {
 
     "use strict";

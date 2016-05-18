@@ -19,7 +19,7 @@
 }
 
 body {
-	font: 14px/24px 'Roboto', 'Microsoft YaHei' ,'STXihei', Arial, Helvetica, sans-serif;
+	font: 14px/24px 'Microsoft YaHei' ,'STXihei', 'Roboto', Arial, Helvetica, sans-serif;
 	color: #232323;
 	background: #eee url(/front/images/bg.png) repeat fixed;
 }
@@ -41,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Heiti SC', 'STHeiti', sans-serif;
+	font-family: 'Microsoft YaHei' ,'STXihei', sans-serif;
 	font-weight: bold;
 }
 
@@ -99,7 +99,7 @@ h6 { font-size: 16px; }
 .block-404 .btn,
 .book-appointment-box .btn-main,
 .footer-top-bar .btn-black {
-	font-family: 'Heiti SC', 'STHeiti', sans-serif;
+	font-family: 'Microsoft YaHei' ,'STXihei', sans-serif;
 }
 
 /* Form & Buttons Styles Starts */
@@ -2864,6 +2864,15 @@ ul#doctors-grid {
 #search-form .btn-primary i {
   font-size: 18px;
   margin: 0;
+}
+
+.intro-video {
+  float: right;
+  margin-bottom: 10px;
+}
+
+#intro-video {
+  width: 100%;
 }
 
 @media (min-width: 768px) {
