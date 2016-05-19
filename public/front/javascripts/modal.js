@@ -367,7 +367,7 @@ var ModalFactory = (function() {
 
   // classic export
   return {
-    new: function() {
+    create: function() {
       return new _FactoryModal(arguments);
     },
     show: function() {
