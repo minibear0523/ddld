@@ -1,17 +1,19 @@
 (function($){
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement({
-			pageLanguage: 'zh-CN', 
-			includedLanguages: 'en', 
-			layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-		}, 'google_translate_element');
-	}
-
   if(typeof String.prototype.trim !== 'function') {
     String.prototype.trim = function() {
       return this.replace(/^\s+|\s+$/g, ''); 
     };
   }
+
+  if(!("firstElementChild" in document.documentElement)) {
+    Object.defineProperty(Element.prototype, "firstElementChild", {
+      get: function(){
+        for(var nodes = this.children, n, i = 0, l = nodes.length; i < l; ++i)
+          if(n = nodes[i], 1 === n.nodeType) return n;
+          return null;
+        }
+    });
+	}
   
 	$(function() {
 
