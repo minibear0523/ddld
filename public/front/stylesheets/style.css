@@ -18,7 +18,7 @@
   url('//at.alicdn.com/t/gofxyc9zausug14i.svg#NotoSansHans-DemiLight') format('svg'); /* iOS 4.1- */
 }
 
-body {
+#body {
 	font: 14px/24px 'Microsoft YaHei' ,'STXihei', 'Roboto', Arial, Helvetica, sans-serif;
 	color: #232323;
 	background: #eee url(/front/images/bg.png) repeat fixed;
@@ -1360,6 +1360,9 @@ h6 { font-size: 16px; }
 		list-style:none;
 		overflow: hidden;
 	}
+  ul#products-grid.grid > li {
+    margin: 0;
+  }
 	ul#products-grid.grid > li > .product-box {
 		min-height: 280px;
 		height: auto !important;
@@ -2278,11 +2281,11 @@ ul#doctors-grid {
 			width: 78px;
 			height: 78px;
 			line-height: 90px;
-			background-color: #009bdb;
+			background: #009bdb;
 		}
 		.cblock-1 .icon-wrap.red {
 			line-height: 100px;
-			background-color: #c43535;
+			background: #c43535;
 		}
 			.cblock-1 .icon-wrap .fa {
 				font-size: 38px;
@@ -2695,18 +2698,30 @@ ul#doctors-grid {
 .gallery-grid .hover-content .overlay a.zoom,
 .footer-top-bar .btn-black {
 	-webkit-border-radius: 5px;
-	   -moz-border-radius: 5px;
-			border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+  overflow: hidden;
+  position: relative;
+  
+  behavior: url(../../plugins/pie/PIE.htc);
 }
+
 .featured-doctors .bio-box .profile-img .overlay ul.sm-links li,
 .doctors-grid .bio-box .profile-img .overlay ul.sm-links li,
 .panel-profile > .panel-footer ul.sm-links li,
 .medical-services li .icon,
 .cblock-1 .icon-wrap,
 .tabs-wrap .nav li .icon {
-	-webkit-border-radius: 100%;
-	   -moz-border-radius: 100%;
-			border-radius: 100%;
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  
+  overflow: hidden;
+  position: relative;
+
+  behavior: url(../../plugins/pie/PIE.htc);
 }
 
 #nav .dropdown-menu,

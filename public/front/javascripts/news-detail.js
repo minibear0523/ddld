@@ -5,15 +5,17 @@
     return URLRegExp.exec(url)[1];
   }
 
-  var url = '/news/detail?id=' + parseNewsId();
-  $.get(url, function(news, status, _) {
-    if (status == 'success') {
-      new Sosh('#sosh-share', {
-        title: news.title,
-        digest: news.abstract,
-        pic: news.thumbnail,
-        sites: ['weixin', 'weixintimeline', 'weibo', 'qq', 'qzone']
-      });
-    }
+  $(function() {
+    var url = '/news/detail?id=' + parseNewsId();
+    $.get(url, function(news, status, _) {
+      if (status == 'success') {
+        new Sosh('#sosh-share', {
+          title: news.title,
+          digest: news.abstract,
+          pic: news.thumbnail,
+          sites: ['weixin', 'weixintimeline', 'weibo', 'qq', 'qzone']
+        });
+      }
+    });
   });
 }(jQuery));

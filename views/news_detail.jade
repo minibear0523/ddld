@@ -1,5 +1,6 @@
 extends layout
 block css-external
+  link(href='/plugins/sosh/sosh.min.css', rel='stylesheet')
 
 block content
   .main-banner.prod
@@ -57,6 +58,5 @@ block content
         #sosh-share
 
 block js-external
-  // temporarily remove sosh to prevent ie8 crash
-  // script(src='/plugins/sosh/sosh.js')
+  script(src='/plugins/sosh/sosh.js')
   script(src='/front/javascripts/news-detail.js')

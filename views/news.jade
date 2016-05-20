@@ -23,7 +23,7 @@ block content
                   h4
                     a(href='/news/detail/#{news.id}') #{news.title}
 
-                  p.limit-line.three  #{news.abstract}
+                  p.limit-line.three !{news.abstract}
                   a.btn.btn-secondary(href='/news/detail/#{news.id}')
                     | 继续阅读
                     i.fa.fa-arrow-circle-right
