@@ -32,8 +32,6 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
-<<<<<<< HEAD
-
 
 ### OSX ###
 .DS_Store
@@ -134,3 +132,6 @@ sftp-config.json
 
 #redis
 dump.rdb
+
+# ddld backup
+ddld_backup_*
