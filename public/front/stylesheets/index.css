@@ -128,7 +128,13 @@
     vertical-align: middle;
     display: block;
     height: 100%;
-    margin: 0 auto;
+    margin: auto;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    max-width: initial;
 }
 
 .news-post-box p {
@@ -176,4 +182,18 @@
 .list li h5 a {
   color: black;
   padding: 10px 15px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1199px)  {
+  .news-post-box .post-meta li {
+    margin-left: 0;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .news-post-box .post-meta li + li {
+    padding-left: 5px;
+    margin-left: 0;
+  }
 }
