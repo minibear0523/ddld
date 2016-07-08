@@ -96,6 +96,7 @@ router.post('/product/', function(req, res, next) {
     data['intellectual_property'] = req.body.intellectual_property || "";
     data['other'] = req.body.other || "";
     data['kind'] = req.body['kind'] || [""];
+    data['cardiovascular_kind'] = req.body['cardiovascular_kind'] || [""];
   }
 
   if (productId) {
@@ -142,6 +143,7 @@ router.post('/product/', function(req, res, next) {
           product.intellectual_property = data.intellectual_property;
           product.other = data.other;
           product.kind = data.kind;
+          product.cardiovascular_kind = data.cardiovascular_kind;
 
           return product.save();
         })

@@ -90,7 +90,7 @@ h6 { font-size: 16px; }
 .camera_caption > div,
 .camera_caption a.btn-secondary,
 .tabs-wrap-2 .nav-tabs > li > a,
-#doctors-filter, #products-filter,
+#doctors-filter, #products-filter, #cardiovascular-filter,
 .about-featured .btn-transparent,
 .news-post .quote,
 .list-style-1 li,
@@ -1332,6 +1332,28 @@ h6 { font-size: 16px; }
 	}
 	.products-grid .product-box .btn {
 		margin-bottom: 30px;
+	}
+
+#cardiovasuclar-filter {
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #cecece;
+}
+	#cardiovasuclar-filter li {
+		margin-right: 15px;
+	}
+	#cardiovasuclar-filter li:last-of-type {
+		margin-right: 0;
+	}
+	#cardiovasuclar-filter li,
+	#cardiovasuclar-filter li a {
+		color: #323232;
+		font-weight: bold;
+	}
+	#cardiovasuclar-filter li a:hover,
+	#cardiovasuclar-filter li a:focus,
+	#cardiovasuclar-filter li a.active {
+		color: #009bdb;
 	}
 
 

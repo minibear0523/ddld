@@ -80,6 +80,10 @@ var Transfer = new Schema({
     type: [String],
     required: false
   },
+  cardiovascular_kind: {
+    type: [String],
+    required: false
+  },
   date: {
     type: Date,
     default: Date.now
@@ -90,14 +94,20 @@ Transfer.virtual('dateString').get(function() {
   return dateUtils.humanizedDateFormatter(this.date);
 });
 
+// 2016-07-07 修改产品分类为心脑血管类药品, 抗帕金森和老年痴呆类药品, 抗痛风药, 消化系统用药, 抗肿瘤及辅助用药, 降糖药, 儿童药, 抗精神类药物, 经皮给药系统, 其他
 Transfer.virtual('kindString').get(function() {
   var result = ""
   var mapping = {
-    orphan: '孤儿药',
-    creative: '创新药剂(经皮给药系列)',
+    cardiovascular: '心脑血管类药品',
+    parkinson: '抗帕金森、老年痴呆类药品',
+    gout: '抗痛风药',
+    digestive: '消化系统用药',
+    antitumor: '抗肿瘤及辅助用药',
+    diabetes: '降糖药',
     children: '儿童药',
-    generics: '其他仿制药',
-    psychiatric: '精神类药'
+    psychiatric: '抗精神类药',
+    creative: '经皮系统给药',
+    other: '其他'
   };
 
   for (var i = 0; i < this.kind.length; i ++) {
@@ -107,10 +117,38 @@ Transfer.virtual('kindString').get(function() {
   return result;
 });
 
+// 用于前端filter分类显示
 Transfer.virtual('kind_string').get(function() {
   var result = '["all"'
   for (var i = 0; i < this.kind.length; i++) {
     result += ',"' + this.kind[i] + '"'
+  }
+  for (var i = 0; i < this.cardiovascular_kind.length; i++) {
+    result += ',"' + this.cardiovascular_kind[i] + '"'
+  }
+  result += ']';
+  return result;
+});
+
+// 限定在心脑血管类药品时的药品二级分类
+Transfer.virtual('cardiovascularKindString').get(function() {
+  var result = '["all"'
+  var mapping = {
+    anti_arrhythmic: '抗心律失常',
+    antihypertensive: '抗高血压',
+    anticoagulants: '抗凝药',
+    lipid_lowering: '降脂药'
+  };
+  for (var i = 0; i < this.cardiovascular_kind.length; i++) {
+    result += mapping[this.cardiovascular_kind[i]] + '  ';
+  };
+  return result;
+});
+
+Transfer.virtual('cardiovascular_kind_string').get(function() {
+  var result = '["all"'
+  for (var i = 0; i < this.cardiovascular_kind.length; i++) {
+    result += ',"' + this.cardiovascular_kind[i] + '"'
   }
   result += ']';
   return result;

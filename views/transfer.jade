@@ -8,11 +8,42 @@ block content
   .main-container
     ul#products-filter.list-unstyled.list-inline
       li
-        a.active(href='#', data-group='all') 所有转让产品
+        a.active(href='#', data-group='all') 全部
+      li
+        a(href='#', data-group='cardiovascular') 心脑血管类药品
+      li
+        a(href='#', data-group='parkinson') 抗帕金森、老年痴呆类药品
+      li
+        a(href='#', data-group='gout') 抗痛风药
+      li
+        a(href='#', data-group='digestive') 消化系统用药
+      li
+        a(href='#', data-group='antitumor') 抗肿瘤及辅助用药
+      li
+        a(href='#', data-group='diabetes') 降糖药
+      li
+        a(href='#', data-group='children') 儿童药
+      li
+        a(href='#', data-group='psychiatric') 抗精神类药品
+      li
+        a(href='#', data-group='creative') 经皮系统给药
+      li
+        a(href='#', data-group='other') 其他
+    ul#cardiovasuclar-filter.list-unstyled.list-inline(style='display: none;')
+      li
+        a.active(href='#', data-group='all') 全部
+      li
+        a(href='#', data-group='anti_arrhythmic') 抗心律失常
+      li
+        a(href='#', data-group='antihypertensive') 抗高血压
+      li
+        a(href='#', data-group='anticoagulants') 抗凝药
+      li
+        a(href='#', data-group='lipid_lowering') 降脂药
     ul#products-grid.row.grid
       - for (var i = 0; i < products.length; i++)
         - var product = products[i]
-        li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='["all"]')
+        li.col-md-4.col-sm-6.col-xs-12.products-grid(data-groups='#{product.kind_string}')
           .product-box
             .inner
               .limit-line.product
@@ -27,3 +58,6 @@ block content
             a.btn.btn-secondary(href='/products/detail/transfer/#{product.id}')
               | 查看详情 
               i.fa.fa-arrow-circle-right
+
+block js-external
+  script(src='/front/javascripts/transfer.js')

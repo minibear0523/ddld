@@ -69,14 +69,14 @@ var Merchant = new Schema({
   }
 });
 
+// 2016-07-07 修改产品分类为精神类药物, 经皮系统给药, 儿童药, 仿制药
 Merchant.virtual('kindString').get(function() {
   var result = ""
   var mapping = {
-    orphan: '孤儿药',
-    creative: '创新药剂(经皮给药系列)',
+    psychiatric: '精神类药物',
+    creative: '经皮系统给药',
     children: '儿童药',
-    generics: '其他仿制药',
-    psychiatric: '精神类药'
+    generics: '仿制药'
   };
 
   for (var i = 0; i < this.kind.length; i ++) {
