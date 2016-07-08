@@ -8,17 +8,15 @@ block content
   .main-container
     ul#products-filter.list-unstyled.list-inline
       li
-        a.active(href='#', data-group='all') 所有招商产品
+        a.active(href='#', data-group='all') 全部
       li
-        a(href='#', data-group='orphan') 孤儿药
+        a(href='#', data-group='psychiatric') 精神类药
       li
-        a(href='#', data-group='creative') 创新药剂(经皮给药系列)
+        a(href='#', data-group='creative') 经皮系统给药
       li
         a(href='#', data-group='children') 儿童药
       li
-        a(href='#', data-group='generics') 其他仿制药
-      li
-        a(href='#', data-group='psychiatric') 精神类药
+        a(href='#', data-group='generics') 仿制药
     ul#products-grid.row.grid
       - for (var i = 0; i < products.length; i++)
         - var product = products[i]
