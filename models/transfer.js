@@ -123,6 +123,9 @@ Transfer.virtual('kind_string').get(function() {
   for (var i = 0; i < this.kind.length; i++) {
     result += ',"' + this.kind[i] + '"'
   }
+  for (var i = 0; i < this.cardiovascular_kind.length; i++) {
+    result += ',"' + this.cardiovascular_kind[i] + '"'
+  }
   result += ']';
   return result;
 });

@@ -71,11 +71,24 @@ block content
                   label.col-sm-2.control-label(for='inputKind') 分类
                   .col-sm-10
                     select#inputKind.form-control.select2(multiple='multiple', style='width=100%;')
-                      option(value='orphan') 孤儿药
-                      option(value='creative') 创新药剂(经皮给药系列)
+                      option(value='cardiovascular') 心脑血管类药品
+                      option(value='parkinson') 抗帕金森、老年痴呆类药品
+                      option(value='gout') 抗痛风类药
+                      option(value='digestive') 消化系统用药
+                      option(value='antitumor') 抗肿瘤及辅助用药
+                      option(value='diabetes') 降糖药
                       option(value='children') 儿童药
-                      option(value='generics') 其他仿制药
-                      option(value='psychiatric') 精神类药
+                      option(value='psychiatric') 抗精神类药
+                      option(value='creative') 经皮系统给药
+                      option(value='other') 其他
+                .form-group
+                  label.col-sm-2.control-label(for='inputCardiovasular') 心脑血管类药品分类
+                  .col-sm-10
+                    select#inputCardiovasular.form-control.select2(multiple='multiple', style='width=100%;')
+                      option(value='anti_arrhythmic') 抗心律失常
+                      option(value='antihypertensive') 抗高血压
+                      option(value='anticoagulants') 抗凝药
+                      option(value='lipid_lowering') 降脂药
               .box-footer
                 button#delete-btn.btn.btn-danger(type='submit') 删除
                 button#submit-btn.btn.btn-info.pull-right(type='submit') 提交

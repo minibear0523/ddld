@@ -29,7 +29,7 @@ block content
         a(href='#', data-group='creative') 经皮系统给药
       li
         a(href='#', data-group='other') 其他
-    ul#cardiovasuclar-filter.list-unstyled.list-inline
+    ul#cardiovasuclar-filter.list-unstyled.list-inline(style='display: none;')
       li
         a.active(href='#', data-group='all') 全部
       li
@@ -58,3 +58,6 @@ block content
             a.btn.btn-secondary(href='/products/detail/transfer/#{product.id}')
               | 查看详情 
               i.fa.fa-arrow-circle-right
+
+block js-external
+  script(src='/front/javascripts/transfer.js')

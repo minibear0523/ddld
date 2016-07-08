@@ -33,6 +33,14 @@
     });
   }
 
+  if ($('#inputCardiovasular').length > 0) {
+    $('#inputCardiovasular.select2').select2({
+      minimumResultsForSearch: Infinity,
+      tags: true,
+      theme: 'classic'
+    });
+  }
+
   $('#inputOther').summernote({
     height: '200px',
     width: '100%',
@@ -110,7 +118,8 @@
         market: $('#inputMarket').summernote('code'),
         intellectual_property: $('#inputIntellectualProperty').summernote('code'),
         other: $('#inputOther').summernote('code'),
-        kind: $('#inputKind').val()
+        kind: $('#inputKind').val(),
+        cardiovascular_kind: $('#inputCardiovasular').val()
       }
     }
 
@@ -168,6 +177,7 @@
           $('#inputMarket').summernote('code', product.market);
           $('#inputIntellectualProperty').summernote('code', product.intellectual_property);
           $('#inputOther').summernote('code', product.other);
+          $('#inputCardiovasular').val(product.cardiovascular_kind).trigger('change');
         }
       }
     })
