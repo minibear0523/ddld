@@ -193,13 +193,13 @@ h6 { font-size: 16px; }
 	background-color: #fff;
 }
 	.main-header > .container {
-		padding: 10px 30px 0;
+		padding: 0 30px 0;
 	}
 
 /* Top Bar Styles Starts */
 
 .top-bar {
-	padding-top: 5px;
+	padding-top: 15px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #d3d3d3;
 }
@@ -245,11 +245,15 @@ h6 { font-size: 16px; }
 		font-weight: 500;
 		height: auto;
 		line-height: normal;
+    overflow: hidden;
 	}
 		#nav .navbar-brand .fa {
 			margin-right: 10px;
 			font-size: 42px;
 			vertical-align: middle;
+		}
+		#nav .navbar-brand ul {
+			white-space: nowrap;
 		}
 		#nav .navbar-brand ul > li {
 			margin-right: 10px;
@@ -312,8 +316,8 @@ h6 { font-size: 16px; }
 					background-color: #006088;
 				}
 		#nav .navbar-toggle {
-			margin-top: 45px;
-			margin-bottom: 0;
+			margin-top: 28px;
+			margin-bottom: 28px;
 			padding: 0;
 		}
 		#nav .navbar-toggle:hover,
@@ -1417,6 +1421,7 @@ h6 { font-size: 16px; }
 ul#products-grid {
 	list-style: none;
 	overflow: hidden;
+  padding-left: 0;
 }
 	ul#products-grid.grid > li > .product-box {
 		min-height: 250px;
@@ -2917,6 +2922,12 @@ ul#doctors-grid {
   width: 100%;
 }
 
+@media (max-width: 668px) {
+  #nav .navbar-brand {
+    width: 180px;
+  }
+}
+
 @media (min-width: 768px) {
   .news-post .inner .image-container {
   	height: 172px;
@@ -2935,6 +2946,12 @@ ul#doctors-grid {
   }
 }
 
+@media (max-width: 991px) and (min-width: 768px) {
+  #nav .navbar-brand {
+    float: left !important;
+    width: 100%;
+  }
+}
 /* sitelinks */
 .sitelinks {
 	background: #575757;
