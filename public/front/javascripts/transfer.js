@@ -4,9 +4,9 @@
     $('#products-filter li a').click(function (e) {
       // 判断如果是第一个心脑血管类药物, 就需要显示cardiovascular-filter
       if ($(this).attr('data-group') == 'cardiovascular') {
-        $('ul#cardiovasuclar-filter')[0].style.display = 'block';
+        $('ul#cardiovasuclar-filter').slideDown();
       } else {
-        $('ul#cardiovasuclar-filter')[0].style.display = 'none';
+        $('ul#cardiovasuclar-filter').slideUp();
       }
     });
 
