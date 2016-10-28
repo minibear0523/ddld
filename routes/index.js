@@ -17,47 +17,38 @@ var introImagePath = path.join(__dirname, '..', 'uploads', 'certifications', 'im
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var indexPage = indexPageCache.get();
-  if (indexPage) {
-    // 没有过期, 存有数据
-    res.render('index', indexPage);
-  } else {
-    // 已经过期,或者没有数据
-    var data = {};
-    var news_list = {};
-    Transfer
-      .find()
-      .limit(10)
-      .sort({date: -1})
-      .exec()
-      .then(function(products) {
-        data['products_list'] = products;
-        return News
-                .find({kind: 'company'})
-                .limit(3)
-                .sort({date: -1})
-                .exec()
-      })
-      .then(function(news) {
-        news_list['company'] = news;
-        return News
-                .find({kind: 'industry'})
-                .limit(3)
-                .sort({date: -1})
-                .exec();
-      })
-      .then(function(news) {
-        news_list['industry'] = news;
-        data['news_list'] = splitNewsArray(news_list);
-        // 更新数据, 保存到cache中
-        indexPageCache.set(data);
-        res.render('index', data);
-      })
-      .catch(function(err) {
-        console.log(err);
-        res.render('404', {err: err});
-      });
-  }
+  var data = {};
+  var news_list = {};
+  Transfer
+    .find()
+    .limit(10)
+    .sort({date: -1})
+    .exec()
+    .then(function(products) {
+      data['products_list'] = products;
+      return News
+        .find({kind: 'company'})
+        .limit(3)
+        .sort({date: -1})
+        .exec()
+    })
+    .then(function(news) {
+      news_list['company'] = news;
+      return News
+        .find({kind: 'industry'})
+        .limit(3)
+        .sort({date: -1})
+        .exec();
+    })
+    .then(function(news) {
+      news_list['industry'] = news;
+      data['news_list'] = splitNewsArray(news_list);
+      res.render('index', data);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.render('404', {err: err});
+    });
 });
 
 /**
