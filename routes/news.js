@@ -7,7 +7,7 @@ var Q = require('q');
 var News = require('../models/news');
 var cheerio = require('cheerio');
 var redis = require('redis');
-var client = redis.createClient();
+var client = redis.createClient({no_ready_check: true});
 client.select(3);
 
 var PAGE_LIMIT = 10;
