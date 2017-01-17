@@ -6,10 +6,10 @@ var router = express.Router();
 var Q = require('q');
 var News = require('../models/news');
 var cheerio = require('cheerio');
-var redis = require('redis');
-var client = redis.createClient();
-client.auth('DDLDbed2000');
-client.select(3);
+// var redis = require('redis');
+// var client = redis.createClient();
+// client.auth('DDLDbed2000');
+// client.select(3);
 
 var PAGE_LIMIT = 10;
 /**
@@ -162,45 +162,45 @@ router.post('/', function(req, res, next) {
 /**
  * 更新新闻的tag
  */
-router.post('/update/tags', function(req, res, next) {
-  News
-    .find()
-    .select('tags')
-    .exec()
-    .then(function(news_tags_list) {
-      news_tags_list.forEach(function(tags_list) {
-        console.log(tags_list);
-        storeTags(tags_list['tags']);
-      });
-      res.status(200).send();
-    })
-    .catch(function(err) {
-      res.status(400).send(err);
-    });
-});
-
-function storeTags(tags) {
-  tags.forEach(function(tag, i, tags) {
-    // zincrby命令: 有序集合的名称, 增加的score数值, 和对应的key值.
-    client.zincrby('tags:news', 1, tag, function(err, response) {
-      console.log(response);
-    });
-  });
-}
-
-/**
- * 获取tags, 使用ajax单独来获取
- */
-router.get('/tags', function(req, res, next) {
-  client.zrevrangebyscore('tags:news', '+inf', '-inf', function(err, tags) {
-    if (err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.status(200).send(tags);
-    }
-  });
-});
+// router.post('/update/tags', function(req, res, next) {
+//   News
+//     .find()
+//     .select('tags')
+//     .exec()
+//     .then(function(news_tags_list) {
+//       news_tags_list.forEach(function(tags_list) {
+//         console.log(tags_list);
+//         storeTags(tags_list['tags']);
+//       });
+//       res.status(200).send();
+//     })
+//     .catch(function(err) {
+//       res.status(400).send(err);
+//     });
+// });
+//
+// function storeTags(tags) {
+//   tags.forEach(function(tag, i, tags) {
+//     // zincrby命令: 有序集合的名称, 增加的score数值, 和对应的key值.
+//     client.zincrby('tags:news', 1, tag, function(err, response) {
+//       console.log(response);
+//     });
+//   });
+// }
+//
+// /**
+//  * 获取tags, 使用ajax单独来获取
+//  */
+// router.get('/tags', function(req, res, next) {
+//   client.zrevrangebyscore('tags:news', '+inf', '-inf', function(err, tags) {
+//     if (err) {
+//       console.log(err);
+//       res.status(400).send(err);
+//     } else {
+//       res.status(200).send(tags);
+//     }
+//   });
+// });
 
 
 /**
