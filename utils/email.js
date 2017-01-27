@@ -2,7 +2,7 @@ var kue = require('kue');
 var queue = kue.createQueue({
   redis: {
     port: 6379,
-    host: '127.0.0.0',
+    host: '0.0.0.0',
     auth: 'root',
     password: 'DDLDbed2000'
   }
