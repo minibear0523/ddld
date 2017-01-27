@@ -1,5 +1,12 @@
 var kue = require('kue');
-var queue = kue.createQueue();
+var queue = kue.createQueue({
+  redis: {
+    port: 6379,
+    host: '127.0.0.0',
+    auth: 'root',
+    password: 'DDLDbed2000'
+  }
+});
 var schedule = require('node-schedule');
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport('smtp://newsletter%40ddld.com.cn:DDLDbed2016@smtp.mxhichina.com');
