@@ -2,49 +2,49 @@ var express = require('express');
 var router = express.Router();
 var Newsletters = require('../models/newsletter');
 var Q = require('q');
-var emailQueue = require('../utils/email').createEmailQueue();
-
-/**
- * Newsletter注册
- * :url: /newsletter
- * :method: POST
- * :param name: 姓名
- * :param email: 邮件地址
- */
-router.post('/signup', function(req, res, next) {
-  var name = req.body.name;
-  var email = req.body.email;
-
-  console.log(name, email);
-
-  Newsletters
-    .findOne({email: email})
-    .exec()
-    .then(function(newsletter){
-      if (newsletter) {
-        if (newsletter.verified) {
-          res.status(200).send("您已经订阅!")
-        } else {
-          res.status(200).send("您已经订阅, 但尚未激活, 请前往您的邮箱进行激活.")
-        }
-      } else {
-        newsletter = new Newsletters({
-          name: name,
-          email: email
-        });
-        return newsletter.save();
-      }
-    })
-    .then(function(newsletter) {
-      // 将这个邮箱添加到队列中
-      emailQueue.addTask({
-        to: newsletter.email,
-        name: newsletter.name,
-        key: newsletter.id
-      }, 'activation');
-      res.status(201).send('订阅成功, 请前往邮箱验证.');
-    });
-});
+// var emailQueue = require('../utils/email').createEmailQueue();
+//
+// /**
+//  * Newsletter注册
+//  * :url: /newsletter
+//  * :method: POST
+//  * :param name: 姓名
+//  * :param email: 邮件地址
+//  */
+// router.post('/signup', function(req, res, next) {
+//   var name = req.body.name;
+//   var email = req.body.email;
+//
+//   console.log(name, email);
+//
+//   Newsletters
+//     .findOne({email: email})
+//     .exec()
+//     .then(function(newsletter){
+//       if (newsletter) {
+//         if (newsletter.verified) {
+//           res.status(200).send("您已经订阅!")
+//         } else {
+//           res.status(200).send("您已经订阅, 但尚未激活, 请前往您的邮箱进行激活.")
+//         }
+//       } else {
+//         newsletter = new Newsletters({
+//           name: name,
+//           email: email
+//         });
+//         return newsletter.save();
+//       }
+//     })
+//     .then(function(newsletter) {
+//       // 将这个邮箱添加到队列中
+//       emailQueue.addTask({
+//         to: newsletter.email,
+//         name: newsletter.name,
+//         key: newsletter.id
+//       }, 'activation');
+//       res.status(201).send('订阅成功, 请前往邮箱验证.');
+//     });
+// });
 
 /**
  * 激活Newsletter
